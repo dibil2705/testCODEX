@@ -1,152 +1,219 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iPhone Калькулятор</title>
-<style>
-  body {
-    background-color: #000;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-
-  .calculator {
-    width: 300px;
-    background-color: #000;
-    border-radius: 30px;
-    box-shadow: 0 0 20px rgba(255,255,255,0.1);
-    overflow: hidden;
-    padding: 20px;
-  }
-
-  .display {
-    background: none;
-    color: white;
-    text-align: right;
-    font-size: 48px;
-    padding: 20px 10px;
-    height: 80px;
-    border: none;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-  }
-
-  button {
-    border: none;
-    font-size: 26px;
-    border-radius: 50%;
-    height: 60px;
-    width: 60px;
-    cursor: pointer;
-    color: white;
-    transition: 0.2s;
-  }
-
-  /* Цвета как в iPhone */
-  .btn-gray { background-color: #a5a5a5; color: black; }
-  .btn-dark { background-color: #333333; }
-  .btn-orange { background-color: #007bff; }
-
-  button:active {
-    opacity: 0.6;
-  }
-
-  /* Кнопка 0 длинная */
-  .zero {
-    grid-column: span 2;
-    border-radius: 50px;
-    width: 100%;
-    text-align: left;
-    padding-left: 25px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Atelier — Бутик цифровых решений</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a class="brand" href="#hero">
+        <span class="brand-mark">A</span>
+        <span class="brand-text">Aurora Atelier</span>
+      </a>
+      <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#experience">Опыт</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="calculator">
-  <input type="text" class="display" id="display" disabled value="0">
-  <div class="buttons">
-    <button class="btn-gray" onclick="clearDisplay()">AC</button>
-    <button class="btn-gray" onclick="changeSign()">±</button>
-    <button class="btn-gray" onclick="percent()">%</button>
-    <button class="btn-orange" onclick="appendOperator('/')">÷</button>
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <p class="hero-tag">Бутик цифровых решений класса люкс</p>
+          <h1>Создаём премиальные цифровые впечатления для брендов, которые хотят большего.</h1>
+          <p class="hero-sub">Aurora Atelier объединяет стратегию, эстетику и технологию, чтобы превратить каждое взаимодействие с брендом в произведение искусства.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#contact">Запросить консультацию</a>
+            <a class="btn ghost" href="#experience">Портфолио</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <span class="stat">12</span>
+              <span class="stat-label">премиум-партнёров</span>
+            </div>
+            <div>
+              <span class="stat">97%</span>
+              <span class="stat-label">клиентов возвращаются</span>
+            </div>
+            <div>
+              <span class="stat">24/7</span>
+              <span class="stat-label">персональный сервис</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card" role="presentation">
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <p class="card-title">Цифровой почерк</p>
+            <p class="card-copy">Индивидуальный дизайн и технологическая экспертиза, объединённые в одном пространстве. Мы создаём продукты, которые чувствуются, как премиальные.</p>
+            <div class="card-divider"></div>
+            <div class="card-signature">
+              <span>Ваш персональный куратор</span>
+              <strong>Оливия Мель</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <button class="btn-dark" onclick="appendNumber('7')">7</button>
-    <button class="btn-dark" onclick="appendNumber('8')">8</button>
-    <button class="btn-dark" onclick="appendNumber('9')">9</button>
-    <button class="btn-orange" onclick="appendOperator('*')">×</button>
+    <section class="section about" id="about">
+      <div class="container">
+        <h2>Команда кураторов цифрового совершенства</h2>
+        <p class="section-lead">Мы тщательно подбираем команду дизайнеров, стратегов и инженеров, чтобы каждая деталь, от типографики до микровзаимодействий, работала на ощущение бренда класса люкс.</p>
+        <div class="pillars">
+          <article class="pillar">
+            <h3>Стратегия</h3>
+            <p>Инсайты, основанные на данных, чтобы понять ваших клиентов и превратить их ожидания в дорожную карту развития бренда.</p>
+          </article>
+          <article class="pillar">
+            <h3>Эстетика</h3>
+            <p>Гармония формы и содержания: деликатная типографика, премиальная цветовая палитра и выразительные визуальные истории.</p>
+          </article>
+          <article class="pillar">
+            <h3>Технология</h3>
+            <p>Гибкие технологические решения без компромиссов в безопасности и скорости, оптимизированные под каждый экран.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <button class="btn-dark" onclick="appendNumber('4')">4</button>
-    <button class="btn-dark" onclick="appendNumber('5')">5</button>
-    <button class="btn-dark" onclick="appendNumber('6')">6</button>
-    <button class="btn-orange" onclick="appendOperator('-')">−</button>
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Индивидуальные услуги</h2>
+          <p class="section-lead">Создаём бесшовные, эмоционально заряженные цифровые продукты, которые усиливают ваш бренд.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-number">01</span>
+            <h3>Цифровая идентичность</h3>
+            <p>Разрабатываем визуальные системы и нарративы, которые передают ДНК бренда на каждом цифровом касании.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">02</span>
+            <h3>Иммерсивные сайты</h3>
+            <p>Создаём веб-опыт, где дизайн, скорость и персонализация работают в унисон для ваших клиентов.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">03</span>
+            <h3>Премиальные приложения</h3>
+            <p>Мобильные платформы с персональным обслуживанием, которые становятся частью повседневных ритуалов аудитории.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <button class="btn-dark" onclick="appendNumber('1')">1</button>
-    <button class="btn-dark" onclick="appendNumber('2')">2</button>
-    <button class="btn-dark" onclick="appendNumber('3')">3</button>
-    <button class="btn-orange" onclick="appendOperator('+')">+</button>
+    <section class="section experience" id="experience">
+      <div class="container experience-grid">
+        <div class="experience-intro">
+          <h2>Признание и результаты</h2>
+          <p class="section-lead">Каждый проект проходит три этапа проверки качества, прежде чем будет представлен вашей аудитории.</p>
+        </div>
+        <div class="experience-stories">
+          <article class="story">
+            <h3>Maison Lueur</h3>
+            <p>Создали цифровой бутик с персональными рекомендациями и ростом конверсии на 62%.</p>
+          </article>
+          <article class="story">
+            <h3>Éclat Private Club</h3>
+            <p>Интерактивный клубный портал с биометрическим доступом и безупречной эстетикой.</p>
+          </article>
+          <article class="story">
+            <h3>Velvet Airways</h3>
+            <p>Опыт премиального бронирования рейсов с встраиваемой AR-поддержкой на борту.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <button class="btn-dark zero" onclick="appendNumber('0')">0</button>
-    <button class="btn-dark" onclick="appendNumber('.')">.</button>
-    <button class="btn-orange" onclick="calculate()">=</button>
-  </div>
-</div>
+    <section class="section testimonials">
+      <div class="container">
+        <h2>Отзывы клиентов</h2>
+        <div class="testimonial-slider">
+          <figure class="testimonial">
+            <blockquote>«Команда Aurora создала цифровое пространство, которое ощущается как наш флагманский салон. Каждую деталь прорабатывали до совершенства.»</blockquote>
+            <figcaption>— Елена Росс, Maison Lueur</figcaption>
+          </figure>
+          <figure class="testimonial">
+            <blockquote>«Это больше, чем агентство. Это партнёры, которые понимают наш бренд и клиентов лучше, чем кто-либо.»</blockquote>
+            <figcaption>— Микаэль Дюваль, Éclat Private Club</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
 
-<script>
-  let display = document.getElementById('display');
-  let current = '';
-  let operator = '';
-  let previous = '';
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-intro">
+          <h2>Начнём диалог</h2>
+          <p class="section-lead">Расскажите нам о своём видении. Персональный куратор свяжется с вами в течение 24 часов.</p>
+          <div class="contact-meta">
+            <p><strong>Адрес:</strong> 18 Rue Lumière, Париж</p>
+            <p><strong>Телефон:</strong> +33 1 42 00 00 00</p>
+            <p><strong>Эл. почта:</strong> concierge@aurora-atelier.com</p>
+          </div>
+        </div>
+        <form class="contact-form">
+          <label>
+            Имя
+            <input type="text" name="name" placeholder="Ваше имя" required>
+          </label>
+          <label>
+            Электронная почта
+            <input type="email" name="email" placeholder="Ваш e-mail" required>
+          </label>
+          <label>
+            Проект
+            <textarea name="project" rows="4" placeholder="Опишите вашу задачу" required></textarea>
+          </label>
+          <button type="submit" class="btn primary full">Отправить заявку</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-  function appendNumber(num) {
-    if (display.value === '0' && num !== '.') {
-      display.value = num;
-    } else {
-      display.value += num;
-    }
-  }
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>© 2024 Aurora Atelier. Индивидуальные цифровые вселенные.</p>
+      <div class="footer-links">
+        <a href="#privacy">Конфиденциальность</a>
+        <a href="#terms">Условия</a>
+      </div>
+    </div>
+  </footer>
 
-  function appendOperator(op) {
-    if (operator !== '') calculate();
-    previous = display.value;
-    operator = op;
-    display.value = '';
-  }
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
 
-  function clearDisplay() {
-    display.value = '0';
-    current = '';
-    operator = '';
-    previous = '';
-  }
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !expanded);
+      siteNav.classList.toggle('open');
+      document.body.classList.toggle('no-scroll');
+    });
 
-  function changeSign() {
-    display.value = (parseFloat(display.value) * -1).toString();
-  }
-
-  function percent() {
-    display.value = (parseFloat(display.value) / 100).toString();
-  }
-
-  function calculate() {
-    if (operator === '') return;
-    let result = eval(previous + operator + display.value);
-    display.value = result.toString();
-    operator = '';
-    previous = '';
-  }
-</script>
-
+    siteNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        siteNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('no-scroll');
+      });
+    });
+  </script>
 </body>
 </html>
