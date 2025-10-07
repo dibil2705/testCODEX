@@ -16,10 +16,6 @@
         <span class="brand-mark">A</span>
         <span class="brand-text">Aurora Atelier</span>
       </a>
-      <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
       <nav class="site-nav" aria-label="Основная навигация">
         <a href="#about">О нас</a>
         <a href="#services">Услуги</a>
@@ -196,24 +192,5 @@
     </div>
   </footer>
 
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const siteNav = document.querySelector('.site-nav');
-
-    navToggle.addEventListener('click', () => {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !expanded);
-      siteNav.classList.toggle('open');
-      document.body.classList.toggle('no-scroll');
-    });
-
-    siteNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        siteNav.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('no-scroll');
-      });
-    });
-  </script>
 </body>
 </html>
