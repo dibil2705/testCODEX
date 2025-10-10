@@ -403,15 +403,21 @@ body.nav-open .nav-overlay {
   display: block;
 }
 
-.service-icon svg .stroke {
-  stroke: var(--icon-stroke);
-  stroke-width: 1.3;
-  fill: none;
+.service-icon-3d svg {
+  display: flex;
+  justify-content: center; /* центр по горизонтали */
+  align-items: center;     /* центр по вертикали, если нужно */
+  margin-top: -10px;       /* необязательно — можно подвинуть чуть вверх */
+
 }
 
-.service-icon svg .fill {
-  fill: var(--icon-fill);
+
 }
+.service-icon img, .service-icon svg{
+  width:100%; height:100%; display:block; object-fit:contain;
+  margin-top: -121px;
+}
+
 
 .service-card[data-theme="purple"] .service-icon {
   background: linear-gradient(135deg, rgba(179, 140, 255, 0.35), rgba(113, 231, 255, 0.2));
