@@ -34,6 +34,10 @@
 
   <main>
     <section class="hero" id="hero">
+      <div class="hero-animation" aria-hidden="true">
+        <iframe src="https://my.spline.design/cybernetichuman-ffy5omtll9DOi9Co411bdVsa/" frameborder="0" width="100%"
+          height="100%"></iframe>
+      </div>
       <div class="container hero-content">
         <div class="hero-text">
           <p class="hero-tag">Автоматизация продаж через мессенджеры</p>
@@ -283,6 +287,58 @@
           }
         });
       }
+
+      const handlePointerDownOutside = (event) => {
+        if (!document.body.classList.contains('nav-open')) {
+          return;
+        }
+
+        const clickedInsideNav = navigation.contains(event.target);
+        const clickedToggle = menuToggle.contains(event.target);
+
+        if (!clickedInsideNav && !clickedToggle) {
+          closeMenu();
+        }
+      };
+
+      document.addEventListener('pointerdown', handlePointerDownOutside);
+
+      let touchStartX = null;
+
+      const handleTouchStart = (event) => {
+        if (!document.body.classList.contains('nav-open')) {
+          return;
+        }
+
+        const touch = event.touches && event.touches[0];
+        touchStartX = touch ? touch.clientX : null;
+      };
+
+      const handleTouchMove = (event) => {
+        if (!document.body.classList.contains('nav-open') || touchStartX === null) {
+          return;
+        }
+
+        const touch = event.touches && event.touches[0];
+        if (!touch) {
+          return;
+        }
+
+        const deltaX = touch.clientX - touchStartX;
+        if (deltaX > 60) {
+          touchStartX = null;
+          closeMenu();
+        }
+      };
+
+      const resetTouchStart = () => {
+        touchStartX = null;
+      };
+
+      navigation.addEventListener('touchstart', handleTouchStart, { passive: true });
+      navigation.addEventListener('touchmove', handleTouchMove, { passive: true });
+      navigation.addEventListener('touchend', resetTouchStart);
+      navigation.addEventListener('touchcancel', resetTouchStart);
 
       document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && document.body.classList.contains('nav-open')) {
