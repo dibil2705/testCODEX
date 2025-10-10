@@ -197,6 +197,7 @@ body.nav-open .nav-overlay {
   overflow: hidden;
 }
 
+/* === Анимация без размытия === */
 .hero-animation {
   position: absolute;
   top: 12%;
@@ -204,20 +205,32 @@ body.nav-open .nav-overlay {
   width: clamp(260px, 38vw, 520px);
   aspect-ratio: 1/1;
   pointer-events: none;
-  filter: blur(4px) saturate(1.15);
   opacity: 0.95;
   z-index: 1;
   mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0) 90%);
   -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0) 90%);
 }
 
+/* Размытие и свечение на отдельном слое */
+.hero-animation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  filter: blur(12px) saturate(1.15);
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 60%);
+}
+
 .hero-animation iframe {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   border: none;
   display: block;
 }
 
+/* === Декоративная рамка секции === */
 .hero::after {
   content: "";
   position: absolute;
@@ -228,6 +241,7 @@ body.nav-open .nav-overlay {
   z-index: 0;
 }
 
+/* === Контент секции === */
 .hero-content {
   position: relative;
   display: grid;
@@ -292,6 +306,7 @@ body.nav-open .nav-overlay {
   box-shadow: var(--shadow-card);
   overflow: hidden;
 }
+
 
 .card-glow {
   position: absolute;
