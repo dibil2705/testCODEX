@@ -19,13 +19,11 @@
         <span class="brand-text">Neuro Fusion</span>
       </a>
       <nav class="site-nav" aria-label="Основная навигация">
-        <ul class="nav-list">
-          <li><a href="#solutions">Решения</a></li>
-          <li><a href="#benefits">Преимущества</a></li>
-          <li><a href="#team">Команда</a></li>
-          <li><a href="#contact">Контакты</a></li>
-          <li><span class="nav-link disabled" aria-disabled="true">Платформа</span></li>
-        </ul>
+        <a href="#solutions">Решения</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#team">Команда</a>
+        <a href="#contact">Контакты</a>
+        <span class="nav-link disabled" aria-disabled="true">Платформа</span>
       </nav>
     </div>
   </header>
@@ -41,18 +39,18 @@
             <a class="btn primary" href="#contact">Начать</a>
             <a class="btn ghost disabled" aria-disabled="true" role="link" tabindex="-1">Узнать больше</a>
           </div>
-          <dl class="hero-stats" aria-label="Ключевые показатели">
-            <div class="stat-item">
-              <dt class="stat">60+</dt>
-              <dd class="stat-label">запущенных ботов</dd>
+          <div class="hero-stats">
+            <div>
+              <span class="stat">60+</span>
+              <span class="stat-label">запущенных ботов</span>
             </div>
-            <div class="stat-item">
-              <dt class="stat">3.2×</dt>
-              <dd class="stat-label">средний рост конверсии</dd>
+            <div>
+              <span class="stat">3.2×</span>
+              <span class="stat-label">средний рост конверсии</span>
             </div>
-            <div class="stat-item">
-              <dt class="stat">24/7</dt>
-              <dd class="stat-label">поддержка экспертов</dd>
+            <div>
+              <span class="stat">24/7</span>
+              <span class="stat-label">поддержка экспертов</span>
             </div>
           </dl>
         </div>
@@ -61,6 +59,11 @@
           <div class="card-inner">
             <p class="card-title">Командная панель</p>
             <p class="card-copy">Отслеживайте ключевые метрики продаж, управляйте сценариями и поддерживайте клиентов прямо из Telegram.</p>
+            <div class="card-divider"></div>
+            <div class="card-signature">
+              <span>Ваш нейро-куратор</span>
+              <strong>Ева Крылова</strong>
+            </div>
           </div>
         </div>
       </div>
@@ -68,7 +71,7 @@
 
     <section class="section solutions" id="solutions">
       <div class="container">
-        <div class="section-head section-head-centered">
+        <div class="section-head">
           <p class="section-kicker">Возможности</p>
           <h2>Наши ключевые решения для бизнеса</h2>
           <p class="section-lead">Комплексный подход к автоматизации продаж в Telegram.</p>
@@ -115,10 +118,6 @@
           <article class="benefit-item">
             <h3>Прозрачная аналитика</h3>
             <p>Все ключевые метрики в едином дашборде: воронка, повторные продажи, вовлечённость.</p>
-          </article>
-        </div>
-      </div>
-    </section>
 
     <section class="section about" id="about">
       <div class="container">
@@ -139,6 +138,7 @@
             <a class="link-text" href="#contact">Связаться</a>
           </article>
         </div>
+        <button class="btn ghost disabled" type="button" aria-disabled="true">Открытые вакансии</button>
       </div>
     </section>
 
