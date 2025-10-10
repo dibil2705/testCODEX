@@ -197,17 +197,20 @@ body.nav-open .nav-overlay {
   overflow: hidden;
 }
 
-/* === Анимация без размытия === */
 .hero-animation {
   position: absolute;
   top: 12%;
+  left: 75%; /* чуть правее центра */
+  transform: translateX(-50%);
   width: clamp(260px, 38vw, 520px);
   aspect-ratio: 1/1;
   pointer-events: none;
   opacity: 0.95;
   z-index: 1;
-  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0) 90%);
-  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0) 90%);
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 90%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 90%);
+}
+
 }
 
 /* Размытие и свечение на отдельном слое */
