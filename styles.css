@@ -201,7 +201,7 @@ body.nav-open .nav-overlay {
 .hero-animation {
   position: absolute;
   top: 12%;
-  right: -10%;
+  right: -50%;
   width: clamp(260px, 38vw, 520px);
   aspect-ratio: 1/1;
   pointer-events: none;
