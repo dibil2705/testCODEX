@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Пропустить к основному содержимому</a>
+
   <header class="site-header">
     <div class="container nav-container">
       <a class="brand" href="#hero" aria-label="Neuro Fusion">
@@ -17,16 +19,18 @@
         <span class="brand-text">Neuro Fusion</span>
       </a>
       <nav class="site-nav" aria-label="Основная навигация">
-        <a href="#solutions">Решения</a>
-        <a href="#benefits">Преимущества</a>
-        <a href="#team">Команда</a>
-        <a href="#contact">Контакты</a>
-        <span class="nav-link disabled" aria-disabled="true">Платформа</span>
+        <ul class="nav-list">
+          <li><a href="#solutions">Решения</a></li>
+          <li><a href="#benefits">Преимущества</a></li>
+          <li><a href="#team">Команда</a></li>
+          <li><a href="#contact">Контакты</a></li>
+          <li><span class="nav-link disabled" aria-disabled="true">Платформа</span></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero" id="hero">
       <div class="container hero-content">
         <div class="hero-text">
@@ -37,20 +41,20 @@
             <a class="btn primary" href="#contact">Начать</a>
             <a class="btn ghost disabled" aria-disabled="true" role="link" tabindex="-1">Узнать больше</a>
           </div>
-          <div class="hero-stats">
-            <div>
-              <span class="stat">60+</span>
-              <span class="stat-label">запущенных ботов</span>
+          <dl class="hero-stats" aria-label="Ключевые показатели">
+            <div class="stat-item">
+              <dt class="stat">60+</dt>
+              <dd class="stat-label">запущенных ботов</dd>
             </div>
-            <div>
-              <span class="stat">3.2×</span>
-              <span class="stat-label">средний рост конверсии</span>
+            <div class="stat-item">
+              <dt class="stat">3.2×</dt>
+              <dd class="stat-label">средний рост конверсии</dd>
             </div>
-            <div>
-              <span class="stat">24/7</span>
-              <span class="stat-label">поддержка экспертов</span>
+            <div class="stat-item">
+              <dt class="stat">24/7</dt>
+              <dd class="stat-label">поддержка экспертов</dd>
             </div>
-          </div>
+          </dl>
         </div>
         <div class="hero-card" role="presentation">
           <div class="card-glow"></div>
