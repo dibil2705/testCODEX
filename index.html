@@ -16,7 +16,12 @@
         <span class="brand-mark">N</span>
         <span class="brand-text">Neuro Fusion</span>
       </a>
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="menu-bar" aria-hidden="true"></span>
+        <span class="menu-bar" aria-hidden="true"></span>
+        <span class="menu-bar" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="primary-navigation" aria-label="Основная навигация">
         <a href="#solutions">Решения</a>
         <a href="#benefits">Преимущества</a>
         <a href="#team">Команда</a>
@@ -244,5 +249,37 @@
       <p>© 2024 Neuro Fusion. Все права защищены.</p>
     </div>
   </footer>
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.site-nav');
+
+    if (menuToggle && navigation) {
+      const closeMenu = () => {
+        document.body.classList.remove('nav-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Открыть меню');
+      };
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = document.body.classList.toggle('nav-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+      });
+
+      navigation.querySelectorAll('a, .nav-link').forEach((item) => {
+        item.addEventListener('click', () => {
+          if (document.body.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && document.body.classList.contains('nav-open')) {
+          closeMenu();
+        }
+      });
+    }
+  </script>
 </body>
 </html>
