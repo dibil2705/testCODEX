@@ -202,7 +202,6 @@ body.nav-open .nav-overlay {
   position: absolute;
   top: 12%;
   left: 60%;
-  transform: translateX(-50%);
   width: clamp(260px, 38vw, 520px);
   aspect-ratio: 1/1;
   pointer-events: none;
