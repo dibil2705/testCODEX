@@ -207,8 +207,16 @@ body.nav-open .nav-overlay {
   pointer-events: none;
   opacity: 0.95;
   z-index: 1;
-  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 90%);
-  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 90%);
+
+
+  /*mask-image: radial-gradient(circle at 50% 37%, rgba(0,0,0,1) 0 60%, rgba(0,0,0,0) 45% 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 37%, rgba(0,0,0,1) 0 60%, rgba(0,0,0,0) 45% 100%);*/
+
+  mask-image: radial-gradient(circle at 50% 37%, rgba(0,0,0,1) 0 60%, rgba(0,0,0,0) 75% 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 37%, rgba(0,0,0,1) 0 60%, rgba(0,0,0,0) 75% 100%);
+
+
+
 }
 
 }
@@ -350,9 +358,10 @@ body.nav-open .nav-overlay {
 
 .section-head {
   display: grid;
-  gap: 12px;
+  gap: 0px;
   margin-bottom: 48px;
   max-width: 680px;
+  font-size: 20px;
 }
 
 .solutions .section-head {
@@ -364,6 +373,7 @@ body.nav-open .nav-overlay {
 
 .section-kicker {
   color: var(--color-accent);
+  margin-top: 20px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-size: 0.75rem;
