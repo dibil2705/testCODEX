@@ -209,11 +209,8 @@ body.nav-open .nav-overlay {
   z-index: 1;
 
 
-  /*mask-image: radial-gradient(circle at 50% 37%, rgba(0,0,0,1) 0 60%, rgba(0,0,0,0) 45% 100%);
-  -webkit-mask-image: radial-gradient(circle at 50% 37%, rgba(0,0,0,1) 0 60%, rgba(0,0,0,0) 45% 100%);*/
-
-  mask-image: radial-gradient(circle at 50% 37%, rgba(0,0,0,1) 0 60%, rgba(0,0,0,0) 75% 100%);
-  -webkit-mask-image: radial-gradient(circle at 50% 37%, rgba(0,0,0,1) 0 60%, rgba(0,0,0,0) 75% 100%);
+  mask-image: radial-gradient(circle at 50% 37%, rgba(0,0,0,1) 0 60%, rgba(0,0,0,0) 45% 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 37%, rgba(0,0,0,1) 0 60%, rgba(0,0,0,0) 45% 100%);
 
 
 
