@@ -526,34 +526,6 @@ body.nav-open .nav-overlay {
   gap: 32px;
 }
 
-.benefits-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-}
-
-.benefits-icon {
-  display: grid;
-  place-items: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: linear-gradient(135deg, rgba(179, 140, 255, 0.25), rgba(113, 231, 255, 0.1));
-  padding: 14px;
-}
-
-.benefits-icon-line {
-  width: 100%;
-  height: 2px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.benefits-icon-line + .benefits-icon-line {
-  margin-top: 6px;
-}
-
 .benefits-highlights {
   list-style: none;
   margin: 0;
@@ -606,25 +578,6 @@ body.nav-open .nav-overlay {
   border-bottom: 2px solid var(--color-text);
   transform: rotate(-45deg);
   margin-left: 2px;
-}
-
-.benefit-card.is-featured {
-  border-color: rgba(179, 140, 255, 0.5);
-  background: linear-gradient(135deg, rgba(179, 140, 255, 0.18), rgba(9, 6, 20, 0.9));
-  box-shadow: 0 20px 45px rgba(17, 7, 34, 0.35);
-}
-
-.benefit-note {
-  margin-top: 12px;
-  padding: 16px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(8, 4, 18, 0.85);
-}
-
-.benefit-note p {
-  margin: 0;
-  color: var(--color-muted);
 }
 
 .benefits-actions {
