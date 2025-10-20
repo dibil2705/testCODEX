@@ -432,6 +432,55 @@
       .cases-arrow.next { right: 6px; }
     }
 
+    @media (max-width: 700px) {
+      .cases-slider {
+        padding-bottom: 64px;
+      }
+
+      .case-slide {
+        padding: clamp(24px, 8vw, 36px);
+        gap: 28px;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .case-left {
+        width: 100%;
+      }
+
+      .case-brand {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .case-list {
+        text-align: left;
+      }
+
+      .case-right {
+        width: 100%;
+      }
+
+      .case-right .phone-mock {
+        width: min(320px, 82vw);
+        margin-inline: auto;
+      }
+
+      .cases-arrow {
+        top: auto;
+        bottom: 12px;
+        transform: none;
+      }
+
+      .cases-arrow.prev {
+        left: calc(50% - 96px);
+      }
+
+      .cases-arrow.next {
+        right: calc(50% - 96px);
+      }
+    }
+
     /* =================== Этапы взаимодействия =================== */
     .steps {
       padding: clamp(60px, 8vw, 120px) 0;
@@ -678,7 +727,7 @@
         <a href="#">Контакты</a>
       </nav>
     </div>
-    <div class="nav-overlay" hidden></div>
+    <div class="nav-overlay" hidden aria-hidden="true"></div>
   </header>
 
   <!-- Геро-секция (только тот блок, что на референсе) -->
@@ -1090,18 +1139,111 @@
 
   <script>
     // мобильное меню
-    const btn = document.querySelector('.menu-toggle');
-    const overlay = document.querySelector('.nav-overlay');
-    btn?.addEventListener('click', () => {
-      const open = document.body.classList.toggle('nav-open');
-      btn.setAttribute('aria-expanded', String(open));
-      overlay.toggleAttribute('hidden', !open);
-    });
-    overlay?.addEventListener('click', () => {
-      document.body.classList.remove('nav-open');
-      btn.setAttribute('aria-expanded', 'false');
-      overlay.setAttribute('hidden', '');
-    });
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.site-nav');
+    const navOverlay = document.querySelector('.nav-overlay');
+
+    if (menuToggle && navigation) {
+      const toggleOverlay = (isOpen) => {
+        if (!navOverlay) return;
+
+        if (isOpen) {
+          navOverlay.removeAttribute('hidden');
+          navOverlay.setAttribute('aria-hidden', 'false');
+        } else {
+          navOverlay.setAttribute('hidden', '');
+          navOverlay.setAttribute('aria-hidden', 'true');
+        }
+      };
+
+      const closeMenu = () => {
+        document.body.classList.remove('nav-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Открыть меню');
+        toggleOverlay(false);
+      };
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = document.body.classList.toggle('nav-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+        toggleOverlay(isOpen);
+      });
+
+      navigation.querySelectorAll('a, .nav-link').forEach((item) => {
+        item.addEventListener('click', () => {
+          if (document.body.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+      });
+
+      if (navOverlay) {
+        navOverlay.addEventListener('click', () => {
+          if (document.body.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+      }
+
+      const handlePointerDownOutside = (event) => {
+        if (!document.body.classList.contains('nav-open')) {
+          return;
+        }
+
+        const clickedInsideNav = navigation.contains(event.target);
+        const clickedToggle = menuToggle.contains(event.target);
+
+        if (!clickedInsideNav && !clickedToggle) {
+          closeMenu();
+        }
+      };
+
+      document.addEventListener('pointerdown', handlePointerDownOutside);
+
+      let touchStartX = null;
+
+      const handleTouchStart = (event) => {
+        if (!document.body.classList.contains('nav-open')) {
+          return;
+        }
+
+        const touch = event.touches && event.touches[0];
+        touchStartX = touch ? touch.clientX : null;
+      };
+
+      const handleTouchMove = (event) => {
+        if (!document.body.classList.contains('nav-open') || touchStartX === null) {
+          return;
+        }
+
+        const touch = event.touches && event.touches[0];
+        if (!touch) {
+          return;
+        }
+
+        const deltaX = touch.clientX - touchStartX;
+        if (deltaX > 60) {
+          touchStartX = null;
+          closeMenu();
+        }
+      };
+
+      const resetTouchStart = () => {
+        touchStartX = null;
+      };
+
+      navigation.addEventListener('touchstart', handleTouchStart, { passive: true });
+      navigation.addEventListener('touchmove', handleTouchMove, { passive: true });
+      navigation.addEventListener('touchend', resetTouchStart);
+      navigation.addEventListener('touchcancel', resetTouchStart);
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && document.body.classList.contains('nav-open')) {
+          closeMenu();
+        }
+      });
+    }
 
     // =================== Галерея кейсов — логика слайдера ===================
     (function(){
