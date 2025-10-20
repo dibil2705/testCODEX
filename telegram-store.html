@@ -659,10 +659,16 @@
   <!-- Шапка -->
   <header class="site-header">
     <div class="container nav-container">
-      <a class="brand" href="#" aria-label="На главную">
+      <a class="brand" href="index.html" aria-label="На главную">
         <span class="brand-mark">N</span>
         <span class="brand-text">Neuro Fusion</span>
       </a>
+
+      <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
 
       <nav class="site-nav" aria-label="Главная навигация">
         <a href="#">Комплексные решения</a>
@@ -671,14 +677,6 @@
         <a href="#">О компании</a>
         <a href="#">Контакты</a>
       </nav>
-
-      <a class="btn ghost" href="#offer">Получить коммерческое предложение</a>
-
-      <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-      </button>
     </div>
     <div class="nav-overlay" hidden></div>
   </header>
@@ -1051,6 +1049,42 @@
     <h2>Закажите разработку <span class="accent">Telegram Mini Apps</span> сейчас<br>и получите скидку <span class="accent">15%</span></h2>
     <p>на дальнейшую модернизацию мини-приложения или услуги по сопровождению его работы</p>
     <a href="#contact" class="btn primary">Заказать MiniApp в Telegram</a>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-intro">
+      <h2>Обсудим ваш Telegram Mini App</h2>
+      <p class="section-lead">Заполните форму, и мы вернёмся с предложением и примерным планом запуска вашего проекта.</p>
+      <div class="contact-meta">
+        <p><strong>Телефон:</strong> +7 495 000 00 00</p>
+        <p><strong>Эл. почта:</strong> hello@neurofusion.ai</p>
+      </div>
+      <div class="detail-actions">
+        <a class="btn primary" href="https://t.me/neurofusion" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a class="btn ghost" href="tel:+74950000000">Позвонить</a>
+      </div>
+    </div>
+    <form class="contact-form">
+      <label>
+        Имя
+        <input type="text" name="name" placeholder="Ваше имя" required="">
+      </label>
+      <label>
+        Компания
+        <input type="text" name="company" placeholder="Название компании" required="">
+      </label>
+      <label>
+        Электронная почта
+        <input type="email" name="email" placeholder="Ваш e-mail" required="">
+      </label>
+      <label>
+        Задача
+        <textarea name="project" rows="4" placeholder="Опишите вашу цель" required=""></textarea>
+      </label>
+      <button type="submit" class="btn primary full">Отправить заявку</button>
+    </form>
   </div>
 </section>
 
