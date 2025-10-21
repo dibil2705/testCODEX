@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+
+
 </head>
 
 <body class="product-page">
@@ -78,44 +81,814 @@
       </div>
     </section>
 
-    <section class="product-section" id="demo">
-      <div class="container product-section-inner">
-        <div>
-          <h2>Демо-опыт без сложных интеграций</h2>
-          <p>Получите доступ к тестовому стенду с готовыми сценариями, чтобы оценить, как голосовой агент ведёт диалог с вашими
-            клиентами и передаёт данные в CRM.</p>
+
+    <!-- Voice OS (accordion + preview, RU) -->
+    <section class="voice-os-ref" id="voice-os">
+      <div class="container voice-os-ref__grid">
+        <!-- LEFT: FAQ / Accordion -->
+        <div class="voice-os-ref__left">
+          <h2 class="voice-os-ref__title">Полноценная голосовая ОС с искусственным интеллектом</h2>
+          <p class="voice-os-ref__lead">
+            Единая платформа для автоматизации, управления и масштабирования каждого звонка — от маршрутизации до решения.
+            Всё для создания и запуска голосовых агентов ИИ в одном инструменте.
+          </p>
+
+          <div class="nf-accordion" role="tablist">
+            <!-- item 1 (expanded by default) -->
+            <div class="nf-accordion__item is-open">
+              <button class="nf-accordion__trigger" id="acc-tab-1"
+                      aria-controls="acc-panel-1" aria-expanded="true" role="tab">
+                <span class="nf-ico" aria-hidden="true">
+                  <!-- телефон / SIP -->
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor">
+                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 9.2 16.2a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.6-1.6a2 2 0 0 1 2.1-.4c.8.3 1.6.5 2.5.6A2 2 0 0 1 22 16.9z"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg></span>
+                <span class="nf-accordion__title">Телефония через SIP-транкинг</span>
+                <span class="nf-chevron" aria-hidden="true"></span>
+              </button>
+              <div class="nf-accordion__panel" id="acc-panel-1" role="region" aria-labelledby="acc-tab-1">
+                Подключайтесь к провайдерам вроде RingCentral, NICE и др. через гибкий elastic SIP. Настройка, не зависящая
+                от оператора, для быстрого развёртывания.
+              </div>
+            </div>
+
+            <!-- item 2 -->
+            <div class="nf-accordion__item">
+              <button class="nf-accordion__trigger" id="acc-tab-2"
+                      aria-controls="acc-panel-2" aria-expanded="false" role="tab">
+                <span class="nf-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor">
+                    <path d="M5 5l14 14M19 5v14H5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="nf-accordion__title">Настраиваемые действия</span>
+                <span class="nf-chevron" aria-hidden="true"></span>
+              </button>
+              <div class="nf-accordion__panel" id="acc-panel-2" role="region" aria-labelledby="acc-tab-2" hidden>
+                Агенты могут отправлять SMS, отслеживать заказы, создавать тикеты — рутина автоматизируется, команда
+                фокусируется на важном.
+              </div>
+            </div>
+
+            <!-- item 3 -->
+            <div class="nf-accordion__item">
+              <button class="nf-accordion__trigger" id="acc-tab-3"
+                      aria-controls="acc-panel-3" aria-expanded="false" role="tab">
+                <span class="nf-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor">
+                    <rect x="3" y="3" width="7" height="7" rx="2" stroke-width="2"/>
+                    <rect x="14" y="3" width="7" height="7" rx="2" stroke-width="2"/>
+                    <rect x="14" y="14" width="7" height="7" rx="2" stroke-width="2"/>
+                    <path d="M7 10v4a2 2 0 0 0 2 2h5" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span class="nf-accordion__title">Пользовательские рабочие процессы</span>
+                <span class="nf-chevron" aria-hidden="true"></span>
+              </button>
+              <div class="nf-accordion__panel" id="acc-panel-3" role="region" aria-labelledby="acc-tab-3" hidden>
+                Автоматизируйте полный поток звонка: бронирование, перевод, эскалация — всё настраивается под вашу логику.
+              </div>
+            </div>
+
+            <!-- item 4 -->
+            <div class="nf-accordion__item">
+              <button class="nf-accordion__trigger" id="acc-tab-4"
+                      aria-controls="acc-panel-4" aria-expanded="false" role="tab">
+                <span class="nf-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor">
+                    <path d="M17 3H7a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4Z" stroke-width="2"/>
+                    <path d="M3 8h18M3 16h18M8 3v18M16 3v18" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span class="nf-accordion__title">Дизайнер потоков без кода</span>
+                <span class="nf-chevron" aria-hidden="true"></span>
+              </button>
+              <div class="nf-accordion__panel" id="acc-panel-4" role="region" aria-labelledby="acc-tab-4" hidden>
+                Собирайте диалоги и логику визуально — ни одной строки кода. Команда разработчиков не требуется.
+              </div>
+            </div>
+
+            <!-- item 5 -->
+            <div class="nf-accordion__item">
+              <button class="nf-accordion__trigger" id="acc-tab-5"
+                      aria-controls="acc-panel-5" aria-expanded="false" role="tab">
+                <span class="nf-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor">
+                    <rect x="3" y="4" width="18" height="6" rx="2" stroke-width="2"/>
+                    <rect x="3" y="14" width="8" height="6" rx="2" stroke-width="2"/>
+                    <rect x="13" y="14" width="8" height="6" rx="2" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span class="nf-accordion__title">Готовые шаблоны агентов ИИ</span>
+                <span class="nf-chevron" aria-hidden="true"></span>
+              </button>
+              <div class="nf-accordion__panel" id="acc-panel-5" role="region" aria-labelledby="acc-tab-5" hidden>
+                Выбирайте пресеты для продаж, поддержки и планирования. Запускайтесь быстро и получайте результат сразу.
+              </div>
+            </div>
+
+            <!-- item 6 -->
+            <div class="nf-accordion__item">
+              <button class="nf-accordion__trigger" id="acc-tab-6"
+                      aria-controls="acc-panel-6" aria-expanded="false" role="tab">
+                <span class="nf-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="9" stroke-width="2"/>
+                    <path d="M2.5 12h19M12 2.5a15 15 0 0 1 0 19M12 2.5a15 15 0 0 0 0 19" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span class="nf-accordion__title">Многоязычные агенты</span>
+                <span class="nf-chevron" aria-hidden="true"></span>
+              </button>
+              <div class="nf-accordion__panel" id="acc-panel-6" role="region" aria-labelledby="acc-tab-6" hidden>
+                Развёртывание на 30+ языках. Управляйте глобальными диалогами без дублирования сценариев.
+              </div>
+            </div>
+          </div>
         </div>
-        <a class="btn primary" href="#contact">Получить доступ</a>
+
+        <!-- RIGHT: preview -->
+        <aside class="voice-os-ref__right" aria-label="Превью интеграции SIP">
+          <div class="preview-card">
+            <div class="preview-bubble">
+              <div class="bubble-pill">
+                <span class="s-logo" aria-hidden="true">S</span>
+                <div>
+                  <div class="bubble-title">Custom Telephony</div>
+                  <div class="bubble-sub">Integrates with your existing SIP stack.</div>
+                </div>
+              </div>
+
+              <div class="bubble-pill ghost">
+                <div class="bubble-title with-ico">
+                  <span class="sip-ico" aria-hidden="true"></span> SIP Trunking
+                </div>
+                <span class="status-dot" aria-label="connected"></span>
+              </div>
+
+              <div class="preview-icons">
+                <span class="i tel" aria-hidden="true"></span>
+                <span class="i mobile" aria-hidden="true"></span>
+                <span class="i chat" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+          <a class="btn primary preview-cta" href="#contact">Связаться с отделом продаж</a>
+        </aside>
       </div>
     </section>
 
-    <section class="product-section muted" id="brief">
-      <div class="container product-brief">
-        <div>
-          <h2>Отчёт: Как голосовые агенты увеличивают продажи</h2>
-          <p>Собрали кейсы внедрения и показатели эффективности: повышение конверсии, сокращение времени реакции и возврат
-            инвестиций.</p>
-        </div>
-        <form class="product-brief-form">
-          <label>
-            <span>Электронная почта</span>
-            <input type="email" name="email" placeholder="you@example.com" required>
-          </label>
-          <button class="btn secondary" type="submit">Получить отчёт</button>
-        </form>
+
+    <!-- ===== Статистика ===== -->
+    <section class="nf-stats" id="stats">
+      <div class="container stats-grid">
+        <article class="stat-card">
+          <div class="stat-value">45M+</div>
+          <h3 class="stat-title">Звонки клиентам</h3>
+          <p class="stat-desc">Производительность ИИ подтверждена на реальных проектах с большим трафиком.</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-value">4M+</div>
+          <h3 class="stat-title">Сэкономленные часы</h3>
+          <p class="stat-desc">Меньше ручных звонков — больше времени на рост, продажи и поддержку.</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-value">+35%</div>
+          <h3 class="stat-title">Отвеченные звонки</h3>
+          <p class="stat-desc">Без удержания и музыки — моментальные ответы и меньше упущенных возможностей.</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-value">99.9%</div>
+          <h3 class="stat-title">Время безотказной работы</h3>
+          <p class="stat-desc">Надёжные агенты ИИ, на которых можно положиться каждую минуту.</p>
+        </article>
       </div>
     </section>
 
-    <section class="product-section" id="contact">
-      <div class="container product-section-inner">
-        <div>
-          <h2>Свяжитесь с нами</h2>
-          <p>Расскажите о своей задаче — подготовим индивидуальный сценарий и расчёт экономического эффекта от внедрения.</p>
+
+
+    <!-- ===== Примеры использования ===== -->
+    <section class="nf-usecases" id="usecases">
+      <div class="container">
+        <p class="eyebrow">Примеры использования</p>
+        <h2 class="section-title">Услышите голосовой ИИ в действии</h2>
+        <p class="section-lead">
+          Слушайте реальные звонки голосовых агентов: ответы на вопросы, квалификация лидов, запись на встречи
+          и поддержка — всё в реальном времени.
+        </p>
+
+        <div class="usecases-grid">
+          <!-- Карточка 1 -->
+          <article class="usecard">
+            <div class="usecard-head">
+              <div class="use-badge">
+                <span class="use-ico" aria-hidden="true"></span>
+                <span class="use-badge-text">Поддержка клиентов</span>
+                <button class="use-try" type="button">▶︎ Попробуйте</button>
+              </div>
+            </div>
+            <div class="usecard-body">
+              <h3>Поддержка клиентов</h3>
+              <p>Отвечайте на типовые вопросы 24/7 и разгружайте операторов для сложных кейсов.</p>
+              <a class="use-link" href="#demo">Познакомьтесь с помощником-автоответчиком</a>
+            </div>
+          </article>
+
+          <!-- Карточка 2 -->
+          <article class="usecard">
+            <div class="usecard-head">
+              <div class="use-badge">
+                <span class="use-ico" aria-hidden="true"></span>
+                <span class="use-badge-text">Колл-центры</span>
+                <button class="use-try" type="button">▶︎ Попробуйте</button>
+              </div>
+            </div>
+            <div class="usecard-body">
+              <h3>Колл-центры</h3>
+              <p>Снижайте ожидание и улучшайте FCR в пиковые нагрузки, масштабируясь без расширения штата.</p>
+              <a class="use-link" href="#demo">Попробуйте наш ИИ для подбора персонала</a>
+            </div>
+          </article>
+
+          <!-- Карточка 3 -->
+          <article class="usecard">
+            <div class="usecard-head">
+              <div class="use-badge">
+                <span class="use-ico" aria-hidden="true"></span>
+                <span class="use-badge-text">Запись на приём</span>
+                <button class="use-try" type="button">▶︎ Попробуйте</button>
+              </div>
+            </div>
+            <div class="usecard-body">
+              <h3>Запись на приём</h3>
+              <p>Бронируйте, переносите и напоминайте автоматически. Меньше no-show — больше времени команде.</p>
+              <a class="use-link" href="#demo">Запуск ИИ в здравоохранении</a>
+            </div>
+          </article>
         </div>
-        <a class="btn ghost" href="mailto:hello@neurofusion.ai">hello@neurofusion.ai</a>
       </div>
     </section>
+
+    
+    <!-- ===== Запуск агентов — карусель ===== -->
+    <section class="nf-steps" id="steps">
+      <div class="container">
+        <p class="eyebrow">Запуск за считанные минуты</p>
+        <h2 class="section-title">Запуск агентов в 4 простых шага</h2>
+        <p class="section-lead">
+          Создавайте и запускайте голосовых агентов ИИ за минуты — без программирования.
+          Четыре шага, чтобы выйти в эфир и начать реальные разговоры 24/7.
+        </p>
+
+        <div class="steps-rail">
+          <button class="steps-nav prev" aria-label="Предыдущие шаги" disabled>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="steps-nav next" aria-label="Следующие шаги">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="steps-viewport" tabindex="0" role="region" aria-label="Список шагов">
+            <ul class="steps-track">
+              <!-- ШАГ 1 -->
+              <li class="step-card">
+                <div class="step-media">
+                  <div class="media-badge">Booking meetings</div>
+                  <div class="media-row">
+                    <span class="dot"></span><span class="line"></span><span class="line w"></span>
+                  </div>
+                </div>
+                <div class="step-body">
+                  <span class="step-num">ШАГ 1</span>
+                  <h3>Определите цель</h3>
+                  <p>Выберите: бронирование, поддержка, квалификация лидов и т.д. Начните с шаблона или создайте с нуля.</p>
+                </div>
+              </li>
+
+              <!-- ШАГ 2 -->
+              <li class="step-card">
+                <div class="step-media">
+                  <div class="media-tab">Agent Name • Voice Engine</div>
+                  <div class="media-window"></div>
+                </div>
+                <div class="step-body">
+                  <span class="step-num">ШАГ 2</span>
+                  <h3>Сборка агента</h3>
+                  <p>Визуальный конструктор: вопросы, ответы, действия и логика. Выберите голос под бренд.</p>
+                </div>
+              </li>
+
+              <!-- ШАГ 3 -->
+              <li class="step-card">
+                <div class="step-media">
+                  <div class="app-grid">
+                    <span class="app">zap</span><span class="app">s</span><span class="app">b</span><span class="app">cal</span>
+                  </div>
+                </div>
+                <div class="step-body">
+                  <span class="step-num">ШАГ 3</span>
+                  <h3>Подключение инструментов</h3>
+                  <p>CRM, календари, Zapier/HubSpot, webhooks — для маршрутизации и автоматизации.</p>
+                </div>
+              </li>
+
+              <!-- ШАГ 4 -->
+              <li class="step-card">
+                <div class="step-media">
+                  <div class="media-card">
+                    <div class="chip purple">Inbound</div>
+                    <div class="chip">V2</div>
+                    <div class="media-btn">Test Agent</div>
+                  </div>
+                </div>
+                <div class="step-body">
+                  <span class="step-num">ШАГ 4</span>
+                  <h3>Развертывание и мониторинг</h3>
+                  <p>Протестируйте, запустите в эфир и отслеживайте качество, производительность и результаты.</p>
+                </div>
+              </li>
+
+              <!-- CTA карточка справа -->
+              <li class="step-cta">
+                <div class="cta-inner">
+                  <h3>Готовы создать своего агента ИИ?</h3>
+                  <p>Запускайте умные и быстрые звонки за считанные минуты — в фиолетовой ОС Neuro Fusion.</p>
+                  <a class="btn primary light-on-purple" href="#contact">Связаться с отделом продаж</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ===== Кейсы (карусель) ===== -->
+    <section class="nf-cases" id="cases">
+      <div class="container">
+        <p class="eyebrow">Кейсы</p>
+        <h2 class="section-title">Посмотрите, как команды используют Neuro&nbsp;Fusion</h2>
+        <div class="cases-head">
+          <p class="section-lead">
+            Реальные результаты компаний, которые автоматизировали продажи, поддержку и запись
+            с помощью голосовых ИИ-агентов. Быстрее звонки, ниже затраты и лучшая конверсия.
+          </p>
+
+          <!-- Стрелки -->
+          <div class="cases-arrows">
+            <button class="cases-nav prev" aria-label="Предыдущие кейсы" disabled>
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="cases-nav next" aria-label="Следующие кейсы">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="cases-viewport" tabindex="0" role="region" aria-label="Список кейсов">
+          <ul class="cases-track">
+            <!-- СЛАЙД 1 -->
+            <li class="case-slide">
+              <article class="case-card">
+                <div class="case-content">
+                  <div class="case-topline">
+                    <span class="label">КЕЙСЫ</span>
+                    <div class="tags">
+                      <span class="tag">Поддержка клиентов</span>
+                      <span class="sep"></span>
+                      <span class="tag">Запись на приём</span>
+                      <span class="sep"></span>
+                      <span class="tag">Квалификация лидов</span>
+                    </div>
+                  </div>
+
+                  <hr class="case-divider first">
+                  <p class="case-text">
+                    Международный BPO-оператор модернизировал голосовые операции с помощью white-label ИИ-агентов.
+                    За 60 дней развернули 40+ брендированных агентов, автоматизировав более 600 тыс. звонков в месяц — без найма новых сотрудников.
+                  </p>
+                  <hr class="case-divider">
+                  <div class="company-stats">
+                    <span class="item">🇺🇸🇱🇦 США &amp; LATAM</span>
+                    <span class="item">🏢 BPO &amp; Контакт-центр</span>
+                    <span class="item">👥 3000+</span>
+                  </div>
+                </div>
+
+                <div class="case-visual">
+                  <aside class="metrics">
+                    <div class="metric"><div class="num">&gt;600K</div><div class="lbl">звонков/мес</div></div>
+                    <div class="metric"><div class="num">40+</div><div class="lbl">запущенных агентов</div></div>
+                    <div class="metric"><div class="num">2</div><div class="lbl">языка</div></div>
+                    <div class="metric"><div class="num">0</div><div class="lbl">новых наймов</div></div>
+                  </aside>
+                  <div class="case-image" aria-hidden="true"></div>
+                </div>
+              </article>
+            </li>
+
+            <!-- СЛАЙД 2 -->
+            <li class="case-slide">
+              <article class="case-card">
+                <div class="case-content">
+                  <div class="case-topline">
+                    <span class="label">КЕЙСЫ</span>
+                    <div class="tags">
+                      <span class="tag">Лиды</span><span class="sep"></span>
+                      <span class="tag">Запись на демо</span><span class="sep"></span>
+                      <span class="tag">Поддержка</span>
+                    </div>
+                  </div>
+
+                  <hr class="case-divider first">
+                  <p class="case-text">
+                    Крупная CRM-платформа внедрила слой голосовой автоматизации. За 60 дней пользователи обрабатывают 500K+
+                    звонков в месяц — без кода и без расширения команды разработчиков.
+                  </p>
+                  <hr class="case-divider">
+                  <div class="company-stats">
+                    <span class="item">🇺🇸 США</span>
+                    <span class="item">🧩 CRM &amp; SaaS</span>
+                    <span class="item">👥 1000+</span>
+                  </div>
+                </div>
+
+                <div class="case-visual">
+                  <aside class="metrics">
+                    <div class="metric"><div class="num">500K</div><div class="lbl">AI-звонков/мес</div></div>
+                    <div class="metric"><div class="num">60&nbsp;дн</div><div class="lbl">на внедрение</div></div>
+                    <div class="metric"><div class="num">100%</div><div class="lbl">white-label</div></div>
+                  </aside>
+                  <div class="case-image" aria-hidden="true"></div>
+                </div>
+              </article>
+            </li>
+
+            <!-- СЛАЙД 3 -->
+            <li class="case-slide">
+              <article class="case-card">
+                <div class="case-content">
+                  <div class="case-topline">
+                    <span class="label">КЕЙСЫ</span>
+                    <div class="tags">
+                      <span class="tag">Медицина</span><span class="sep"></span>
+                      <span class="tag">Запись</span><span class="sep"></span>
+                      <span class="tag">FAQ</span>
+                    </div>
+                  </div>
+
+                  <hr class="case-divider first">
+                  <p class="case-text">
+                    Клиника автоматизировала запись и сопровождение пациентов. +60% к эффективности расписаний и 2.5× больше подтверждённых визитов.
+                  </p>
+                  <hr class="case-divider">
+                  <div class="company-stats">
+                    <span class="item">🇬🇧🇪🇺 UK &amp; EU</span>
+                    <span class="item">🏥 Healthcare</span>
+                    <span class="item">👥 51–200</span>
+                  </div>
+                </div>
+
+                <div class="case-visual">
+                  <aside class="metrics">
+                    <div class="metric"><div class="num">+60%</div><div class="lbl">эффективность записи</div></div>
+                    <div class="metric"><div class="num">-30%</div><div class="lbl">no-show</div></div>
+                    <div class="metric"><div class="num">2.5×</div><div class="lbl">квалиф. визиты</div></div>
+                    <div class="metric"><div class="num">+25%</div><div class="lbl">удовлетв.</div></div>
+                  </aside>
+                  <div class="case-image" aria-hidden="true"></div>
+                </div>
+              </article>
+            </li>
+
+            <!-- СЛАЙД 4 -->
+            <li class="case-slide">
+              <article class="case-card">
+                <div class="case-content">
+                  <div class="case-topline">
+                    <span class="label">КЕЙСЫ</span>
+                    <div class="tags">
+                      <span class="tag">Госуслуги</span><span class="sep"></span>
+                      <span class="tag">Сбор данных</span><span class="sep"></span>
+                      <span class="tag">Заявки</span>
+                    </div>
+                  </div>
+
+                  <hr class="case-divider first">
+                  <p class="case-text">
+                    Муниципальный оператор заменил устаревшие формы голосовым ИИ. Запросы обрабатываются моментально,
+                    скорость и точность выросли — стандарт обслуживания повышен.
+                  </p>
+                  <hr class="case-divider">
+                  <div class="company-stats">
+                    <span class="item">🇨🇦 Канада</span>
+                    <span class="item">🏛 Агентство / Public</span>
+                    <span class="item">👥 10–50</span>
+                  </div>
+                </div>
+
+                <div class="case-visual">
+                  <aside class="metrics">
+                    <div class="metric"><div class="num">3</div><div class="lbl">активных агента</div></div>
+                    <div class="metric"><div class="num">-100%</div><div class="lbl">пропусков после 18:00</div></div>
+                    <div class="metric"><div class="num">-80%</div><div class="lbl">время на заявки</div></div>
+                    <div class="metric"><div class="num">100%</div><div class="lbl">автосбор данных</div></div>
+                  </aside>
+                  <div class="case-image" aria-hidden="true"></div>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== CTA: Индивидуальная демонстрация ===== -->
+
+
+    <!-- ===== Преимущества голосовых агентов ИИ ===== -->
+    <section class="nf-benefits" id="benefits">
+      <div class="container">
+        <p class="eyebrow">Преимущества голосовых агентов ИИ</p>
+
+        <div class="benefits-head">
+          <h2 class="section-title">
+            Почему голосовые агенты на базе искусственного интеллекта имеют значение
+          </h2>
+
+          <a href="#contact" class="btn primary benefits-cta">Связаться с отделом продаж</a>
+        </div>
+
+        <p class="benefits-lead">
+          Голосовые агенты на базе ИИ помогают командам оставаться на связи круглосуточно, сокращают
+          количество звонков, высвобождают специалистов и снижают расходы без ущерба для качества обслуживания.
+          Они быстро запускаются, проще в управлении и масштабируются.
+        </p>
+
+        <ul class="benefits-grid" role="list">
+          <li class="benefit">
+            <span class="ic" aria-hidden="true">
+              <!-- clock -->
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Доступность 24/7</h3>
+            <p>Агенты ИИ всегда на связи: обработка звонков в нерабочее время, ночные смены и выходные — без доплат.</p>
+          </li>
+
+          <li class="benefit">
+            <span class="ic" aria-hidden="true">
+              <!-- savings -->
+              <svg viewBox="0 0 24 24"><path d="M4 16a8 8 0 1 1 16 0" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 16h8M10 12h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Экономическая эффективность</h3>
+            <p>Автоматизируйте объёмные задачи и сократите потребность в найме — реальные расходы ниже без потери качества.</p>
+          </li>
+
+          <li class="benefit">
+            <span class="ic" aria-hidden="true">
+              <!-- scale -->
+              <svg viewBox="0 0 24 24"><path d="M3 20h18M5 16l6-6 4 4 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Масштабируемость</h3>
+            <p>Мгновенное масштабирование без изменения настроек: тысячи звонков одновременно — стабильно и качественно.</p>
+          </li>
+
+          <li class="benefit">
+            <span class="ic" aria-hidden="true">
+              <!-- bolt / efficiency -->
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Повышение эффективности</h3>
+            <p>ИИ берёт на себя бронирование, обновления и рутинные обращения — команда фокусируется на важных задачах.</p>
+          </li>
+
+          <li class="benefit">
+            <span class="ic" aria-hidden="true">
+              <!-- nlp / message -->
+              <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 1 1-4-6.9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 8h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Понимание естественного языка</h3>
+            <p>Обученные модели точно интерпретируют речь и помогают клиенту получить ответ с первого раза.</p>
+          </li>
+
+          <li class="benefit">
+            <span class="ic" aria-hidden="true">
+              <!-- user-star -->
+              <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 22c1.5-3 4.5-5 6-5s4.5 2 6 5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 10l1.2 2.2L20.6 13l-1.8 1.7.4 2.6L17 16.1l-2.2 1.2.4-2.6L13.4 13l2.4-.8L17 10z" fill="currentColor"/></svg>
+            </span>
+            <h3>Персонализированные взаимодействия</h3>
+            <p>Используем CRM и контекст прошлых диалогов — ответы точнее, повторные звонки быстрее и полезнее.</p>
+          </li>
+
+          <li class="benefit">
+            <span class="ic" aria-hidden="true">
+              <!-- shield-check -->
+              <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Постоянное качество</h3>
+            <p>Стабильные скрипты и тон — без усталости, пауз и перепадов качества, с точными шагами между сценариями.</p>
+          </li>
+
+          <li class="benefit">
+            <span class="ic" aria-hidden="true">
+              <!-- globe -->
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M7 5.5c2 .8 8 .8 10 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Многоязычная поддержка</h3>
+            <p>До 30+ языков — клиенты получают помощь на родном языке, не дожидаясь оператора.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="nf-cta" id="demo">
+      <div class="container">
+        <div class="cta-card">
+          <!-- Декор -->
+          <div class="cta-art" aria-hidden="true">
+            <svg viewBox="0 0 1200 420" width="100%" height="100%" preserveAspectRatio="none">
+              <defs>
+                <pattern id="ctaDots" width="10" height="10" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1.6" fill="white" opacity=".28"/>
+                </pattern>
+              </defs>
+              <!-- вертикальные капсулы разной высоты -->
+              <rect x="90"  y="40"  width="80"  height="340" rx="40" fill="url(#ctaDots)" />
+              <rect x="320" y="120" width="90"  height="260" rx="45" fill="url(#ctaDots)" />
+              <rect x="520" y="70"  width="110" height="310" rx="55" fill="url(#ctaDots)" />
+              <rect x="850" y="130" width="100" height="250" rx="50" fill="url(#ctaDots)" />
+              <rect x="1030" y="110" width="90"  height="270" rx="45" fill="url(#ctaDots)" />
+            </svg>
+          </div>
+
+          <p class="eyebrow">Индивидуальная&nbsp;демонстрация</p>
+          <h2 class="cta-title">
+            Управляете более чем 20 тысячами минут звонков<br/> в месяц?
+          </h2>
+          <p class="cta-sub">
+            Узнайте вместе с нашими экспертами, как голосовой ИИ масштабирует ваши операции по
+            обслуживанию клиентов и обеспечивает окупаемость инвестиций круглосуточно.
+          </p>
+
+          <a href="#contact" class="btn cta-btn">Связаться с отделом продаж</a>
+        </div>
+      </div>
+    </section>
+
+
+
+
   </main>
+
+
+
+  <script>
+    // Аккордеон: один открыт, плавная высота + ARIA
+    (function () {
+      const items = document.querySelectorAll('.nf-accordion__item');
+      const setOpen = (item, open) => {
+        const btn   = item.querySelector('.nf-accordion__trigger');
+        const panel = item.querySelector('.nf-accordion__panel');
+        if (open) {
+          // закрыть остальные
+          items.forEach(it => { if (it !== item) setOpen(it, false); });
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+          panel.hidden = false;
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          panel.style.opacity = '1';
+        } else {
+          item.classList.remove('is-open');
+          const b = item.querySelector('.nf-accordion__trigger');
+          const p = item.querySelector('.nf-accordion__panel');
+          b.setAttribute('aria-expanded', 'false');
+          p.style.maxHeight = '0px';
+          p.style.opacity = '0';
+          setTimeout(() => { p.hidden = true; }, 280);
+        }
+      };
+      items.forEach(item => {
+        const btn = item.querySelector('.nf-accordion__trigger');
+        const panel = item.querySelector('.nf-accordion__panel');
+        // начальное состояние
+        if (item.classList.contains('is-open')) {
+          panel.hidden = false;
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          panel.style.opacity = '1';
+        } else { panel.hidden = true; }
+        // клики
+        btn.addEventListener('click', () => setOpen(item, !item.classList.contains('is-open')));
+        // клавиатура
+        btn.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+        });
+      });
+    })();
+
+
+
+
+      (function(){
+        const rail = document.querySelector('.nf-steps .steps-rail');
+        if (!rail) return;
+
+        const viewport = rail.querySelector('.steps-viewport');
+        const track    = rail.querySelector('.steps-track');
+        const prevBtn  = rail.querySelector('.steps-nav.prev');
+        const nextBtn  = rail.querySelector('.steps-nav.next');
+
+        const scrollByOne = () => {
+          // ширина видимой области ≈ ширина 3 карточек → двигаем на одну карточку
+          const card = track.querySelector('.step-card, .step-cta');
+          if (!card) return viewport.clientWidth * 0.9;
+          const style = getComputedStyle(track);
+          const gap = parseFloat(style.columnGap || style.gap) || 20;
+          return card.getBoundingClientRect().width + gap;
+        };
+
+        const updateNav = () => {
+          const max = viewport.scrollWidth - viewport.clientWidth - 2;
+          prevBtn.disabled = viewport.scrollLeft <= 2;
+          nextBtn.disabled = viewport.scrollLeft >= max;
+        };
+
+        prevBtn.addEventListener('click', () => {
+          viewport.scrollBy({ left: -scrollByOne(), behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+          viewport.scrollBy({ left:  scrollByOne(), behavior: 'smooth' });
+        });
+
+        viewport.addEventListener('scroll', updateNav);
+        window.addEventListener('resize', updateNav);
+        updateNav();
+
+        // клавиатура
+        viewport.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowRight') { e.preventDefault(); nextBtn.click(); }
+          if (e.key === 'ArrowLeft')  { e.preventDefault(); prevBtn.click(); }
+        });
+
+        // лёгкий drag/свайп
+        let isDown=false, startX=0, startLeft=0;
+        viewport.addEventListener('pointerdown', (e)=>{ isDown=true; startX=e.clientX; startLeft=viewport.scrollLeft; viewport.setPointerCapture(e.pointerId); });
+        viewport.addEventListener('pointermove', (e)=>{ if(!isDown) return; viewport.scrollLeft = startLeft - (e.clientX - startX); });
+        viewport.addEventListener('pointerup',   ()=>{ isDown=false; updateNav(); });
+        viewport.addEventListener('pointercancel',()=>{ isDown=false; updateNav(); });
+      })();
+
+
+      (function(){
+        const root = document.querySelector('.nf-cases');
+        if(!root) return;
+
+        const viewport = root.querySelector('.cases-viewport');
+        const track    = root.querySelector('.cases-track');
+        const prevBtn  = root.querySelector('.cases-nav.prev');
+        const nextBtn  = root.querySelector('.cases-nav.next');
+
+        const oneStep = () => {
+          const slide = track.querySelector('.case-slide');
+          if(!slide) return viewport.clientWidth * 0.9;
+          const gap = parseFloat(getComputedStyle(track).gap) || 28;
+          return slide.getBoundingClientRect().width + gap;
+        };
+
+        const update = () => {
+          const max = viewport.scrollWidth - viewport.clientWidth - 2;
+          prevBtn.disabled = viewport.scrollLeft <= 2;
+          nextBtn.disabled = viewport.scrollLeft >= max;
+        };
+
+        prevBtn.addEventListener('click', ()=> viewport.scrollBy({left: -oneStep(), behavior:'smooth'}));
+        nextBtn.addEventListener('click', ()=> viewport.scrollBy({left:  oneStep(), behavior:'smooth'}));
+        viewport.addEventListener('scroll', update);
+        window.addEventListener('resize', update);
+        update();
+
+        // клавиатура
+        viewport.addEventListener('keydown', (e)=>{
+          if(e.key==='ArrowRight'){ e.preventDefault(); nextBtn.click(); }
+          if(e.key==='ArrowLeft'){  e.preventDefault(); prevBtn.click(); }
+        });
+
+        // drag/свайп
+        let down=false, startX=0, startLeft=0;
+        viewport.addEventListener('pointerdown', e=>{ down=true; startX=e.clientX; startLeft=viewport.scrollLeft; viewport.setPointerCapture(e.pointerId); });
+        viewport.addEventListener('pointermove', e=>{ if(!down) return; viewport.scrollLeft = startLeft - (e.clientX - startX); });
+        viewport.addEventListener('pointerup',   ()=>{ down=false; update(); });
+        viewport.addEventListener('pointercancel',()=>{ down=false; update(); });
+      })();
+
+
+  </script>
 </body>
 
 </html>
