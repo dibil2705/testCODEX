@@ -679,6 +679,46 @@ body.nav-open .nav-overlay {
   margin-bottom: 20px;
 }
 
+.text-agents-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.text-agents-checklist li {
+  position: relative;
+  padding-left: 36px;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.text-agents-checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(179, 140, 255, 0.95), rgba(113, 231, 255, 0.6));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.text-agents-checklist li::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 12px;
+  width: 8px;
+  height: 4px;
+  border: 2px solid #0b0216;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+}
+
 .detail-card ul,
 .detail-card ol {
   color: var(--color-muted);
@@ -688,10 +728,94 @@ body.nav-open .nav-overlay {
   gap: 12px;
 }
 
+.detail-card .text-agents-checklist {
+  padding-left: 0;
+}
+
 .detail-highlight {
   padding: 100px 0;
   background: linear-gradient(160deg, rgba(31, 13, 63, 0.95), rgba(11, 6, 22, 0.9));
   border-block: 1px solid rgba(179, 140, 255, 0.2);
+}
+
+.text-agents-workflow .highlight-layout {
+  gap: clamp(32px, 6vw, 64px);
+}
+
+.workflow-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(179, 140, 255, 0.35);
+  background: rgba(179, 140, 255, 0.14);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 16px;
+}
+
+.workflow-title {
+  margin: 0 0 18px;
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+.workflow-lead {
+  margin: 0;
+  color: var(--color-muted);
+  max-width: 520px;
+}
+
+.text-agents-steps {
+  counter-reset: step;
+  padding: 0;
+}
+
+.text-agents-steps li {
+  position: relative;
+  padding: 28px 24px 28px 88px;
+  border-radius: 24px;
+  background: rgba(12, 6, 28, 0.72);
+  border: 1px solid rgba(179, 140, 255, 0.25);
+  box-shadow: var(--shadow-card);
+}
+
+.text-agents-steps li::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 24px;
+  top: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+  background: linear-gradient(135deg, rgba(179, 140, 255, 0.95), rgba(126, 87, 255, 0.65));
+  color: #0b0216;
+  box-shadow: 0 14px 28px rgba(20, 6, 46, 0.45);
+}
+
+.text-agents-steps h3 {
+  margin: 0 0 10px;
+}
+
+.text-agents-steps p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.text-agents-usecases .detail-card {
+  background: linear-gradient(160deg, rgba(20, 10, 40, 0.75), rgba(28, 12, 58, 0.9));
+}
+
+.text-agents-usecases h2 {
+  margin-bottom: 12px;
 }
 
 .highlight-layout {
@@ -1274,6 +1398,60 @@ body.nav-open .nav-overlay {
 .product-hero-card > * {
   position: relative;
   z-index: 1;
+}
+
+.product-hero-media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  border-radius: 32px;
+  background: linear-gradient(160deg, rgba(123, 58, 237, 0.25), rgba(37, 15, 82, 0.65));
+  border: 1px solid rgba(179, 140, 255, 0.35);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  min-height: 420px;
+}
+
+.product-hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border-radius: 28px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.hero-image-frame {
+  position: relative;
+  z-index: 1;
+  width: min(320px, 90%);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  border-radius: 26px;
+  background: radial-gradient(circle at 30% 20%, rgba(179, 140, 255, 0.35), transparent 70%),
+    rgba(12, 6, 28, 0.8);
+}
+
+.hero-image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-agents-hero {
+  background: radial-gradient(circle at 10% 20%, rgba(179, 140, 255, 0.35), transparent 55%),
+    radial-gradient(circle at 90% 15%, rgba(126, 87, 255, 0.25), transparent 60%),
+    linear-gradient(135deg, #090418 0%, #150b34 45%, #0b0520 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #c084fc 0%, #7c3aed 45%, #67e8f9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .product-card-badge {
