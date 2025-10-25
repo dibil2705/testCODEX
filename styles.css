@@ -292,6 +292,34 @@ body.nav-open .nav-overlay {
   font-size: 0.75rem;
 }
 
+.hero-tag[data-typing="true"] {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero-tag[data-typing="true"]::after {
+  content: '';
+  display: inline-block;
+  width: 0.1em;
+  height: 1em;
+  margin-left: 0.16em;
+  background-color: currentColor;
+  animation: typing-caret 1s steps(1, end) infinite;
+}
+
+@keyframes typing-caret {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
 .hero-sub {
   max-width: 520px;
   color: var(--color-muted);
