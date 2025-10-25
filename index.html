@@ -40,7 +40,7 @@
       </div>
       <div class="container hero-content">
         <div class="hero-text">
-          <p class="hero-tag">Автоматизация продаж через мессенджеры</p>
+          <p class="hero-tag" aria-live="polite" aria-atomic="true">Автоматизация продаж через мессенджеры</p>
           <h1>Автоматизируйте продажи через Telegram с нами</h1>
           <p class="hero-sub">Мы создаём технологические решения для быстрого развития бизнеса. Наши инструменты помогают компаниям масштабировать продажи в мессенджерах.</p>
           <div class="hero-cta">
@@ -378,6 +378,55 @@
           closeMenu();
         }
       });
+    }
+
+    const heroTag = document.querySelector('.hero-tag');
+
+    if (heroTag) {
+      const phrases = [
+        'Автоматизация продаж через мессенджеры',
+        'ИИ-менеджеры для бизнеса',
+        'POS-система для ресторанов',
+      ];
+      const typingDelay = 110;
+      const erasingDelay = 60;
+      const pauseBetweenPhrases = 1500;
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      const typePhrase = () => {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (!isDeleting) {
+          charIndex += 1;
+          heroTag.textContent = currentPhrase.slice(0, charIndex);
+
+          if (charIndex === currentPhrase.length) {
+            isDeleting = true;
+            setTimeout(typePhrase, pauseBetweenPhrases);
+            return;
+          }
+        } else {
+          charIndex -= 1;
+          heroTag.textContent = currentPhrase.slice(0, charIndex);
+
+          if (charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+          }
+        }
+
+        const nextDelay = isDeleting ? erasingDelay : typingDelay;
+        setTimeout(typePhrase, nextDelay);
+      };
+
+      heroTag.setAttribute('data-typing', 'true');
+
+      setTimeout(() => {
+        heroTag.textContent = '';
+        typePhrase();
+      }, 600);
     }
   </script>
 </body>
