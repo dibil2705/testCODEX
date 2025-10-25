@@ -290,10 +290,14 @@ body.nav-open .nav-overlay {
   letter-spacing: 0.28em;
   text-transform: uppercase;
   font-size: 0.75rem;
+  line-height: 1.4;
+  min-height: calc(1em * 1.4);
+  display: flex;
+  align-items: center;
 }
 
 .hero-tag[data-typing="true"] {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   position: relative;
 }
