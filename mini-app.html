@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini app в Telegram — Neuro Fusion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="mini-app-page">
+  <header class="site-header">
+    <div class="container nav-container">
+      <a class="brand" href="index.html#hero" aria-label="Neuro Fusion">
+        <span class="brand-mark">N</span>
+        <span class="brand-text">Neuro Fusion</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="menu-bar" aria-hidden="true"></span>
+        <span class="menu-bar" aria-hidden="true"></span>
+        <span class="menu-bar" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="primary-navigation" aria-label="Основная навигация">
+        <a href="index.html#solutions">Решения</a>
+        <a href="index.html#benefits">Преимущества</a>
+        <a href="index.html#team">Команда</a>
+        <a href="index.html#contact">Контакты</a>
+        <span class="nav-link disabled" aria-disabled="true">Платформа</span>
+      </nav>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="mini-app-hero" id="hero">
+      <div class="container mini-app-hero__grid">
+        <div class="mini-app-hero__content">
+          <p class="mini-app-eyebrow">Mini app</p>
+          <h1>Услуги по разработке мини приложений Telegram</h1>
+          <p class="mini-app-hero__lead">Обеспечьте вирусное привлечение пользователей и рост сообщества.</p>
+          <p class="mini-app-hero__description">Запускайте свой бизнес в Telegram: мини-приложение под ключ, которое повысит продажи и вовлечённость вашей аудитории, сохраняя привычный пользовательский опыт.</p>
+          <div class="mini-app-hero__cta">
+            <a class="btn primary" href="index.html#contact">Получить индивидуальный план</a>
+          </div>
+        </div>
+        <div class="mini-app-hero__visual" aria-hidden="true">
+          <div class="mini-app-visual__glow"></div>
+          <div class="mini-app-device mini-app-device--primary">
+            <header class="mini-app-device__header">
+              <span>Verify wallet safety</span>
+              <span class="mini-app-badge">Live</span>
+            </header>
+            <div class="mini-app-device__body">
+              <div class="mini-app-metric">
+                <span class="mini-app-metric__label">Wallet Health</span>
+                <span class="mini-app-metric__value">89</span>
+              </div>
+              <div class="mini-app-device__chart">
+                <span class="mini-app-chart-fill"></span>
+              </div>
+              <div class="mini-app-device__footer">
+                <span>Instant check</span>
+                <span class="mini-app-footnote">1.2s</span>
+              </div>
+            </div>
+          </div>
+          <div class="mini-app-device mini-app-device--secondary">
+            <span class="mini-app-pill">Loyalty program</span>
+            <p>Награждайте пользователей баллами и бонусами прямо в мини-приложении.</p>
+          </div>
+          <div class="mini-app-device mini-app-device--tertiary">
+            <span class="mini-app-pill">Payments</span>
+            <p>Поддержка быстрых и безопасных оплат внутри Telegram.</p>
+          </div>
+          <div class="mini-app-plane" role="presentation">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="planeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#b38cff" />
+                  <stop offset="100%" stop-color="#71e7ff" />
+                </linearGradient>
+              </defs>
+              <path d="M46.4 3.5 4.2 20.6a1.6 1.6 0 0 0 .1 3l11 3.8 4.3 13.4a1.6 1.6 0 0 0 2.9.4l6.3-8.6 12.9 9.4a1.6 1.6 0 0 0 2.5-1l6-31.4a1.6 1.6 0 0 0-2.2-1.8Z" fill="url(#planeGradient)" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <span class="brand-mark">N</span>
+        <span class="brand-text">Neuro Fusion</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html#solutions">Решения</a>
+        <a href="index.html#benefits">Преимущества</a>
+        <a href="index.html#team">Команда</a>
+        <a href="index.html#contact">Контакты</a>
+        <a href="index.html#about">О компании</a>
+        <a href="index.html">Главная</a>
+      </div>
+      <p>© 2024 Neuro Fusion. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.site-nav');
+    const navOverlay = document.querySelector('.nav-overlay');
+
+    if (menuToggle && navigation) {
+      const closeMenu = () => {
+        document.body.classList.remove('nav-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Открыть меню');
+      };
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = document.body.classList.toggle('nav-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+      });
+
+      navigation.querySelectorAll('a, .nav-link').forEach((item) => {
+        item.addEventListener('click', () => {
+          if (document.body.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+      });
+
+      if (navOverlay) {
+        navOverlay.addEventListener('click', () => {
+          if (document.body.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+      }
+
+      const handlePointerDownOutside = (event) => {
+        if (!document.body.classList.contains('nav-open')) {
+          return;
+        }
+
+        const clickedInsideNav = navigation.contains(event.target);
+        const clickedToggle = menuToggle.contains(event.target);
+
+        if (!clickedInsideNav && !clickedToggle) {
+          closeMenu();
+        }
+      };
+
+      document.addEventListener('pointerdown', handlePointerDownOutside);
+
+      let touchStartX = null;
+
+      const handleTouchStart = (event) => {
+        if (!document.body.classList.contains('nav-open')) {
+          return;
+        }
+
+        const touch = event.touches && event.touches[0];
+        touchStartX = touch ? touch.clientX : null;
+      };
+
+      const handleTouchMove = (event) => {
+        if (!document.body.classList.contains('nav-open') || touchStartX === null) {
+          return;
+        }
+
+        const touch = event.touches && event.touches[0];
+        if (!touch) {
+          return;
+        }
+
+        const deltaX = touch.clientX - touchStartX;
+        if (deltaX > 60) {
+          touchStartX = null;
+          closeMenu();
+        }
+      };
+
+      const resetTouchStart = () => {
+        touchStartX = null;
+      };
+
+      navigation.addEventListener('touchstart', handleTouchStart, { passive: true });
+      navigation.addEventListener('touchmove', handleTouchMove, { passive: true });
+      navigation.addEventListener('touchend', resetTouchStart);
+      navigation.addEventListener('touchcancel', resetTouchStart);
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && document.body.classList.contains('nav-open')) {
+          closeMenu();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
