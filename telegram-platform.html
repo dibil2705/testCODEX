@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram-платформа под ключ — Neuro Fusion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.platform-page {
+      background: radial-gradient(120% 120% at 85% 10%, rgba(179, 140, 255, 0.18), transparent 65%),
+        radial-gradient(130% 130% at 5% 90%, rgba(113, 231, 255, 0.12), transparent 70%),
+        #05030c;
+    }
+
+    .platform-page main {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(64px, 8vw, 120px);
+      padding-bottom: clamp(72px, 12vw, 140px);
+    }
+
+    .platform-header {
+      padding: clamp(24px, 6vw, 48px) 0 0;
+    }
+
+    .platform-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .platform-header .brand {
+      text-decoration: none;
+    }
+
+    .platform-header .back-link {
+      color: var(--color-muted);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(179, 140, 255, 0.25);
+      background: rgba(12, 7, 24, 0.55);
+      transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+    }
+
+    .platform-header .back-link:hover,
+    .platform-header .back-link:focus-visible {
+      color: var(--color-text);
+      border-color: rgba(179, 140, 255, 0.65);
+      background: rgba(28, 16, 52, 0.75);
+      outline: none;
+    }
+
+    .platform-hero {
+      padding: clamp(40px, 8vw, 120px) 0;
+    }
+
+    .platform-hero .container {
+      display: grid;
+      gap: clamp(32px, 6vw, 80px);
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      align-items: center;
+    }
+
+    .platform-hero-text {
+      display: grid;
+      gap: 22px;
+    }
+
+    .platform-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(215, 202, 255, 0.9);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    .platform-hero-eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 44px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(179, 140, 255, 0.9), rgba(113, 231, 255, 0.4));
+      border-radius: 999px;
+    }
+
+    .platform-hero h1 {
+      font-size: clamp(2.2rem, 3.2vw + 1rem, 3.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .platform-hero p {
+      margin: 0;
+      color: var(--color-muted);
+      font-size: clamp(1.05rem, 0.6vw + 1rem, 1.25rem);
+    }
+
+    .platform-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .platform-hero-highlight {
+      display: grid;
+      gap: 16px;
+      padding: clamp(28px, 4vw, 40px);
+      border-radius: 32px;
+      background: linear-gradient(160deg, rgba(47, 22, 88, 0.65), rgba(179, 140, 255, 0.18));
+      border: 1px solid rgba(179, 140, 255, 0.24);
+      box-shadow: var(--shadow-card);
+    }
+
+    .platform-hero-highlight h2 {
+      margin: 0;
+      font-size: clamp(1.45rem, 0.8vw + 1.1rem, 2rem);
+      line-height: 1.2;
+    }
+
+    .platform-hero-highlight p {
+      color: rgba(228, 220, 255, 0.82);
+    }
+
+    .platform-hero-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .platform-hero-list li {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 12px 16px;
+      border-radius: 18px;
+      background: rgba(19, 9, 36, 0.55);
+      border: 1px solid rgba(179, 140, 255, 0.14);
+    }
+
+    .platform-hero-list span.icon {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(179, 140, 255, 0.95), rgba(113, 231, 255, 0.45));
+      color: #1d1140;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .platform-hero-media {
+      justify-self: center;
+    }
+
+    .platform-hero-media-frame {
+      position: relative;
+      width: min(440px, 88vw);
+      padding: clamp(28px, 5vw, 44px);
+      border-radius: 36px;
+      background: linear-gradient(160deg, rgba(41, 18, 78, 0.9), rgba(179, 140, 255, 0.2));
+      border: 1px solid rgba(179, 140, 255, 0.35);
+      box-shadow: 0 35px 80px rgba(9, 4, 22, 0.6);
+      overflow: hidden;
+    }
+
+    .platform-hero-media-frame::after {
+      content: "";
+      position: absolute;
+      inset: 18% -30% -40% -12%;
+      background: radial-gradient(60% 60% at 50% 50%, rgba(113, 231, 255, 0.35), transparent 75%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .platform-hero-media-frame img {
+      position: relative;
+      width: 100%;
+      border-radius: 22px;
+      z-index: 1;
+    }
+
+    /* Clients section */
+    .platform-clients {
+      padding: 0 0 clamp(40px, 6vw, 80px);
+    }
+
+    .platform-section-head {
+      text-align: center;
+      margin: 0 auto clamp(32px, 5vw, 54px);
+      max-width: 720px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .platform-section-head h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 1.4vw + 1.5rem, 2.6rem);
+      letter-spacing: -0.01em;
+    }
+
+    .platform-section-head p {
+      margin: 0;
+      color: var(--color-muted);
+      font-size: 1.05rem;
+    }
+
+    .platform-clients-rail {
+      display: grid;
+      gap: clamp(16px, 2vw, 28px);
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      align-items: center;
+    }
+
+    .platform-client-card {
+      display: grid;
+      place-items: center;
+      padding: 18px 16px;
+      border-radius: 18px;
+      background: linear-gradient(140deg, rgba(24, 12, 46, 0.85), rgba(179, 140, 255, 0.12));
+      border: 1px solid rgba(179, 140, 255, 0.2);
+      color: rgba(228, 220, 255, 0.92);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    /* Service section */
+    .platform-service {
+      padding: 0;
+    }
+
+    .platform-service-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 1fr) minmax(320px, 480px);
+      gap: clamp(32px, 6vw, 80px);
+      align-items: start;
+    }
+
+    .platform-service-text {
+      display: grid;
+      gap: 22px;
+    }
+
+    .platform-service-text h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 1.6vw + 1.4rem, 2.8rem);
+    }
+
+    .platform-service-text p {
+      margin: 0;
+      color: var(--color-muted);
+      font-size: clamp(1.02rem, 0.4vw + 0.95rem, 1.2rem);
+      line-height: 1.75;
+    }
+
+    .platform-service-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .platform-service-list li {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(18, 9, 40, 0.65);
+      border: 1px solid rgba(179, 140, 255, 0.2);
+      color: rgba(228, 220, 255, 0.86);
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .platform-service-panel {
+      padding: clamp(28px, 4vw, 40px);
+      border-radius: 30px;
+      background: linear-gradient(150deg, rgba(179, 140, 255, 0.16), rgba(49, 23, 92, 0.82));
+      border: 1px solid rgba(179, 140, 255, 0.28);
+      box-shadow: var(--shadow-card);
+      display: grid;
+      gap: 18px;
+    }
+
+    .platform-service-panel h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .platform-service-panel p {
+      margin: 0;
+      color: rgba(224, 214, 255, 0.9);
+    }
+
+    .platform-service-panel .panel-stats {
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(10, 6, 22, 0.75);
+      border: 1px solid rgba(179, 140, 255, 0.22);
+      font-size: 0.95rem;
+    }
+
+    .panel-stat strong {
+      font-size: 1.15rem;
+      color: #f5f2ff;
+    }
+
+    .platform-cta {
+      margin-top: 12px;
+    }
+
+    .platform-cta .btn.primary {
+      background: linear-gradient(120deg, #fff 0%, #f2edff 100%);
+      color: #2b1b54;
+      box-shadow: 0 20px 40px rgba(16, 9, 34, 0.45);
+    }
+
+    .platform-cta .btn.primary:hover {
+      background: #ede7ff;
+      color: #241541;
+    }
+
+    @media (max-width: 1100px) {
+      .platform-hero .container,
+      .platform-service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .platform-hero-media {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .platform-header .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .platform-hero-actions {
+        width: 100%;
+      }
+
+      .platform-hero-actions .btn {
+        flex: 1 1 auto;
+        text-align: center;
+      }
+
+      .platform-hero-list li {
+        grid-template-columns: 32px 1fr;
+      }
+
+      .platform-service-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="platform-page">
+  <header class="platform-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Вернуться на главную Neuro Fusion">
+        <span class="brand-mark">N</span>
+        <span class="brand-text">Neuro Fusion</span>
+      </a>
+      <a class="back-link" href="index.html#solutions">Назад к услугам</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="platform-hero" id="top">
+      <div class="container">
+        <div class="platform-hero-media">
+          <div class="platform-hero-media-frame" aria-hidden="true">
+            <img src="./assets/icons/tg_platform.png" alt="Иллюстрация Telegram-платформы" width="400" height="400">
+          </div>
+        </div>
+        <div class="platform-hero-text">
+          <span class="platform-hero-eyebrow">Telegram Platform Studio</span>
+          <h1>Выйдите за рамки чата с сервисами разработки Telegram</h1>
+          <p>Развивайте свой бизнес за счёт собственной Telegram-платформы: единый доступ к продуктам, контенту и продаже услуг с цифровым сервисом в фирменном стиле.</p>
+          <div class="platform-hero-actions">
+            <a class="btn primary" href="#service">Получить консультацию</a>
+            <a class="btn ghost" href="#clients">Портфолио</a>
+          </div>
+          <div class="platform-hero-highlight">
+            <h2>Станьте ближе к аудитории</h2>
+            <p>Мы проектируем сценарии взаимодействия, автоматизируем коммуникации и помогаем вывести Telegram в ключевой канал продаж.</p>
+            <ul class="platform-hero-list" role="list">
+              <li>
+                <span class="icon">1</span>
+                <span>Анализируем ваш продукт и формируем структуру платформы, которая решает задачи бизнеса.</span>
+              </li>
+              <li>
+                <span class="icon">2</span>
+                <span>Настраиваем мини-приложения, автоматизации и интеграции с CRM, платежами и аналитикой.</span>
+              </li>
+              <li>
+                <span class="icon">3</span>
+                <span>Сопровождаем запуск, проводим тестирование и подключаем поддержку 24/7 для стабильной работы.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform-clients" id="clients">
+      <div class="container">
+        <div class="platform-section-head">
+          <p class="platform-hero-eyebrow" aria-hidden="true">Нам доверяют</p>
+          <h2>Клиенты, которые доверяют нам на протяжении многих лет</h2>
+          <p>Работаем с компаниями из торговли, сервисов, EdTech и HoReCa — адаптируем цифровые решения под нишу и процессы.</p>
+        </div>
+        <div class="platform-clients-rail">
+          <div class="platform-client-card">coldz</div>
+          <div class="platform-client-card">sposissimo</div>
+          <div class="platform-client-card">figlio</div>
+          <div class="platform-client-card">gorilla coupon</div>
+          <div class="platform-client-card">moreno</div>
+          <div class="platform-client-card">cashback online</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform-service" id="service">
+      <div class="container platform-service-grid">
+        <div class="platform-service-text">
+          <h2>Сервис по разработке Telegram-ботов</h2>
+          <p>Повышайте вовлечённость пользователей с помощью наших услуг по разработке Telegram-ботов. Команда экспертов построит платформу, которая объединяет продукты, коммуникации и аналитические данные в одном интерфейсе.</p>
+          <p>Создаём ботов, которые решают задачи продаж, сервиса и маркетинга. Подключаем интеграции, обучаем сценарии, обеспечиваем безопасность данных и круглосуточную поддержку.</p>
+          <ul class="platform-service-list" role="list">
+            <li>Боты для поддержки клиентов и продаж 24/7</li>
+            <li>Инфраструктура для обучения, комьюнити и событий</li>
+            <li>Оформление платежей, подписок и бонусных программ</li>
+            <li>Интеграции с CRM, ERP, таблицами и BI-системами</li>
+            <li>Мониторинг, аналитика и регулярные обновления</li>
+            <li>Ведение проекта и обучение вашей команды</li>
+          </ul>
+          <div class="platform-cta">
+            <a class="btn primary" href="#top">Запросить дорожную карту</a>
+          </div>
+        </div>
+        <aside class="platform-service-panel" aria-label="Ключевые показатели Telegram-платформы">
+          <h3>Контроль качества сервиса</h3>
+          <p>Прозрачные KPI и отчётность по каждой воронке позволяют управлять Telegram-платформой как полноценным цифровым каналом.</p>
+          <div class="panel-stats">
+            <div class="panel-stat">
+              <span>Срок запуска</span>
+              <strong>от 21 дня</strong>
+            </div>
+            <div class="panel-stat">
+              <span>Интеграций в библиотеке</span>
+              <strong>20+</strong>
+            </div>
+            <div class="panel-stat">
+              <span>Коммуникаций в месяц</span>
+              <strong>100K+</strong>
+            </div>
+          </div>
+          <p>Доступ к панели аналитики, обучение команды и регулярные обновления входят в стандартную поддержку.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
