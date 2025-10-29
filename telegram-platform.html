@@ -347,6 +347,131 @@
       color: #241541;
     }
 
+    .platform-upgrade {
+      padding: clamp(52px, 10vw, 90px) 0;
+    }
+
+    .upgrade-card {
+      padding: clamp(36px, 6vw, 64px);
+      border-radius: 36px;
+      background: linear-gradient(135deg, rgba(47, 22, 88, 0.85), rgba(179, 140, 255, 0.22));
+      border: 1px solid rgba(179, 140, 255, 0.35);
+      box-shadow: 0 34px 70px rgba(8, 4, 20, 0.6);
+      display: grid;
+      gap: clamp(18px, 3vw, 28px);
+      text-align: center;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .upgrade-card p {
+      color: rgba(225, 216, 255, 0.85);
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+    }
+
+    .upgrade-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .platform-why,
+    .platform-need,
+    .platform-industries {
+      padding: clamp(64px, 10vw, 110px) 0;
+    }
+
+    .platform-why-grid,
+    .platform-need-grid,
+    .platform-industries-grid {
+      display: grid;
+      gap: clamp(20px, 3vw, 30px);
+    }
+
+    .platform-why-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .platform-why-card {
+      padding: clamp(22px, 3vw, 32px);
+      border-radius: 28px;
+      background: linear-gradient(150deg, rgba(25, 12, 48, 0.88), rgba(116, 78, 186, 0.55));
+      border: 1px solid rgba(179, 140, 255, 0.3);
+      box-shadow: 0 24px 44px rgba(8, 4, 20, 0.55);
+      display: grid;
+      gap: 12px;
+    }
+
+    .platform-why-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .platform-why-card p {
+      margin: 0;
+      color: rgba(224, 214, 255, 0.85);
+      font-size: 1rem;
+    }
+
+    .platform-need-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .platform-need-card {
+      padding: clamp(20px, 3vw, 28px);
+      border-radius: 24px;
+      background: linear-gradient(150deg, rgba(20, 9, 44, 0.82), rgba(82, 52, 146, 0.52));
+      border: 1px solid rgba(179, 140, 255, 0.28);
+      box-shadow: 0 20px 38px rgba(9, 4, 22, 0.5);
+      display: grid;
+      gap: 10px;
+    }
+
+    .platform-need-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .platform-need-card p {
+      margin: 0;
+      color: rgba(223, 212, 255, 0.84);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .platform-industries {
+      background: radial-gradient(120% 120% at 90% 10%, rgba(179, 140, 255, 0.22), transparent 65%),
+        radial-gradient(120% 120% at 0% 90%, rgba(113, 231, 255, 0.12), transparent 70%);
+    }
+
+    .platform-industries-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .platform-industry-card {
+      padding: clamp(22px, 3vw, 30px);
+      border-radius: 26px;
+      background: linear-gradient(150deg, rgba(22, 10, 42, 0.85), rgba(105, 68, 174, 0.55));
+      border: 1px solid rgba(179, 140, 255, 0.28);
+      box-shadow: 0 22px 40px rgba(10, 5, 24, 0.5);
+      display: grid;
+      gap: 10px;
+    }
+
+    .platform-industry-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .platform-industry-card p {
+      margin: 0;
+      color: rgba(225, 215, 255, 0.84);
+      font-size: 0.98rem;
+    }
+
     @media (max-width: 1100px) {
       .platform-hero .container,
       .platform-service-grid {
@@ -379,6 +504,21 @@
 
       .platform-service-list {
         grid-template-columns: 1fr;
+      }
+
+      .upgrade-card {
+        text-align: left;
+        justify-items: flex-start;
+      }
+
+      .upgrade-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .upgrade-actions .btn {
+        flex: 1 1 auto;
+        text-align: center;
       }
     }
   </style>
@@ -465,7 +605,7 @@
             <li>Ведение проекта и обучение вашей команды</li>
           </ul>
           <div class="platform-cta">
-            <a class="btn primary" href="#top">Запросить дорожную карту</a>
+            <a class="btn primary" href="#upgrade">Запросить дорожную карту</a>
           </div>
         </div>
         <aside class="platform-service-panel" aria-label="Ключевые показатели Telegram-платформы">
@@ -487,6 +627,131 @@
           </div>
           <p>Доступ к панели аналитики, обучение команды и регулярные обновления входят в стандартную поддержку.</p>
         </aside>
+      </div>
+    </section>
+
+    <section class="platform-upgrade" id="upgrade">
+      <div class="container">
+        <div class="upgrade-card">
+          <h2>Улучшите своё цифровое присутствие с помощью наших услуг по разработке Telegram</h2>
+          <p>Свяжитесь с нашей командой, чтобы создать Telegram-экосистему, которая повышает продажи, автоматизирует сервис и помогает удерживать клиентов.</p>
+          <div class="upgrade-actions">
+            <a class="btn primary" href="index.html#contact">Поговорите с нашим экспертом</a>
+            <a class="btn ghost" href="#why">Что входит в проект</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform-why" id="why">
+      <div class="container">
+        <div class="platform-section-head">
+          <p class="platform-hero-eyebrow" aria-hidden="true">Наши сильные стороны</p>
+          <h2>Почему стоит выбрать Neuro Fusion для разработки Telegram?</h2>
+          <p>Мы выстраиваем экосистему, которая охватывает стратегию, дизайн, интеграции и поддержку, сохраняя фокус на бизнес-результате.</p>
+        </div>
+        <div class="platform-why-grid" role="list">
+          <article class="platform-why-card" role="listitem">
+            <h3>Клиентоориентированные сервисы</h3>
+            <p>Проектируем пользовательские сценарии на основе исследований и данных, чтобы клиенты быстрее достигали своих целей.</p>
+          </article>
+          <article class="platform-why-card" role="listitem">
+            <h3>Комплексная разработка</h3>
+            <p>Выполняем весь цикл: от прототипирования и UX до интеграции CRM, аналитики, платежей и мини-приложений.</p>
+          </article>
+          <article class="platform-why-card" role="listitem">
+            <h3>Опытные инноваторы</h3>
+            <p>Команда инженеров и продакт-менеджеров внедряет лучшие практики ИИ, автоматизации и омниканальности.</p>
+          </article>
+          <article class="platform-why-card" role="listitem">
+            <h3>Прозрачная эксплуатация</h3>
+            <p>Обеспечиваем обслуживание, SLA и обучение команды, чтобы платформа работала стабильно и предсказуемо.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform-need" id="need">
+      <div class="container">
+        <div class="platform-section-head">
+          <p class="platform-hero-eyebrow" aria-hidden="true">Ценность для бизнеса</p>
+          <h2>Почему услуги по разработке Telegram нужны для вашего бизнеса?</h2>
+          <p>Telegram-платформа становится центром коммуникации, продаж и поддержки — мы помогаем превратить аудиторию в устойчивый доход.</p>
+        </div>
+        <div class="platform-need-grid" role="list">
+          <article class="platform-need-card" role="listitem">
+            <h3>Бесшовные платежи</h3>
+            <p>Интегрируем TON и другие платёжные решения для быстрого и безопасного оформления заказов.</p>
+          </article>
+          <article class="platform-need-card" role="listitem">
+            <h3>Персонализация контента</h3>
+            <p>Настраиваем сегментацию и рекомендации, чтобы каждая коммуникация попадала в цель.</p>
+          </article>
+          <article class="platform-need-card" role="listitem">
+            <h3>Автоматизация продаж</h3>
+            <p>Создаём автоворонки и follow-up сценарии, которые подогревают интерес и ускоряют закрытие сделок.</p>
+          </article>
+          <article class="platform-need-card" role="listitem">
+            <h3>Экономия на операциях</h3>
+            <p>Снижаем нагрузку на менеджеров благодаря чат-ботам, интеграциям и self-service сценариям.</p>
+          </article>
+          <article class="platform-need-card" role="listitem">
+            <h3>Глобальная аудитория</h3>
+            <p>Работаем с мультиязычным контентом и поддерживаем международные платежи для выхода на новые рынки.</p>
+          </article>
+          <article class="platform-need-card" role="listitem">
+            <h3>Масштабирование</h3>
+            <p>Готовим инфраструктуру к росту нагрузки: мониторинг, тестирование и резервирование каналов связи.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform-industries" id="industries">
+      <div class="container">
+        <div class="platform-section-head">
+          <p class="platform-hero-eyebrow" aria-hidden="true">Индустриальные кейсы</p>
+          <h2>Какую пользу Telegram может принести каждой отрасли?</h2>
+          <p>Мы настраиваем платформу под конкретные задачи: от eCommerce и HoReCa до EdTech и игровых проектов.</p>
+        </div>
+        <div class="platform-industries-grid" role="list">
+          <article class="platform-industry-card" role="listitem">
+            <h3>Электронная коммерция</h3>
+            <p>Каталоги, корзины и автоматические предложения повышают средний чек и повторные продажи.</p>
+          </article>
+          <article class="platform-industry-card" role="listitem">
+            <h3>Недвижимость</h3>
+            <p>Телеграм-ассистенты подбирают объекты, назначают показы и синхронизируются с CRM.</p>
+          </article>
+          <article class="platform-industry-card" role="listitem">
+            <h3>Путешествия и туризм</h3>
+            <p>Поддерживаем бронирования, отправляем предложения и помогаем сопровождать клиентов в поездке.</p>
+          </article>
+          <article class="platform-industry-card" role="listitem">
+            <h3>Рестораны и доставка</h3>
+            <p>Автоматизируем бронирование столов, доставку и программы лояльности в одном мини-приложении.</p>
+          </article>
+          <article class="platform-industry-card" role="listitem">
+            <h3>EdTech и обучение</h3>
+            <p>Обеспечиваем доступ к урокам, проверку знаний и оплату подписок в удобном интерфейсе.</p>
+          </article>
+          <article class="platform-industry-card" role="listitem">
+            <h3>Медиа и развлечения</h3>
+            <p>Инструменты для публикаций, paywall и live-ивентов помогают монетизировать аудиторию.</p>
+          </article>
+          <article class="platform-industry-card" role="listitem">
+            <h3>Финтех-сервисы</h3>
+            <p>Запускаем консультации, уведомления и сопровождение продуктов с соблюдением требований безопасности.</p>
+          </article>
+          <article class="platform-industry-card" role="listitem">
+            <h3>Игровые проекты</h3>
+            <p>Telegram помогает удерживать игроков через персональные акции, турниры и поддержку сообщества.</p>
+          </article>
+          <article class="platform-industry-card" role="listitem">
+            <h3>Корпоративные коммуникации</h3>
+            <p>Цифровые ассистенты автоматизируют HR-процессы, онбординг и внутренние оповещения.</p>
+          </article>
+        </div>
       </div>
     </section>
   </main>
