@@ -1052,6 +1052,7 @@ body.nav-open .nav-overlay {
   display: grid;
   gap: 48px;
   align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .benefits-content {
@@ -1070,7 +1071,7 @@ body.nav-open .nav-overlay {
 .benefits-image {
   order: 2;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
