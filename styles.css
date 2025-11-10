@@ -1143,21 +1143,9 @@ body.nav-open .nav-overlay {
   flex-wrap: wrap;
 }
 
-.benefits-media {
-  display: flex;
-  justify-content: center;
-}
-
-.benefits-media img {
-  width: min(100%, 440px);
-  border-radius: 28px;
-  border: 1px solid rgba(179, 140, 255, 0.18);
-  box-shadow: 0 30px 60px rgba(6, 2, 14, 0.45);
-}
-
 @media (min-width: 900px) {
   .benefits-layout {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
