@@ -6,11 +6,11 @@
   --color-text: #f5f2ff;
   --color-muted: #b8b1d3;
   --color-line: rgba(255, 255, 255, 0.1);
-  --gradient-page: radial-gradient(140% 180% at 12% 10%, rgba(160, 108, 255, 0.32), transparent 62%),
-    radial-gradient(120% 200% at 88% 14%, rgba(88, 220, 255, 0.2), transparent 60%),
-    radial-gradient(160% 160% at 46% 112%, rgba(255, 90, 198, 0.18), transparent 70%),
-    linear-gradient(180deg, #14072c 0%, #09031a 48%, #020005 100%);
-  --gradient-hero: var(--gradient-page);
+  --gradient-page: radial-gradient(140% 180% at 12% 10%, rgba(128, 78, 221, 0.25), transparent 58%),
+    radial-gradient(120% 200% at 88% 14%, rgba(54, 149, 181, 0.16), transparent 54%),
+    radial-gradient(160% 160% at 46% 112%, rgba(156, 58, 156, 0.15), transparent 64%),
+    linear-gradient(185deg, #0a0315 0%, #04010b 42%, #010005 70%, #000000 100%);
+  --gradient-hero: linear-gradient(185deg, #090214 0%, #04000a 38%, #010005 68%, #000000 100%);
   --shadow-soft: 0 30px 60px rgba(0, 0, 0, 0.35);
   --shadow-card: 0 18px 30px rgba(0, 0, 0, 0.4);
 }
@@ -197,7 +197,7 @@ body.nav-open .nav-overlay {
 .hero {
   padding: 120px 0 80px;
   position: relative;
-  background: transparent;
+  background: var(--gradient-hero);
   overflow: hidden;
 }
 
@@ -432,7 +432,7 @@ body.nav-open .nav-overlay {
 }
 
 .industries {
-  background: transparent;
+  background: var(--gradient-hero);
 }
 
 .industry-grid {
@@ -2811,20 +2811,8 @@ body.mini-app-page {
 .solutions {
   position: relative;
   padding: clamp(96px, 12vw, 150px) 0;
-  background:
-    radial-gradient(120% 140% at 85% 0%, rgba(113, 231, 255, 0.22), transparent 65%),
-    radial-gradient(130% 140% at 10% 10%, rgba(179, 140, 255, 0.28), transparent 60%),
-    linear-gradient(170deg, rgba(9, 5, 18, 0.95), rgba(14, 9, 32, 0.98));
+  background: var(--gradient-hero);
   overflow: hidden;
-}
-
-.solutions::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 80%, rgba(92, 64, 196, 0.25), transparent 65%);
-  mix-blend-mode: screen;
-  pointer-events: none;
 }
 
 .solutions .container {
