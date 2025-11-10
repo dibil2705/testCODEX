@@ -6,13 +6,14 @@
   --color-text: #f5f2ff;
   --color-muted: #b8b1d3;
   --color-line: rgba(255, 255, 255, 0.1);
-  --gradient-page: radial-gradient(140% 180% at 12% 10%, rgba(128, 78, 221, 0.25), transparent 58%),
-    radial-gradient(120% 200% at 88% 14%, rgba(54, 149, 181, 0.16), transparent 54%),
-    radial-gradient(160% 160% at 46% 112%, rgba(156, 58, 156, 0.15), transparent 64%),
-    linear-gradient(185deg, #0a0315 0%, #04010b 42%, #010005 70%, #000000 100%);
-  --gradient-hero: linear-gradient(185deg, #090214 0%, #04000a 38%, #010005 68%, #000000 100%);
+  --gradient-page:
+    radial-gradient(120% 120% at 15% -10%, rgba(113, 231, 255, 0.2) 0%, rgba(113, 231, 255, 0) 46%),
+    radial-gradient(140% 120% at 85% -20%, rgba(179, 140, 255, 0.24) 0%, rgba(179, 140, 255, 0) 52%),
+    linear-gradient(180deg, #070317 0%, #0d0730 55%, #02000b 100%);
+  --gradient-hero: none;
   --shadow-soft: 0 30px 60px rgba(0, 0, 0, 0.35);
   --shadow-card: 0 18px 30px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
 }
 
 * {
@@ -21,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #02000b;
 }
 
 body {
@@ -28,8 +30,10 @@ body {
   font-family: "Manrope", "Segoe UI", sans-serif;
   color: var(--color-text);
   background: var(--gradient-page);
+  background-color: #02000b;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-size: cover;
   line-height: 1.6;
 }
 
@@ -197,7 +201,7 @@ body.nav-open .nav-overlay {
 .hero {
   padding: 120px 0 80px;
   position: relative;
-  background: var(--gradient-hero);
+  background: transparent;
   overflow: hidden;
 }
 
@@ -432,7 +436,7 @@ body.nav-open .nav-overlay {
 }
 
 .industries {
-  background: var(--gradient-hero);
+  background: transparent;
 }
 
 .industry-grid {
@@ -2811,7 +2815,7 @@ body.mini-app-page {
 .solutions {
   position: relative;
   padding: clamp(96px, 12vw, 150px) 0;
-  background: var(--gradient-hero);
+  background: transparent;
   overflow: hidden;
 }
 
