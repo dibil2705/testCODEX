@@ -132,10 +132,10 @@
     </section>
 
     <section class="section industries" id="industries">
-      <div class="container">
-        <div class="section-head">
+      <div class="container industries-layout">
+        <div class="industries-intro">
           <p class="section-kicker">Решения для бизнеса</p>
-          <h2>Отрасли, которые мы обслуживаем</h2>
+          <h1>Отрасли, которые мы обслуживаем</h1>
           <p class="section-lead">Мы адаптируем Telegram-решения под специфику рынка, чтобы каждая компания получила максимум пользы от цифровых каналов.</p>
         </div>
         <div class="industry-grid" role="list">
@@ -500,6 +500,27 @@
         heroTag.textContent = '';
         typePhrase();
       }, 600);
+    }
+
+    const industryCards = document.querySelectorAll('.industry-card');
+
+    if (industryCards.length) {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+          rootMargin: '0px 0px -10% 0px',
+        }
+      );
+
+      industryCards.forEach((card) => observer.observe(card));
     }
   </script>
 </body>
