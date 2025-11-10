@@ -7,14 +7,11 @@
   --color-muted: #b8b1d3;
   --color-line: rgba(255, 255, 255, 0.1);
   --gradient-page:
-    radial-gradient(120% 120% at 15% -10%, rgba(113, 231, 255, 0.2) 0%, rgba(113, 231, 255, 0) 46%),
-    radial-gradient(140% 120% at 85% -20%, rgba(179, 140, 255, 0.24) 0%, rgba(179, 140, 255, 0) 52%),
-    linear-gradient(180deg, #070317 0%, #0d0730 55%, #02000b 100%);
-  --gradient-hero: none;
-  --shadow-soft: 0 30px 60px rgba(0, 0, 0, 0.35);
-  --shadow-card: 0 18px 30px rgba(0, 0, 0, 0.4);
-  color-scheme: dark;
-}
+    radial-gradient(130% 140% at 50% -10%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(180deg, #060606 0%, #0a0a0a 40%, #000000 100%);
+
+
+  }
 
 * {
   box-sizing: border-box;
