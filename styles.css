@@ -1067,6 +1067,37 @@ body.nav-open .nav-overlay {
   gap: 20px;
 }
 
+.benefits-image {
+  order: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.benefits-image img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 24px;
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.7));
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.benefits-image img:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0 20px 40px rgba(179, 140, 255, 0.25));
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 900px) {
+  .benefits-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits-image {
+    order: -1; /* картинка сверху на мобильных */
+  }
+}
+
 .benefit-card {
   display: flex;
   gap: 20px;
