@@ -34,6 +34,20 @@ body {
   line-height: 1.6;
 }
 
+section {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+section::before,
+section::after {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  content: none !important;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -1436,9 +1450,22 @@ body.nav-open .nav-overlay {
 
 /* Voice agents product page */
 
-.product-page {
-  background: var(--color-bg);
+body.product-page {
   color: var(--color-text);
+  background: var(--gradient-page);
+  background-color: #02000b;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body.platform-page {
+  color: var(--color-text);
+  background: var(--gradient-page);
+  background-color: #02000b;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .product-hero {
@@ -2613,8 +2640,12 @@ body.nav-open .menu-bar:nth-child(3) {
 
 /* ===== Mini app service page ===== */
 body.mini-app-page {
-  background: var(--color-bg);
   color: var(--color-text);
+  background: var(--gradient-page);
+  background-color: #02000b;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .mini-app-hero {
