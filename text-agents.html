@@ -10,6 +10,28 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="product-page">
+  <header class="site-header">
+    <div class="container nav-container">
+      <a class="brand" href="index.html#hero" aria-label="Neuro Fusion">
+        <span class="brand-mark">N</span>
+        <span class="brand-text">Neuro Fusion</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="menu-bar" aria-hidden="true"></span>
+        <span class="menu-bar" aria-hidden="true"></span>
+        <span class="menu-bar" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="primary-navigation" aria-label="Основная навигация">
+        <a href="index.html#solutions">Решения</a>
+        <a href="index.html#benefits">Преимущества</a>
+        <a href="index.html#team">Команда</a>
+        <a href="index.html#contact">Контакты</a>
+        <span class="nav-link disabled" aria-disabled="true">Платформа</span>
+      </nav>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </div>
+  </header>
+
   <main>
     <section class="product-hero text-agents-hero" id="top">
       <div class="container product-hero-container">
@@ -158,11 +180,52 @@
           </div>
           <div class="cta-actions">
             <a class="btn primary" href="mailto:hello@neurofusion.ai">hello@neurofusion.ai</a>
-            <a class="btn ghost" href="https://t.me/neurofusion" target="_blank" rel="noopener">Написать в Telegram</a>
+            <a class="btn ghost" href="https://t.me/NeuroFusion24_bot" target="_blank" rel="noopener">Написать в Telegram</a>
           </div>
         </div>
       </div>
     </section>
   </main>
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.site-nav');
+    const navOverlay = document.querySelector('.nav-overlay');
+
+    if (menuToggle && navigation) {
+      const closeMenu = () => {
+        document.body.classList.remove('nav-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Открыть меню');
+      };
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = document.body.classList.toggle('nav-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+      });
+
+      navigation.querySelectorAll('a, .nav-link').forEach((item) => {
+        item.addEventListener('click', () => {
+          if (document.body.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+      });
+
+      if (navOverlay) {
+        navOverlay.addEventListener('click', () => {
+          if (document.body.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && document.body.classList.contains('nav-open')) {
+          closeMenu();
+        }
+      });
+    }
+  </script>
 </body>
 </html>

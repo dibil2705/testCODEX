@@ -57,10 +57,21 @@
     }
 
     .platform-hero .container {
-      display: grid;
-      gap: clamp(32px, 6vw, 80px);
-      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      display: flex;
+      flex-direction: column;
+      gap: clamp(32px, 6vw, 72px);
+    }
+
+    .platform-hero-main {
+      display: flex;
       align-items: center;
+      flex-wrap: wrap;
+      gap: clamp(32px, 6vw, 80px);
+    }
+
+    .platform-hero-text,
+    .platform-hero-media {
+      flex: 1 1 320px;
     }
 
     .platform-hero-text {
@@ -111,11 +122,14 @@
     .platform-hero-highlight {
       display: grid;
       gap: 16px;
-      padding: clamp(28px, 4vw, 40px);
+      padding: clamp(32px, 4vw, 48px);
       border-radius: 32px;
       background: linear-gradient(160deg, rgba(47, 22, 88, 0.65), rgba(179, 140, 255, 0.18));
       border: 1px solid rgba(179, 140, 255, 0.24);
       box-shadow: var(--shadow-card);
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
     }
 
     .platform-hero-highlight h2 {
@@ -160,7 +174,9 @@
     }
 
     .platform-hero-media {
-      justify-self: end;
+      align-self: center;
+      display: flex;
+      justify-content: center;
     }
 
     .platform-hero-media-frame {
@@ -598,7 +614,6 @@
     }
 
     @media (max-width: 1100px) {
-      .platform-hero .container,
       .platform-service-grid {
         grid-template-columns: 1fr;
       }
@@ -703,37 +718,39 @@
   <main>
     <section class="platform-hero" id="top">
       <div class="container">
-        <div class="platform-hero-text">
-          <span class="platform-hero-eyebrow">Telegram Platform Studio</span>
-          <h1>Выйдите за рамки чата с сервисами разработки Telegram</h1>
-          <p>Развивайте свой бизнес за счёт собственной Telegram-платформы: единый доступ к продуктам, контенту и продаже услуг с цифровым сервисом в фирменном стиле.</p>
-          <div class="platform-hero-actions">
-            <a class="btn primary" href="#service">Получить консультацию</a>
-            <a class="btn ghost" href="#clients">Портфолио</a>
+        <div class="platform-hero-main">
+          <div class="platform-hero-text">
+            <span class="platform-hero-eyebrow">Telegram Platform Studio</span>
+            <h1>Выйдите за рамки чата с сервисами разработки Telegram</h1>
+            <p>Развивайте свой бизнес за счёт собственной Telegram-платформы: единый доступ к продуктам, контенту и продаже услуг с цифровым сервисом в фирменном стиле.</p>
+            <div class="platform-hero-actions">
+              <a class="btn primary" href="#service">Получить консультацию</a>
+              <a class="btn ghost" href="#clients">Портфолио</a>
+            </div>
           </div>
-          <div class="platform-hero-highlight">
-            <h2>Станьте ближе к аудитории</h2>
-            <p>Мы проектируем сценарии взаимодействия, автоматизируем коммуникации и помогаем вывести Telegram в ключевой канал продаж.</p>
-            <ul class="platform-hero-list" role="list">
-              <li>
-                <span class="icon">1</span>
-                <span>Анализируем ваш продукт и формируем структуру платформы, которая решает задачи бизнеса.</span>
-              </li>
-              <li>
-                <span class="icon">2</span>
-                <span>Настраиваем мини-приложения, автоматизации и интеграции с CRM, платежами и аналитикой.</span>
-              </li>
-              <li>
-                <span class="icon">3</span>
-                <span>Сопровождаем запуск, проводим тестирование и подключаем поддержку 24/7 для стабильной работы.</span>
-              </li>
-            </ul>
+          <div class="platform-hero-media">
+            <div class="platform-hero-media-frame" aria-hidden="true">
+              <img src="./assets/img/plamshet.png" alt="Планшет с интерфейсом Telegram-платформы" width="800" height="800" loading="lazy">
+            </div>
           </div>
         </div>
-        <div class="platform-hero-media">
-          <div class="platform-hero-media-frame" aria-hidden="true">
-            <img src="./assets/img/plamshet.png" alt="Планшет с интерфейсом Telegram-платформы" width="800" height="800" loading="lazy">
-          </div>
+        <div class="platform-hero-highlight">
+          <h2>Станьте ближе к аудитории</h2>
+          <p>Мы проектируем сценарии взаимодействия, автоматизируем коммуникации и помогаем вывести Telegram в ключевой канал продаж.</p>
+          <ul class="platform-hero-list" role="list">
+            <li>
+              <span class="icon">1</span>
+              <span>Анализируем ваш продукт и формируем структуру платформы, которая решает задачи бизнеса.</span>
+            </li>
+            <li>
+              <span class="icon">2</span>
+              <span>Настраиваем мини-приложения, автоматизации и интеграции с CRM, платежами и аналитикой.</span>
+            </li>
+            <li>
+              <span class="icon">3</span>
+              <span>Сопровождаем запуск, проводим тестирование и подключаем поддержку 24/7 для стабильной работы.</span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
