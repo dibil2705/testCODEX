@@ -52,8 +52,8 @@
       max-width: 520px;
     }
     .hero-media-frame {
-      width: auto;
-      max-width: min(440px, 90vw);
+      width: min(616px, 90vw);
+      max-width: 100%;
       padding: 0;
       border-radius: 0;
       background: transparent;
@@ -62,6 +62,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    .hero-media-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
     .hero-media-frame .media-placeholder {
       aspect-ratio: 9 / 16;
@@ -172,7 +177,7 @@
 
     /* мокап телефона */
     .why-visual { justify-self: center; }
-    .phone-mock {
+    .section-why .phone-mock {
       width: auto;
       max-width: min(480px, 95vw);
       aspect-ratio: auto;
@@ -187,10 +192,10 @@
       align-items: center;
       padding: 0;
     }
-    .phone-mock::before {
+    .section-why .phone-mock::before {
       content: none;
     }
-    .phone-mock img {
+    .section-why .phone-mock img {
       width: auto;
       max-width: 100%;
       height: auto;
