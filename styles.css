@@ -943,7 +943,7 @@ body.nav-open .nav-overlay {
 
 .text-agents-steps li {
   position: relative;
-  padding: 28px 24px 28px 88px;
+  padding: 28px 24px 28px 96px;
   border-radius: 24px;
   background: rgba(12, 6, 28, 0.72);
   border: 1px solid rgba(179, 140, 255, 0.25);
@@ -954,7 +954,7 @@ body.nav-open .nav-overlay {
   counter-increment: step;
   content: counter(step, decimal-leading-zero);
   position: absolute;
-  left: 24px;
+  left: 18px;
   top: 28px;
   width: 44px;
   height: 44px;
@@ -966,6 +966,16 @@ body.nav-open .nav-overlay {
   background: linear-gradient(135deg, rgba(179, 140, 255, 0.95), rgba(126, 87, 255, 0.65));
   color: #0b0216;
   box-shadow: 0 14px 28px rgba(20, 6, 46, 0.45);
+}
+
+@media (max-width: 640px) {
+  .text-agents-steps li {
+    padding-left: 84px;
+  }
+
+  .text-agents-steps li::before {
+    left: 10px;
+  }
 }
 
 .text-agents-steps h3 {
@@ -2153,6 +2163,89 @@ body.nav-open .menu-bar:nth-child(3) {
 }
 .preview-icons{
   display:flex; gap: 12px; margin-top: 10px;
+}
+
+/* Голосовые агенты — единый стиль карточек */
+.voice-agents-page {
+  --voice-card-bg: linear-gradient(145deg, rgba(20, 10, 40, 0.95), rgba(6, 3, 15, 0.92));
+  --voice-card-border: rgba(179, 140, 255, 0.35);
+  --voice-card-shadow: 0 25px 60px rgba(5, 2, 12, 0.45);
+}
+
+.voice-agents-page .product-hero-card,
+.voice-agents-page .preview-card,
+.voice-agents-page .stat-card,
+.voice-agents-page .usecard,
+.voice-agents-page .step-card,
+.voice-agents-page .case-card,
+.voice-agents-page .cta-card {
+  background: var(--voice-card-bg);
+  border: 1px solid var(--voice-card-border);
+  color: var(--color-text);
+  box-shadow: var(--voice-card-shadow);
+}
+
+.voice-agents-page .preview-bubble {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.voice-agents-page .bubble-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--color-text);
+}
+
+.voice-agents-page .bubble-title,
+.voice-agents-page .stat-title,
+.voice-agents-page .usecard-body h3,
+.voice-agents-page .step-card h3,
+.voice-agents-page .case-card h3,
+.voice-agents-page .cta-card h2 {
+  color: var(--color-text);
+}
+
+.voice-agents-page .bubble-sub,
+.voice-agents-page .stat-desc,
+.voice-agents-page .usecard-body p,
+.voice-agents-page .step-card p,
+.voice-agents-page .case-text,
+.voice-agents-page .cta-card p {
+  color: var(--color-muted);
+}
+
+.voice-agents-page .use-link {
+  color: #c4b5fd;
+  border-bottom-color: rgba(196, 181, 253, 0.45);
+}
+
+.voice-agents-page .use-link:hover {
+  border-bottom-color: #c4b5fd;
+}
+
+.voice-agents-page .stat-card {
+  border-radius: 24px;
+}
+
+.voice-agents-page .step-card {
+  border-radius: 22px;
+}
+
+.voice-agents-page .case-divider {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.voice-agents-page .company-stats,
+.voice-agents-page .tag {
+  color: rgba(232, 226, 255, 0.85);
+}
+
+.voice-agents-page .sep {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.voice-agents-page .case-card {
+  color: var(--color-text);
 }
 .preview-icons .i{
   width: 44px; height: 36px; border-radius: 10px;
