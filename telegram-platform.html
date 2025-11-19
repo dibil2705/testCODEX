@@ -165,28 +165,28 @@
 
     .platform-hero-media-frame {
       position: relative;
-      width: min(440px, 88vw);
-      padding: clamp(28px, 5vw, 44px);
-      border-radius: 36px;
-      background: linear-gradient(160deg, rgba(41, 18, 78, 0.9), rgba(179, 140, 255, 0.2));
-      border: 1px solid rgba(179, 140, 255, 0.35);
-      box-shadow: 0 35px 80px rgba(9, 4, 22, 0.6);
-      overflow: hidden;
+      width: auto;
+      max-width: min(520px, 95vw);
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      overflow: visible;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .platform-hero-media-frame::after {
-      content: "";
-      position: absolute;
-      inset: 18% -30% -40% -12%;
-      background: radial-gradient(60% 60% at 50% 50%, rgba(113, 231, 255, 0.35), transparent 75%);
-      opacity: 0.6;
-      pointer-events: none;
+      content: none;
     }
 
     .platform-hero-media-frame img {
       position: relative;
-      width: 100%;
-      border-radius: 22px;
+      width: auto;
+      max-width: 100%;
+      border-radius: 0;
       z-index: 1;
     }
 
