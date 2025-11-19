@@ -294,10 +294,10 @@
             <p><strong>Эл. почта:</strong> hello@neurofusion.ai</p>
           </div>
         </div>
-        <form class="contact-form">
-          <label>
-            Имя
-            <input type="text" name="name" placeholder="Ваше имя" required>
+          <form class="contact-form" data-form-name="Главная страница">
+            <label>
+              Имя
+              <input type="text" name="name" placeholder="Ваше имя" required>
           </label>
           <label>
             Компания
@@ -348,8 +348,9 @@
       </div>
       <p>© 2024 Neuro Fusion. Все права защищены.</p>
     </div>
-  </footer>
-  <script>
+    </footer>
+    <script src="form-handler.js"></script>
+    <script>
     const menuToggle = document.querySelector('.menu-toggle');
     const navigation = document.querySelector('.site-nav');
     const navOverlay = document.querySelector('.nav-overlay');

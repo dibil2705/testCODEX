@@ -1360,6 +1360,22 @@ body.nav-open .nav-overlay {
   font-size: 1rem;
 }
 
+.form-status {
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  min-height: 1.4em;
+  transition: color 0.3s ease;
+}
+
+.form-status.is-success {
+  color: #7be0b0;
+}
+
+.form-status.is-error {
+  color: #ff9fa2;
+}
+
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: 2px solid rgba(179, 140, 255, 0.45);
@@ -1641,43 +1657,42 @@ body.platform-page {
 
 .product-hero-media {
   position: relative;
-  display: grid;
-  place-items: center;
-  padding: 32px;
-  border-radius: 32px;
-  background: linear-gradient(160deg, rgba(123, 58, 237, 0.25), rgba(37, 15, 82, 0.65));
-  border: 1px solid rgba(179, 140, 255, 0.35);
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-  min-height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  min-height: auto;
 }
 
 .product-hero-media::after {
-  content: "";
-  position: absolute;
-  inset: 16px;
-  border-radius: 28px;
-  border: 1px dashed rgba(255, 255, 255, 0.12);
-  pointer-events: none;
+  display: none;
 }
 
 .hero-image-frame {
   position: relative;
   z-index: 1;
-  width: min(320px, 90%);
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  padding: 28px;
-  border-radius: 26px;
-  background: radial-gradient(circle at 30% 20%, rgba(179, 140, 255, 0.35), transparent 70%),
-    rgba(12, 6, 28, 0.8);
+  width: auto;
+  max-width: min(460px, 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .hero-image-frame img {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
   display: block;
+  border-radius: 0;
+  filter: none;
 }
 
 .text-agents-hero {
