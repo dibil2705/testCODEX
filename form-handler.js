@@ -1,6 +1,6 @@
 (function () {
   const TELEGRAM_BOT_TOKEN = '8382164237:AAFZrv8ruhJEFVmG--poFhe3Ir7g9GU1on0';
-  const TELEGRAM_CHAT_ID = '7425813994';
+  const TELEGRAM_CHAT_ID = '-4928179543';
   const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
 
   const forms = document.querySelectorAll('form.contact-form');

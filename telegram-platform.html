@@ -66,7 +66,7 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: clamp(32px, 6vw, 80px);
+      gap: clamp(32px, 4vw, 64px);
     }
 
     .platform-hero-text,
@@ -77,6 +77,7 @@
     .platform-hero-text {
       display: grid;
       gap: 22px;
+      max-width: min(560px, 100%);
     }
 
     .platform-hero-eyebrow {
@@ -181,7 +182,7 @@
 
     .platform-hero-media-frame {
       position: relative;
-      width: min(800px, 95vw);
+      width: min(640px, 85vw);
       max-width: 100%;
       padding: 0;
       border-radius: 0;
@@ -200,13 +201,27 @@
 
     .platform-hero-media-frame img {
       position: relative;
-      width: 82%;
+      width: min(520px, 78%);
       height: auto;
       object-fit: contain; /* ключевой момент */
       max-width: 100%;
       border-radius: 0;
       z-index: 1;
-      transform: translateX(145px);
+      transform: translateX(60px);
+    }
+
+    @media (min-width: 1200px) {
+      .platform-hero-main {
+        align-items: flex-start;
+      }
+
+      .platform-hero-text {
+        padding-right: clamp(12px, 2vw, 36px);
+      }
+
+      .platform-hero-media-frame img {
+        transform: translateX(80px);
+      }
     }
 
     /* Clients section */
