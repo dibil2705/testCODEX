@@ -17,14 +17,16 @@
     }
 
     .platform-header {
-      padding: clamp(24px, 6vw, 48px) 0 0;
+      padding: clamp(24px, 6vw, 48px) 0 clamp(18px, 5vw, 32px);
     }
 
     .platform-header .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: clamp(16px, 3vw, 32px);
+      flex-wrap: wrap;
+      row-gap: 12px;
     }
 
     .platform-hero {
@@ -59,20 +61,12 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: rgba(215, 202, 255, 0.9);
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      font-size: 0.95rem;
-    }
-
-    .platform-hero-eyebrow::before {
-      content: "";
-      display: inline-block;
-      width: 44px;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(179, 140, 255, 0.9), rgba(113, 231, 255, 0.4));
-      border-radius: 999px;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      min-height: calc(1em * 1.4);
     }
 
     .platform-hero h1 {
