@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram-магазины — Neuro Fusion TGShop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body.tg-shop-page {
+      background: var(--gradient-page);
+    }
+
+    .tg-hero {
+      padding: 96px 0 48px;
+    }
+
+    .tg-hero__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      align-items: center;
+    }
+
+    .tg-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(179, 140, 255, 0.12);
+      color: var(--color-muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
+
+    .tg-hero__title {
+      font-size: clamp(2.2rem, 3vw + 1rem, 3.4rem);
+      margin: 16px 0 12px;
+      line-height: 1.15;
+    }
+
+    .tg-hero__lead {
+      color: var(--color-muted);
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+      max-width: 540px;
+    }
+
+    .tg-hero__actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .tg-hero__note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-muted);
+      font-size: 0.95rem;
+    }
+
+    .tg-hero__visual {
+      position: relative;
+      width: min(620px, 100%);
+      margin-inline: auto;
+    }
+
+    .tg-hero__glow {
+      position: absolute;
+      inset: -40px -60px auto -60px;
+      height: 420px;
+      background: radial-gradient(65% 65% at 50% 40%, rgba(144, 255, 128, 0.25), transparent 60%),
+                  radial-gradient(60% 60% at 30% 30%, rgba(179, 140, 255, 0.28), transparent 60%);
+      filter: blur(12px);
+      z-index: 0;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .tg-hero__phones {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      z-index: 1;
+    }
+
+    .tg-hero__phone {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+      padding: 10px;
+    }
+
+    .tg-hero__phone.secondary {
+      transform: translateY(28px);
+      opacity: 0.92;
+    }
+
+    .tg-hero__badges {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .tg-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      color: var(--color-muted);
+      font-weight: 600;
+    }
+
+    .tg-pill strong { color: var(--color-text); }
+
+    .tg-section {
+      padding: 72px 0;
+    }
+
+    .tg-section h2 {
+      font-size: clamp(1.8rem, 1vw + 1.6rem, 2.6rem);
+      margin: 12px 0;
+    }
+
+    .tg-section__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .tg-section__text p {
+      color: var(--color-muted);
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+
+    .tg-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .tg-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--color-text);
+    }
+
+    .tg-list span {
+      color: var(--color-muted);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .tg-bullet {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(179, 140, 255, 0.45), rgba(144, 255, 128, 0.6));
+      color: #0f0b1f;
+      font-weight: 800;
+      font-size: 14px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .tg-visual-card {
+      position: relative;
+      border-radius: 26px;
+      background: radial-gradient(100% 100% at 50% 50%, rgba(179,140,255,0.1), rgba(0,0,0,0.95));
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 34px;
+      overflow: hidden;
+      box-shadow: 0 20px 48px rgba(0,0,0,0.4);
+    }
+
+    .tg-visual-card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 24px;
+      background: radial-gradient(70% 70% at 50% 35%, rgba(144,255,128,0.18), transparent 60%);
+      filter: blur(10px);
+    }
+
+    .tg-visual-card img {
+      position: relative;
+      z-index: 1;
+      max-width: 360px;
+      margin-inline: auto;
+      display: block;
+    }
+
+    .tg-visual-card.small img { max-width: 420px; }
+
+    .tg-highlight-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 26px;
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .tg-highlight-card h3 { margin: 0; font-size: 1.2rem; }
+
+    .tg-highlight-card p { margin: 0; color: var(--color-muted); }
+
+    .tg-features {
+      padding: 64px 0 40px;
+    }
+
+    .tg-features__head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 32px;
+    }
+
+    .tg-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .tg-feature-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 18px 16px;
+      display: grid;
+      gap: 8px;
+      min-height: 160px;
+    }
+
+    .tg-feature-card h4 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .tg-feature-card p {
+      margin: 0;
+      color: var(--color-muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .tg-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(179, 140, 255, 0.4), rgba(144, 255, 128, 0.65));
+      color: #0c0a1d;
+      font-weight: 800;
+    }
+
+    .tg-why {
+      padding: 48px 0 32px;
+    }
+
+    .tg-why__head {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .tg-why__subtitle {
+      color: var(--color-muted);
+      margin: 10px auto 0;
+      max-width: 640px;
+      font-size: 1rem;
+    }
+
+    .tg-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .tg-metric-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 18px 16px;
+      display: grid;
+      gap: 6px;
+      min-height: 140px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.35);
+    }
+
+    .tg-metric-card strong {
+      font-size: 1.25rem;
+    }
+
+    .tg-metric-card p {
+      margin: 0;
+      color: var(--color-muted);
+      line-height: 1.5;
+    }
+
+    .tg-cta {
+      padding: 36px 0 72px;
+    }
+
+    .tg-cta__wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      align-items: center;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 28px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tg-cta__copy h2 {
+      margin: 8px 0 10px;
+      font-size: clamp(1.8rem, 1vw + 1.4rem, 2.4rem);
+    }
+
+    .tg-cta__copy p {
+      margin: 0 0 18px;
+      color: var(--color-muted);
+      max-width: 460px;
+    }
+
+    .tg-cta__note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-muted);
+      font-weight: 600;
+    }
+
+    .avatar-stack {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .tg-cta__note .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(179, 140, 255, 0.4), rgba(113, 231, 255, 0.25));
+      border: 2px solid rgba(5, 3, 12, 0.85);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+      margin-left: -10px;
+    }
+
+    .tg-cta__note .avatar:first-child {
+      margin-left: 0;
+    }
+
+    .tg-cta__visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .tg-cta__bag {
+      width: min(320px, 100%);
+      aspect-ratio: 1 / 1;
+      border-radius: 32px;
+      background: radial-gradient(120% 120% at 50% 30%, rgba(179, 140, 255, 0.12), transparent 60%),
+                  linear-gradient(165deg, #64b5ff, #4a8bff);
+      position: relative;
+      box-shadow: 0 18px 48px rgba(0,0,0,0.45);
+    }
+
+    .tg-cta__bag::before,
+    .tg-cta__bag::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 10px solid #e6f0ff;
+      width: 60%;
+      height: 60%;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      box-sizing: border-box;
+    }
+
+    .tg-cta__bag::after {
+      width: 40%;
+      height: 40%;
+      top: 16%;
+      border-width: 8px;
+    }
+
+    .tg-cta__badge {
+      position: absolute;
+      inset: 30% 18% 12% 18%;
+      border-radius: 50%;
+      background: #eaf3ff;
+      color: #0b1021;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      text-align: center;
+      padding: 22px;
+      box-shadow: inset 0 0 0 6px rgba(74, 139, 255, 0.2);
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 768px) {
+      .tg-hero { padding: 72px 0 24px; }
+      .tg-hero__phones { grid-template-columns: 1fr; }
+      .tg-hero__phone.secondary { transform: none; }
+      .tg-section { padding: 56px 0; }
+      .tg-visual-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body class="product-page tg-shop-page">
+  <header class="site-header">
+    <div class="container nav-container">
+      <a class="brand" href="index.html#hero" aria-label="Neuro Fusion">
+        <span class="brand-mark">N</span>
+        <span class="brand-text">Neuro Fusion</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="tgshop-navigation">
+        <span class="menu-bar" aria-hidden="true"></span>
+        <span class="menu-bar" aria-hidden="true"></span>
+        <span class="menu-bar" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="tgshop-navigation" aria-label="Основная навигация">
+        <a href="index.html#solutions">Решения</a>
+        <a href="index.html#industries">Отрасли</a>
+        <a href="index.html#benefits">Преимущества</a>
+        <a href="index.html#about">О компании</a>
+        <a href="index.html#team">Команда</a>
+        <a href="index.html#contact">Контакты</a>
+      </nav>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="tg-hero" id="hero">
+      <div class="container tg-hero__grid">
+        <div class="tg-hero__text">
+          <span class="tg-hero__eyebrow">TGShop • Конструктор Telegram-магазина</span>
+          <h1 class="tg-hero__title">Создайте магазин в&nbsp;Телеграме и&nbsp;начните продавать</h1>
+          <p class="tg-hero__lead">Соберите каталог за 15 минут, подключите оплату и доставку, принимайте заказы прямо в чате без лишней бюрократии.</p>
+          <div class="tg-hero__actions">
+            <a class="btn primary" href="#start">Попробовать бесплатно</a>
+            <a class="btn ghost" href="#showcase">Примеры магазинов</a>
+          </div>
+          <div class="tg-hero__note">
+            <span aria-hidden="true">⭐️</span>
+            <span>Более 1,5k предпринимателей уже продают через TGShop</span>
+          </div>
+          <div class="tg-hero__badges" aria-label="Ключевые преимущества TGShop">
+            <div class="tg-pill"><strong>10 минут</strong> до запуска каталога</div>
+            <div class="tg-pill"><strong>21%+</strong> прирост конверсии</div>
+            <div class="tg-pill"><strong>15+ интеграций</strong> с оплатой и доставкой</div>
+          </div>
+        </div>
+
+        <div class="tg-hero__visual" aria-hidden="true">
+          <div class="tg-hero__glow"></div>
+          <div class="tg-hero__phones">
+            <div class="tg-hero__phone">
+              <img src="assets/img/phoneAI.png" alt="Витрина Telegram-магазина">
+            </div>
+            <div class="tg-hero__phone secondary">
+              <img src="assets/img/phone-black.png" alt="Корзина Telegram-магазина">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tg-section" id="showcase">
+      <div class="container tg-section__grid">
+        <div class="tg-section__text">
+          <span class="tg-hero__eyebrow">Без переходов в бот</span>
+          <h2>Продавайте в 2 клика</h2>
+          <p>Каталог открывается прямо в канале или чате — без лишних шагов. Покупатели видят товары, закрепляют ссылку и возвращаются за повторными покупками.</p>
+          <ul class="tg-list" role="list">
+            <li><span class="tg-bullet">1</span><div><strong>Встраивается в ваш канал</strong><span>Показывайте витрину под постами и сторис.</span></div></li>
+            <li><span class="tg-bullet">2</span><div><strong>Без переходов в бот</strong><span>Пользователь сразу просматривает каталог.</span></div></li>
+            <li><span class="tg-bullet">3</span><div><strong>Закрепляется навсегда</strong><span>Быстрый доступ к товарам для постоянных клиентов.</span></div></li>
+          </ul>
+        </div>
+        <div class="tg-visual-card" aria-hidden="true">
+          <img src="assets/img/phoneAI.png" alt="Витрина TGShop в Telegram">
+        </div>
+      </div>
+    </section>
+
+    <section class="tg-section">
+      <div class="container tg-section__grid">
+        <div class="tg-visual-card" aria-hidden="true">
+          <img src="assets/img/ManAI.png" alt="График роста продаж в TGShop">
+        </div>
+        <div class="tg-section__text">
+          <span class="tg-hero__eyebrow">Рост среднего чека</span>
+          <h2>Увеличьте продажи</h2>
+          <p>Конверсия покупок через Telegram достигает 21%. В TGShop средний чек выше, чем на маркетплейсах, а маркетинговые инструменты помогают стимулировать повторные продажи.</p>
+          <div class="tg-highlight-card">
+            <h3>Маркетинг без сложностей</h3>
+            <p>Реферальные ссылки, промокоды и триггерные рассылки помогают удерживать и возвращать клиентов без допзатрат.</p>
+            <p><strong>Без монополизации:</strong> база остаётся у вас, а покупатели покупают напрямую.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tg-section" id="start">
+      <div class="container tg-section__grid">
+        <div class="tg-section__text">
+          <span class="tg-hero__eyebrow">Старт за 15 минут</span>
+          <h2>Запускайтесь уже сегодня</h2>
+          <p>Мы делаем магазин прозрачным: добавляйте товары, подключайте оплату и доставку, принимайте заказы моментально.</p>
+          <ul class="tg-list" role="list">
+            <li><span class="tg-bullet">✓</span><div><strong>Простой интерфейс</strong><span>Без кода, всё на русском.</span></div></li>
+            <li><span class="tg-bullet">✓</span><div><strong>Каталог за 15 минут</strong><span>Импортируйте прайс или добавляйте карточки вручную.</span></div></li>
+            <li><span class="tg-bullet">✓</span><div><strong>Приём заказов сразу</strong><span>Чеки, уведомления и CRM-интеграции — из коробки.</span></div></li>
+            <li><span class="tg-bullet">✓</span><div><strong>Минимум бюрократии</strong><span>Без сложных договоров и долгих внедрений.</span></div></li>
+          </ul>
+        </div>
+        <div class="tg-visual-card small" aria-hidden="true">
+          <img src="assets/img/plamshet.png" alt="Создание товаров в TGShop">
+        </div>
+      </div>
+    </section>
+
+    <section class="tg-features" aria-labelledby="tgshop-title">
+      <div class="container">
+        <div class="tg-features__head">
+          <span class="tg-hero__eyebrow">TGShop — конструктор</span>
+          <h2 id="tgshop-title">TGShop — конструктор интернет-магазинов для бизнеса</h2>
+          <p class="tg-hero__lead" style="margin: 8px auto 0; max-width: 720px;">Комбинируйте нужные модули: загрузка товаров, аналитика, автоматическое обновление остатков и интеграции оплаты. Блоки расположены компактно, чтобы быстрее выбрать нужное.</p>
+        </div>
+        <div class="tg-feature-grid">
+          <article class="tg-feature-card">
+            <div class="tg-chip" aria-hidden="true">↑</div>
+            <h4>Импорт каталога</h4>
+            <p>Загрузите весь ассортимент одним файлом или синхронизируйтесь с учётной системой.</p>
+          </article>
+          <article class="tg-feature-card">
+            <div class="tg-chip" aria-hidden="true">↻</div>
+            <h4>Автообновление остатков</h4>
+            <p>Остатки обновляются автоматически, чтобы избежать пересортицы и отмен.</p>
+          </article>
+          <article class="tg-feature-card">
+            <div class="tg-chip" aria-hidden="true">🚚</div>
+            <h4>Доставка без сложностей</h4>
+            <p>Подключите СДЭК, 5post или собственную курьерку, чтобы клиент сразу видел стоимость.</p>
+          </article>
+          <article class="tg-feature-card">
+            <div class="tg-chip" aria-hidden="true">📈</div>
+            <h4>Управляйте эффективностью</h4>
+            <p>Следите за заказами, аналитикой и уведомлениями прямо в Telegram или веб-кабинете.</p>
+          </article>
+          <article class="tg-feature-card">
+            <div class="tg-chip" aria-hidden="true">💳</div>
+            <h4>Оплата на выбор</h4>
+            <p>Stripe, ЮKassa, Paycom и другие провайдеры — подключайте то, что удобно клиентам.</p>
+          </article>
+          <article class="tg-feature-card">
+            <div class="tg-chip" aria-hidden="true">🔗</div>
+            <h4>Интеграции</h4>
+            <p>Связывайте магазин с CRM, кассой и складом, чтобы данные сходились без ручных операций.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tg-why" aria-labelledby="why-telegram">
+      <div class="container">
+        <div class="tg-why__head">
+          <h2 id="why-telegram">Почему телеграм?</h2>
+          <p class="tg-why__subtitle">Покупатели привыкли к удобству мессенджера: продавать в Telegram — значит быть ближе к аудитории и получать быстрые продажи.</p>
+        </div>
+        <div class="tg-metrics">
+          <article class="tg-metric-card">
+            <strong>950 млн</strong>
+            <p>Пользователей по всему миру, которым можно продавать уже сегодня.</p>
+          </article>
+          <article class="tg-metric-card">
+            <strong>75%</strong>
+            <p>Взрослой и платежеспособной аудитории старше 25 лет.</p>
+          </article>
+          <article class="tg-metric-card">
+            <strong>№1</strong>
+            <p>Мессенджер в России: крупные компании уже продают в Telegram.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tg-cta" aria-labelledby="cta-launch">
+      <div class="container tg-cta__wrap">
+        <div class="tg-cta__copy">
+          <span class="tg-hero__eyebrow">Бесплатная регистрация</span>
+          <h2 id="cta-launch">Вы в шаге от запуска магазина</h2>
+          <p>Создайте витрину, подключите оплату и начните продавать уже сегодня — TGShop берёт на себя сложное.</p>
+          <div class="tg-hero__actions" style="margin-bottom: 12px;">
+            <a class="btn primary" href="#start">Создать магазин</a>
+          </div>
+          <div class="tg-cta__note">
+            <div class="avatar-stack" aria-hidden="true">
+              <span class="avatar"></span><span class="avatar"></span><span class="avatar"></span><span class="avatar"></span><span class="avatar"></span>
+            </div>
+            <span aria-label="Более 1.5 тысяч пользователей рекомендуют">Более 1,5k пользователей рекомендуют</span>
+          </div>
+        </div>
+        <div class="tg-cta__visual" aria-hidden="true">
+          <div class="tg-cta__bag">
+            <div class="tg-cta__badge">Создать<br>магазин</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.site-nav');
+    const overlay = document.querySelector('.nav-overlay');
+
+    const closeNav = () => {
+      nav.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.classList.remove('nav-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      overlay.classList.toggle('open');
+      document.body.classList.toggle('nav-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    overlay?.addEventListener('click', closeNav);
+    nav?.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeNav();
+        menuToggle?.focus();
+      }
+    });
+  </script>
+</body>
+</html>
