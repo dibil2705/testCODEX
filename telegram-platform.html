@@ -24,9 +24,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: clamp(16px, 3vw, 32px);
-      flex-wrap: wrap;
-      row-gap: 12px;
+      gap: clamp(16px, 3vw, 24px);
+      flex-wrap: nowrap;
     }
 
     .platform-hero {
@@ -378,8 +377,7 @@
     .platform-why,
     .platform-need,
     .platform-industries,
-    .platform-consult,
-    .platform-faq {
+    .platform-consult {
       padding: clamp(64px, 10vw, 110px) 0;
     }
 
@@ -525,80 +523,6 @@
       padding-top: 0;
     }
 
-    .platform-faq .platform-section-head {
-      max-width: 820px;
-    }
-
-    .faq-accordion {
-      display: grid;
-      gap: 18px;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border-radius: 22px;
-      border: 1px solid rgba(179, 140, 255, 0.35);
-      background: rgba(20, 9, 46, 0.78);
-      box-shadow: 0 22px 44px rgba(6, 3, 16, 0.55);
-      overflow: hidden;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    }
-
-    .faq-item[open] {
-      border-color: rgba(199, 174, 255, 0.65);
-      background: rgba(34, 16, 70, 0.92);
-      box-shadow: 0 30px 70px rgba(8, 4, 20, 0.6);
-    }
-
-    .faq-item summary {
-      list-style: none;
-      padding: clamp(18px, 2.6vw, 26px) clamp(20px, 3vw, 30px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: clamp(1.02rem, 0.6vw + 1rem, 1.28rem);
-      color: #f5f2ff;
-    }
-
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::after {
-      content: "+";
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 1px solid rgba(199, 174, 255, 0.6);
-      background: rgba(15, 5, 38, 0.75);
-      transition: transform 0.3s ease, background 0.3s ease;
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.92);
-      flex-shrink: 0;
-    }
-
-    .faq-item[open] summary::after {
-      content: "−";
-      transform: rotate(180deg);
-      background: linear-gradient(140deg, rgba(179, 140, 255, 0.9), rgba(113, 231, 255, 0.55));
-      color: #1d1140;
-    }
-
-    .faq-item p {
-      margin: 0;
-      color: rgba(225, 215, 255, 0.9);
-      font-size: 1.02rem;
-      line-height: 1.7;
-      padding: 0 clamp(20px, 3vw, 30px) clamp(20px, 3vw, 30px);
-    }
-
     @media (max-width: 1100px) {
       .platform-service-grid {
         grid-template-columns: 1fr;
@@ -618,22 +542,9 @@
       .platform-consult-actions {
         justify-content: flex-start;
       }
-
-      .platform-faq .platform-section-head {
-        text-align: left;
-      }
-
-      .faq-item summary {
-        align-items: flex-start;
-      }
     }
 
     @media (max-width: 640px) {
-      .platform-header .container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
       .platform-hero-actions {
         width: 100%;
       }
@@ -679,14 +590,6 @@
         flex: 1 1 auto;
         text-align: center;
       }
-
-      .faq-accordion {
-        gap: 14px;
-      }
-
-      .faq-item summary {
-        font-size: 1rem;
-      }
     }
   </style>
 </head>
@@ -730,7 +633,7 @@
           </div>
           <div class="platform-hero-media">
             <div class="platform-hero-media-frame" aria-hidden="true">
-              <img src="./assets/img/plamshet.png" alt="Планшет с интерфейсом Telegram-платформы" width="880" height="880" loading="lazy">
+              <img class="hide-on-mobile" src="./assets/img/plamshet.png" alt="Планшет с интерфейсом Telegram-платформы" width="880" height="880" loading="lazy">
             </div>
           </div>
         </div>
@@ -951,37 +854,66 @@
       </div>
     </section>
 
-    <section class="platform-faq" id="faq">
+    <section class="platform-faq nf-faq" id="faq">
       <div class="container">
-        <div class="platform-section-head">
-          <p class="platform-hero-eyebrow" aria-hidden="true">FAQ</p>
+        <div class="faq-header">
           <h2>Часто задаваемые вопросы</h2>
           <p>Собрали ответы на основные вопросы, которые помогают понять ценность Telegram-платформы и наш подход к разработке.</p>
         </div>
-        <div class="faq-accordion" role="list">
+        <div class="faq-list" role="list">
           <details class="faq-item" role="listitem" open>
-            <summary>Какие преимущества даёт использование Telegram для моего бизнеса?</summary>
-            <p>Telegram объединяет ботов, каналы и мини-приложения, что позволяет выстраивать прямой диалог с аудиторией, автоматизировать процессы и повышать качество сервиса. Мы адаптируем инструменты под вашу бизнес-модель, чтобы усилить вовлечённость и выстроить конверсионные сценарии.</p>
+            <summary>
+              <span>Какие преимущества даёт использование Telegram для моего бизнеса?</span>
+              <svg viewBox="0 0 24 16" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0.361142 1.28234C0.900274 0.542889 1.84722 0.457253 2.47621 1.09107L12 10.688L21.5238 1.09107C22.1528 0.457253 23.0997 0.542889 23.6389 1.28234C24.178 2.0218 24.1052 3.13505 23.4762 3.76887L12 15.3332L0.523839 3.76887C-0.105148 3.13505 -0.177991 2.0218 0.361142 1.28234Z" /></svg>
+            </summary>
+            <div class="faq-item__content">
+              <p>Telegram объединяет ботов, каналы и мини-приложения, что позволяет выстраивать прямой диалог с аудиторией, автоматизировать процессы и повышать качество сервиса. Мы адаптируем инструменты под вашу бизнес-модель, чтобы усилить вовлечённость и выстроить конверсионные сценарии.</p>
+            </div>
           </details>
           <details class="faq-item" role="listitem">
-            <summary>Могу ли я настроить Telegram-ботов под конкретные требования моего бизнеса?</summary>
-            <p>Да, мы разрабатываем полностью кастомные Telegram-боты под ваши процессы. Настраиваем автоматизацию поддержки, оформления заказов, транзакций или комьюнити — всё, что помогает решать задачи продаж, сервиса и маркетинга.</p>
+            <summary>
+              <span>Могу ли я настроить Telegram-ботов под конкретные требования моего бизнеса?</span>
+              <svg viewBox="0 0 24 16" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0.361142 1.28234C0.900274 0.542889 1.84722 0.457253 2.47621 1.09107L12 10.688L21.5238 1.09107C22.1528 0.457253 23.0997 0.542889 23.6389 1.28234C24.178 2.0218 24.1052 3.13505 23.4762 3.76887L12 15.3332L0.523839 3.76887C-0.105148 3.13505 -0.177991 2.0218 0.361142 1.28234Z" /></svg>
+            </summary>
+            <div class="faq-item__content">
+              <p>Да, мы разрабатываем полностью кастомные Telegram-боты под ваши процессы. Настраиваем автоматизацию поддержки, оформления заказов, транзакций или комьюнити — всё, что помогает решать задачи продаж, сервиса и маркетинга.</p>
+            </div>
           </details>
           <details class="faq-item" role="listitem">
-            <summary>Насколько безопасны решения Telegram, которые вы создаёте?</summary>
-            <p>Мы опираемся на встроенные механизмы безопасности Telegram и дополняем их собственными практиками защиты данных. Каждое решение проходит аудит прав доступа, шифрование и мониторинг, чтобы обеспечить надёжность и соответствие требованиям вашей отрасли.</p>
+            <summary>
+              <span>Насколько безопасны решения Telegram, которые вы создаёте?</span>
+              <svg viewBox="0 0 24 16" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0.361142 1.28234C0.900274 0.542889 1.84722 0.457253 2.47621 1.09107L12 10.688L21.5238 1.09107C22.1528 0.457253 23.0997 0.542889 23.6389 1.28234C24.178 2.0218 24.1052 3.13505 23.4762 3.76887L12 15.3332L0.523839 3.76887C-0.105148 3.13505 -0.177991 2.0218 0.361142 1.28234Z" /></svg>
+            </summary>
+            <div class="faq-item__content">
+              <p>Мы опираемся на встроенные механизмы безопасности Telegram и дополняем их собственными практиками защиты данных. Каждое решение проходит аудит прав доступа, шифрование и мониторинг, чтобы обеспечить надёжность и соответствие требованиям вашей отрасли.</p>
+            </div>
           </details>
           <details class="faq-item" role="listitem">
-            <summary>Какие типы мини-приложений Telegram вы можете разработать?</summary>
-            <p>Создаём мини-приложения для e-commerce, бронирований, обучающих платформ, программ лояльности и других цифровых сервисов. Интерфейсы проектируются так, чтобы пользователям было удобно совершать действия прямо внутри Telegram.</p>
+            <summary>
+              <span>Какие типы мини-приложений Telegram вы можете разработать?</span>
+              <svg viewBox="0 0 24 16" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0.361142 1.28234C0.900274 0.542889 1.84722 0.457253 2.47621 1.09107L12 10.688L21.5238 1.09107C22.1528 0.457253 23.0997 0.542889 23.6389 1.28234C24.178 2.0218 24.1052 3.13505 23.4762 3.76887L12 15.3332L0.523839 3.76887C-0.105148 3.13505 -0.177991 2.0218 0.361142 1.28234Z" /></svg>
+            </summary>
+            <div class="faq-item__content">
+              <p>Создаём мини-приложения для e-commerce, бронирований, обучающих платформ, программ лояльности и других цифровых сервисов. Интерфейсы проектируются так, чтобы пользователям было удобно совершать действия прямо внутри Telegram.</p>
+            </div>
           </details>
           <details class="faq-item" role="listitem">
-            <summary>Как ваши Telegram-решения улучшают взаимодействие с клиентами?</summary>
-            <p>Мы автоматизируем ответы, строим персонализированные сценарии и интегрируем платформу с CRM и аналитикой. Это ускоряет обработку запросов, повышает удовлетворённость клиентов и помогает отслеживать эффективность коммуникаций.</p>
+            <summary>
+              <span>Как ваши Telegram-решения улучшают взаимодействие с клиентами?</span>
+              <svg viewBox="0 0 24 16" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0.361142 1.28234C0.900274 0.542889 1.84722 0.457253 2.47621 1.09107L12 10.688L21.5238 1.09107C22.1528 0.457253 23.0997 0.542889 23.6389 1.28234C24.178 2.0218 24.1052 3.13505 23.4762 3.76887L12 15.3332L0.523839 3.76887C-0.105148 3.13505 -0.177991 2.0218 0.361142 1.28234Z" /></svg>
+            </summary>
+            <div class="faq-item__content">
+              <p>Мы автоматизируем ответы, строим персонализированные сценарии и интегрируем платформу с CRM и аналитикой. Это ускоряет обработку запросов, повышает удовлетворённость клиентов и помогает отслеживать эффективность коммуникаций.</p>
+            </div>
           </details>
           <details class="faq-item" role="listitem">
-            <summary>Предоставляете ли вы поддержку после запуска решения в Telegram?</summary>
-            <p>Да, обеспечиваем пострелизное сопровождение: мониторинг, обновления, развитие функциональности и обучение команды. Вы получаете надёжного партнёра, который следит за стабильностью и помогает масштабировать платформу.</p>
+            <summary>
+              <span>Предоставляете ли вы поддержку после запуска решения в Telegram?</span>
+              <svg viewBox="0 0 24 16" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0.361142 1.28234C0.900274 0.542889 1.84722 0.457253 2.47621 1.09107L12 10.688L21.5238 1.09107C22.1528 0.457253 23.0997 0.542889 23.6389 1.28234C24.178 2.0218 24.1052 3.13505 23.4762 3.76887L12 15.3332L0.523839 3.76887C-0.105148 3.13505 -0.177991 2.0218 0.361142 1.28234Z" /></svg>
+            </summary>
+            <div class="faq-item__content">
+              <p>Да, обеспечиваем пострелизное сопровождение: мониторинг, обновления, развитие функциональности и обучение команды. Вы получаете надёжного партнёра, который следит за стабильностью и помогает масштабировать платформу.</p>
+            </div>
           </details>
         </div>
       </div>
