@@ -590,6 +590,29 @@
         flex: 1 1 auto;
         text-align: center;
       }
+    .tg-bot-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .tg-bot-list li {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tg-bot-list a {
+      color: #fff;
+      font-weight: 700;
+      word-break: break-all;
+    }
     }
   </style>
 </head>
@@ -597,7 +620,7 @@
   <header class="site-header platform-header">
     <div class="container nav-container">
       <a class="brand" href="index.html" aria-label="Вернуться на главную Neuro Fusion">
-        <span class="brand-mark">N</span>
+        <img class="brand-mark" src="assets/icons/logo_NF.png" alt="Логотип Neuro Fusion">
         <span class="brand-text">Neuro Fusion</span>
       </a>
       <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-navigation">
@@ -853,6 +876,24 @@
       </div>
     </section>
 
+    <section class="platform-highlight" aria-labelledby="bot-examples">
+      <div class="container platform-grid">
+        <div class="platform-copy">
+          <p class="platform-eyebrow">Примеры наших ботов</p>
+          <h2 id="bot-examples">Как выглядят запущенные проекты</h2>
+          <p>Посмотрите живые примеры Telegram-ботов, которые мы поддерживаем. Каждый бот демонстрирует подход к сценариям, дизайну и интеграциям.</p>
+        </div>
+        <div class="platform-card">
+          <ul class="tg-bot-list" aria-label="Ссылки на Telegram-ботов">
+            <li><a href="https://t.me/Vyacheslav_Khortiev_bot" target="_blank" rel="noopener">https://t.me/Vyacheslav_Khortiev_bot</a></li>
+            <li><a href="https://t.me/Olga_MoiseevaPsy_bot" target="_blank" rel="noopener">https://t.me/Olga_MoiseevaPsy_bot</a></li>
+            <li><a href="https://t.me/GLYANEC_POLYANA_bot" target="_blank" rel="noopener">https://t.me/GLYANEC_POLYANA_bot</a></li>
+            <li><a href="https://t.me/Fatum_BRICS_bot" target="_blank" rel="noopener">https://t.me/Fatum_BRICS_bot</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section class="platform-faq nf-faq" id="faq">
       <div class="container">
         <div class="faq-header">
@@ -922,7 +963,7 @@
   <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-brand">
-        <span class="brand-mark">N</span>
+        <img class="brand-mark" src="assets/icons/logo_NF.png" alt="Логотип Neuro Fusion">
         <span class="brand-text">Neuro Fusion</span>
       </div>
       <div class="footer-links">

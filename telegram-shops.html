@@ -415,6 +415,32 @@
       border-width: 8px;
     }
 
+    .tg-bot-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tg-bot-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .tg-bot-list code {
+      font-weight: 700;
+      color: #fff;
+      background: rgba(0,0,0,0.28);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
     .tg-cta__badge {
       position: absolute;
       inset: 30% 18% 12% 18%;
@@ -443,7 +469,7 @@
   <header class="site-header">
     <div class="container nav-container">
       <a class="brand" href="index.html#hero" aria-label="Neuro Fusion">
-        <span class="brand-mark">N</span>
+        <img class="brand-mark" src="assets/icons/logo_NF.png" alt="Логотип Neuro Fusion">
         <span class="brand-text">Neuro Fusion</span>
       </a>
       <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="tgshop-navigation">
@@ -615,6 +641,25 @@
             <strong>№1</strong>
             <p>Мессенджер в России: крупные компании уже продают в Telegram.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tg-section" aria-labelledby="tg-bots-title">
+      <div class="container tg-section__grid">
+        <div class="tg-section__text">
+          <span class="tg-hero__eyebrow">Примеры наших работ</span>
+          <h2 id="tg-bots-title">Телеграм-боты, которые уже продают</h2>
+          <p>Посмотрите, как оформлены проекты в Telegram. Каждый бот отражает бренд клиента и решает конкретную задачу.</p>
+        </div>
+        <div class="tg-visual-card">
+          <ul class="tg-bot-list" aria-label="Список наших Telegram-ботов">
+            <li><code>@WearDemoBot</code><span>Пример fashion-витрины</span></li>
+            <li><code>@GadzhetDemoBot</code><span>Гаджеты и электроника</span></li>
+            <li><code>@MyZooShopBot</code><span>Зоотовары и подписки</span></li>
+            <li><code>@fortboutique_bot</code><span>Бутик с подборкой товаров</span></li>
+            <li><code>@FurniDemoBot</code><span>Мебель и интерьер</span></li>
+          </ul>
         </div>
       </div>
     </section>
