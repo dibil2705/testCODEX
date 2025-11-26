@@ -14,6 +14,7 @@
     email: 'Email',
     project: 'Задача',
     phone: 'Телефон',
+    telegram: 'Telegram',
   };
 
   const buildMessage = (form, formData) => {
@@ -49,6 +50,17 @@
       event.preventDefault();
       statusNode.textContent = 'Отправляем заявку...';
       statusNode.classList.remove('is-success', 'is-error');
+
+      const phoneField = form.querySelector('input[name="phone"]');
+      const telegramField = form.querySelector('input[name="telegram"]');
+      const phoneValue = phoneField?.value.trim();
+      const telegramValue = telegramField?.value.trim();
+
+      if (phoneField && telegramField && !phoneValue && !telegramValue) {
+        statusNode.textContent = 'Укажите номер телефона или Telegram — на ваш выбор.';
+        statusNode.classList.add('is-error');
+        return;
+      }
 
       const submitButton = form.querySelector('button[type="submit"]');
       if (submitButton) {

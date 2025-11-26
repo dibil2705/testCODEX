@@ -620,6 +620,7 @@
       background: linear-gradient(135deg, rgba(179,140,255,.9), rgba(113,231,255,.6));
       box-shadow: 0 8px 20px rgba(179,140,255,.35);
       margin-bottom: 14px;
+      font-size: 24px;
     }
     .aud-icon img {
       width: 28px;
@@ -721,7 +722,7 @@
   <header class="site-header">
     <div class="container nav-container">
       <a class="brand" href="index.html" aria-label="На главную">
-        <span class="brand-mark">N</span>
+        <img class="brand-mark" src="assets/icons/logo_NF.png" alt="Логотип Neuro Fusion">
         <span class="brand-text">Neuro Fusion</span>
       </a>
 
@@ -1032,7 +1033,7 @@
         <div class="step-num">04</div>
         <div class="step-text">
           <h3>Тестирование и релиз Web MiniApp в Telegram</h3>
-          <p>Мы тщательно всё проверяем, демонстрируем решение, и клиент принимает приложение в полное управление.</p>
+          <p>Мы тщательно всё проверяем, демонстрируем решение, и согласуем дату выхода.</p>
         </div>
       </div>
     </div>
@@ -1050,49 +1051,37 @@
 
     <div class="audience-grid">
       <article class="aud-card">
-        <div class="aud-icon">
-          <img src="./assets/icons/shop.svg" alt="">
-        </div>
+        <div class="aud-icon" aria-hidden="true">🛍️</div>
         <h3>E-commerce</h3>
         <p>Удобный интерфейс приложений для клиентов, улучшенный процесс оформления заказов и автоматизация — идеальный способ повысить продажи и увеличить лояльность.</p>
       </article>
 
       <article class="aud-card">
-        <div class="aud-icon">
-          <img src="./assets/icons/startup.svg" alt="">
-        </div>
+        <div class="aud-icon" aria-hidden="true">🚀</div>
         <h3>Стартапы</h3>
         <p>Идеальный способ быстро протестировать идею и запустить MVP. Telegram Web Apps позволяют создать работающий цифровой продукт и привлечь первых пользователей.</p>
       </article>
 
       <article class="aud-card">
-        <div class="aud-icon">
-          <img src="./assets/icons/delivery.svg" alt="">
-        </div>
-        <h3>Службы доставки</h3>
-        <p>Мини-приложения автоматизируют приём заказов, отслеживание статусов и маршрутов — сокращают ошибки и ускоряют процесс доставки.</p>
+        <div class="aud-icon" aria-hidden="true">🏨</div>
+        <h3>Отели</h3>
+        <p>Приём бронирований, upsell услуг и уведомления гостей прямо в Telegram — без звонков и ожидания на линии.</p>
       </article>
 
       <article class="aud-card">
-        <div class="aud-icon">
-          <img src="./assets/icons/fitness.svg" alt="">
-        </div>
-        <h3>Фитнес и здоровье</h3>
-        <p>Mini Apps упрощают запись, управление расписанием и оплату абонементов, привлекая новых клиентов и делая сервис удобнее.</p>
+        <div class="aud-icon" aria-hidden="true">🧘‍♀️</div>
+        <h3>Специалисты в сфере здоровья и личного развития</h3>
+        <p>Быстрая запись, напоминания и продажа онлайн-программ, чтобы больше времени уделять клиентам, а не рутинам.</p>
       </article>
 
       <article class="aud-card">
-        <div class="aud-icon">
-          <img src="./assets/icons/restaurant.svg" alt="">
-        </div>
+        <div class="aud-icon" aria-hidden="true">🍽️</div>
         <h3>Кафе, рестораны и сфера услуг</h3>
         <p>Web-приложения создают новые возможности для бронирования, заказов и управления меню, превращая сервис в удобный опыт.</p>
       </article>
 
       <article class="aud-card">
-        <div class="aud-icon">
-          <img src="./assets/icons/education.svg" alt="">
-        </div>
+        <div class="aud-icon" aria-hidden="true">🎓</div>
         <h3>Образовательные платформы</h3>
         <p>WebApps обеспечивают удобный доступ к материалам и заданиям, делая процесс обучения комфортным для всех участников.</p>
       </article>
@@ -1137,6 +1126,15 @@
         Электронная почта
         <input type="email" name="email" placeholder="Ваш e-mail" required="">
       </label>
+      <label class="contact-duo">
+        Как связаться
+        <div class="contact-options">
+          <input type="tel" name="phone" placeholder="Номер телефона">
+          <span class="contact-separator">или</span>
+          <input type="text" name="telegram" placeholder="@ник в Telegram">
+        </div>
+        <small class="contact-hint">Выберите удобный канал: телефон или Telegram.</small>
+      </label>
       <label>
         Задача
         <textarea name="project" rows="4" placeholder="Опишите вашу цель" required=""></textarea>
@@ -1149,7 +1147,7 @@
   <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-brand">
-        <span class="brand-mark">N</span>
+        <img class="brand-mark" src="assets/icons/logo_NF.png" alt="Логотип Neuro Fusion">
         <span class="brand-text">Neuro Fusion</span>
       </div>
       <div class="footer-links">
