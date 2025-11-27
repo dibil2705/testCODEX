@@ -20,6 +20,7 @@
 html {
   scroll-behavior: smooth;
   background-color: #02000b;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -170,13 +171,14 @@ a {
 }
 
 .brand-mark {
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  background: #0b0f1e;
-  padding: 6px;
+  width: auto;
+  height: auto;
+  max-height: 42px;
   object-fit: contain;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+  border-radius: 0;
+  background: none;
+  padding: 0;
+  box-shadow: none;
 }
 
 .site-nav {
