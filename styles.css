@@ -2088,7 +2088,10 @@ body.nav-open .menu-bar:nth-child(3) {
   .site-nav {
     position: fixed;
     inset: 0;
-    width: 100%;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    max-width: none;
     height: 100vh;
     margin-left: 0;
     padding: 120px 28px 80px;
