@@ -1451,6 +1451,7 @@ body.nav-open .nav-overlay {
 
 .contact-form input,
 .contact-form textarea {
+  width: 100%;
   padding: 12px 16px;
   border-radius: 14px;
   border: 1px solid rgba(179, 140, 255, 0.2);
@@ -2053,6 +2054,25 @@ body.nav-open .menu-bar:nth-child(3) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+}
+
+@media (max-width: 639px) {
+  .contact-grid {
+    gap: 32px;
+  }
+
+  .contact-form {
+    padding: 24px;
+  }
+
+  .contact-options {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .contact-separator {
+    justify-self: center;
   }
 }
 
