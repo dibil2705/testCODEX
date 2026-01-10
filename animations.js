@@ -57,12 +57,19 @@
     }
   );
 
-  const motionPresets = [
-    { x: '0px', y: '18px', scale: 0.985, blur: '8px', rotate: '-0.2deg' },
-    { x: '-10px', y: '16px', scale: 0.99, blur: '6px', rotate: '0deg' },
-    { x: '12px', y: '14px', scale: 0.982, blur: '7px', rotate: '0.18deg' },
-    { x: '0px', y: '20px', scale: 0.978, blur: '7px', rotate: '0deg' },
-  ];
+  const isHome = document.body.classList.contains('home');
+  const motionPresets = isHome
+    ? [{ x: '0px', y: '12px', scale: 1, blur: '0px', rotate: '0deg' }]
+    : [
+      { x: '0px', y: '18px', scale: 0.985, blur: '8px', rotate: '-0.2deg' },
+      { x: '-10px', y: '16px', scale: 0.99, blur: '6px', rotate: '0deg' },
+      { x: '12px', y: '14px', scale: 0.982, blur: '7px', rotate: '0.18deg' },
+      { x: '0px', y: '20px', scale: 0.978, blur: '7px', rotate: '0deg' },
+    ];
+  const delayStepMax = isHome ? 4 : 6;
+  const delayMultiplier = isHome ? 45 : 90;
+  const baseDuration = isHome ? 0.45 : 0.72;
+  const durationStep = isHome ? 0.05 : 0.08;
 
   let delayStep = 0;
 
@@ -75,8 +82,8 @@
     }
 
     const preset = motionPresets[delayStep % motionPresets.length];
-    const delay = (delayStep % 6) * 90;
-    const duration = 0.72 + (delayStep % 4) * 0.08;
+    const delay = (delayStep % delayStepMax) * delayMultiplier;
+    const duration = baseDuration + (delayStep % 4) * durationStep;
 
     el.classList.add('reveal-on-scroll');
     el.style.setProperty('--reveal-x', preset.x);
