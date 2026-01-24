@@ -35,6 +35,11 @@ body {
   line-height: 1.6;
 }
 
+body.home.animation-loading {
+  opacity: 0;
+  visibility: hidden;
+}
+
 section {
   background: transparent !important;
   border: none !important;
@@ -264,7 +269,7 @@ body.nav-open .nav-overlay {
 .hero-animation {
   position: absolute;
   top: 12%;
-  left: 75%; /* чуть правее центра */
+  left: 55%;
   transform: translateX(-50%);
   width: clamp(260px, 38vw, 520px);
   aspect-ratio: 1/1;
