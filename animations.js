@@ -38,6 +38,8 @@
     '.tg-metric-card',
     '.tg-bot-list li',
     '.tg-cta__wrap',
+    '.detail-card',
+    '.highlight-list li',
   ];
 
   const isHome = document.body.classList.contains('home');
