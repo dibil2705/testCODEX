@@ -869,6 +869,12 @@ body.nav-open .nav-overlay {
   background: var(--color-bg);
 }
 
+.text-agents-overview .section-title--sub,
+.text-agents-capabilities .section-title--sub,
+.text-agents-usecases .section-title--sub {
+  margin-bottom: 48px;
+}
+
 .detail-grid {
   display: grid;
   gap: 32px;

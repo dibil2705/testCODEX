@@ -82,15 +82,29 @@
     }
 
     const preset = motionPresets[delayStep % motionPresets.length];
-    const delay = (delayStep % delayStepMax) * delayMultiplier;
-    const duration = baseDuration + (delayStep % 4) * durationStep;
+    const customX = el.dataset.revealX;
+    const customY = el.dataset.revealY;
+    const customScale = el.dataset.revealScale;
+    const customBlur = el.dataset.revealBlur;
+    const customRotate = el.dataset.revealRotate;
+    const customDelay = el.dataset.revealDelay;
+    const customDuration = el.dataset.revealDuration;
+
+    const delay =
+      customDelay !== undefined
+        ? Number(customDelay)
+        : (delayStep % delayStepMax) * delayMultiplier;
+    const duration =
+      customDuration !== undefined
+        ? Number(customDuration)
+        : baseDuration + (delayStep % 4) * durationStep;
 
     el.classList.add('reveal-on-scroll');
-    el.style.setProperty('--reveal-x', preset.x);
-    el.style.setProperty('--reveal-y', preset.y);
-    el.style.setProperty('--reveal-scale', preset.scale);
-    el.style.setProperty('--reveal-rotate', preset.rotate);
-    el.style.setProperty('--reveal-blur', preset.blur);
+    el.style.setProperty('--reveal-x', customX ?? preset.x);
+    el.style.setProperty('--reveal-y', customY ?? preset.y);
+    el.style.setProperty('--reveal-scale', customScale ?? preset.scale);
+    el.style.setProperty('--reveal-rotate', customRotate ?? preset.rotate);
+    el.style.setProperty('--reveal-blur', customBlur ?? preset.blur);
     el.style.setProperty('--reveal-delay', `${delay}ms`);
     el.style.setProperty('--reveal-duration', `${duration}s`);
     el.style.setProperty('--reveal-easing', 'cubic-bezier(0.22, 1, 0.36, 1)');
