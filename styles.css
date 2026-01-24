@@ -2451,6 +2451,11 @@ body.nav-open .menu-bar:nth-child(3) {
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
+.section-title--sub{
+  font-size: clamp(18px,2.4vw,28px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
 .section-lead{ color: var(--nf-muted); max-width: 680px; margin: 0 0 28px; }
 
 .usecases-grid{
