@@ -9,9 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="home">
+<body class="home animation-loading">
   <header class="site-header">
-    <div class="container nav-container" data-reveal data-reveal-y="-18px" data-reveal-delay="1100">
+    <div class="container nav-container" data-reveal data-reveal-y="-18px" data-reveal-delay="420">
       <a class="brand" href="#hero" aria-label="Neuro Fusion">
         <img class="brand-mark" src="assets/icons/logo_NF.webp" alt="Логотип Neuro Fusion">
         <span class="brand-text">Neuro Fusion</span>
@@ -476,6 +476,10 @@
     }
 
     const heroTag = document.querySelector('.hero-tag');
+
+    window.addEventListener('load', () => {
+      document.body.classList.remove('animation-loading');
+    });
 
     if (heroTag) {
       const phrases = [

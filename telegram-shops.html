@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Telegram-магазины — Neuro Fusion TGShop</title>
+  <title>Telegram-магазины — Neuro Fusion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -23,19 +23,6 @@
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 32px;
       align-items: center;
-    }
-
-    .tg-hero__eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(179, 140, 255, 0.12);
-      color: var(--color-muted);
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.01em;
     }
 
     .tg-hero__title {
@@ -73,17 +60,6 @@
       margin-inline: auto;
     }
 
-    .tg-hero__glow {
-      position: absolute;
-      inset: -40px -60px auto -60px;
-      height: 420px;
-      background: radial-gradient(65% 65% at 50% 40%, rgba(144, 255, 128, 0.25), transparent 60%),
-                  radial-gradient(60% 60% at 30% 30%, rgba(179, 140, 255, 0.28), transparent 60%);
-      filter: blur(12px);
-      z-index: 0;
-      transform: translate3d(0, 0, 0);
-    }
-
     .tg-hero__phones {
       position: relative;
       display: grid;
@@ -96,11 +72,11 @@
     .tg-hero__phone {
       width: 100%;
       max-width: 280px;
-      border-radius: 26px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.45);
-      padding: 10px;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
     }
 
     .tg-hero__phone.secondary {
@@ -188,21 +164,16 @@
 
     .tg-visual-card {
       position: relative;
-      border-radius: 26px;
-      background: radial-gradient(100% 100% at 50% 50%, rgba(179,140,255,0.1), rgba(0,0,0,0.95));
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 34px;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      padding: 0;
       overflow: hidden;
-      box-shadow: 0 20px 48px rgba(0,0,0,0.4);
+      box-shadow: none;
     }
 
     .tg-visual-card::before {
-      content: "";
-      position: absolute;
-      inset: 12px;
-      border-radius: 24px;
-      background: radial-gradient(70% 70% at 50% 35%, rgba(144,255,128,0.18), transparent 60%);
-      filter: blur(10px);
+      content: none;
     }
 
     .tg-visual-card img {
@@ -467,7 +438,7 @@
 </head>
 <body class="product-page tg-shop-page">
   <header class="site-header">
-    <div class="container nav-container" data-reveal data-reveal-y="-18px" data-reveal-delay="1100">
+    <div class="container nav-container" data-reveal data-reveal-y="-18px" data-reveal-delay="420">
       <a class="brand" href="index.html#hero" aria-label="Neuro Fusion">
         <img class="brand-mark" src="assets/icons/logo_NF.webp" alt="Логотип Neuro Fusion">
         <span class="brand-text">Neuro Fusion</span>
@@ -493,18 +464,13 @@
     <section class="tg-hero" id="hero">
       <div class="container tg-hero__grid">
         <div class="tg-hero__text">
-          <span class="tg-hero__eyebrow">TGShop • Конструктор Telegram-магазина</span>
           <h1 class="tg-hero__title">Создайте магазин в&nbsp;Телеграме и&nbsp;начните продавать</h1>
           <p class="tg-hero__lead">Соберите каталог за 15 минут, подключите оплату и доставку, принимайте заказы прямо в чате без лишней бюрократии.</p>
           <div class="tg-hero__actions">
             <a class="btn primary" href="#start">Попробовать бесплатно</a>
             <a class="btn ghost" href="#showcase">Примеры магазинов</a>
           </div>
-          <div class="tg-hero__note">
-            <span aria-hidden="true">⭐️</span>
-            <span>Более 1,5k предпринимателей уже продают через TGShop</span>
-          </div>
-          <div class="tg-hero__badges" aria-label="Ключевые преимущества TGShop">
+          <div class="tg-hero__badges" aria-label="Ключевые преимущества сервиса">
             <div class="tg-pill"><strong>10 минут</strong> до запуска каталога</div>
             <div class="tg-pill"><strong>21%+</strong> прирост конверсии</div>
             <div class="tg-pill"><strong>15+ интеграций</strong> с оплатой и доставкой</div>
@@ -512,13 +478,9 @@
         </div>
 
         <div class="tg-hero__visual" aria-hidden="true">
-          <div class="tg-hero__glow"></div>
           <div class="tg-hero__phones">
             <div class="tg-hero__phone">
               <img src="assets/img/phoneAI.png" alt="Витрина Telegram-магазина">
-            </div>
-            <div class="tg-hero__phone secondary">
-              <img src="assets/img/phone-black.png" alt="Корзина Telegram-магазина">
             </div>
           </div>
         </div>
@@ -526,9 +488,8 @@
     </section>
 
     <section class="tg-section" id="showcase">
-      <div class="container tg-section__grid">
+        <div class="container tg-section__grid">
         <div class="tg-section__text">
-          <span class="tg-hero__eyebrow">Без переходов в бот</span>
           <h2>Продавайте в 2 клика</h2>
           <p>Каталог открывается прямо в канале или чате — без лишних шагов. Покупатели видят товары, закрепляют ссылку и возвращаются за повторными покупками.</p>
           <ul class="tg-list" role="list">
@@ -538,7 +499,7 @@
           </ul>
         </div>
         <div class="tg-visual-card" aria-hidden="true">
-          <img src="assets/img/phoneAI.png" alt="Витрина TGShop в Telegram">
+          <img src="assets/img/phoneAI.png" alt="Витрина магазина в Telegram">
         </div>
       </div>
     </section>
@@ -546,12 +507,11 @@
     <section class="tg-section">
       <div class="container tg-section__grid">
         <div class="tg-visual-card" aria-hidden="true">
-          <img src="assets/img/ManAI.png" alt="График роста продаж в TGShop">
+          <img src="assets/img/ManAI.png" alt="График роста продаж">
         </div>
         <div class="tg-section__text">
-          <span class="tg-hero__eyebrow">Рост среднего чека</span>
           <h2>Увеличьте продажи</h2>
-          <p>Конверсия покупок через Telegram достигает 21%. В TGShop средний чек выше, чем на маркетплейсах, а маркетинговые инструменты помогают стимулировать повторные продажи.</p>
+          <p>Конверсия покупок через Telegram достигает 21%. Средний чек выше, чем на маркетплейсах, а маркетинговые инструменты помогают стимулировать повторные продажи.</p>
           <div class="tg-highlight-card">
             <h3>Маркетинг без сложностей</h3>
             <p>Реферальные ссылки, промокоды и триггерные рассылки помогают удерживать и возвращать клиентов без допзатрат.</p>
@@ -564,7 +524,6 @@
     <section class="tg-section" id="start">
       <div class="container tg-section__grid">
         <div class="tg-section__text">
-          <span class="tg-hero__eyebrow">Старт за 15 минут</span>
           <h2>Запускайтесь уже сегодня</h2>
           <p>Мы делаем магазин прозрачным: добавляйте товары, подключайте оплату и доставку, принимайте заказы моментально.</p>
           <ul class="tg-list" role="list">
@@ -575,7 +534,7 @@
           </ul>
         </div>
         <div class="tg-visual-card small" aria-hidden="true">
-          <img src="assets/img/plamshet.png" alt="Создание товаров в TGShop">
+          <img src="assets/img/plamshet.png" alt="Создание товаров в магазине">
         </div>
       </div>
     </section>
@@ -583,8 +542,7 @@
     <section class="tg-features" aria-labelledby="tgshop-title">
       <div class="container">
         <div class="tg-features__head">
-          <span class="tg-hero__eyebrow">TGShop — конструктор</span>
-          <h2 id="tgshop-title">TGShop — конструктор интернет-магазинов для бизнеса</h2>
+          <h2 id="tgshop-title">Конструктор интернет-магазинов для бизнеса</h2>
           <p class="tg-hero__lead" style="margin: 8px auto 0; max-width: 720px;">Комбинируйте нужные модули: загрузка товаров, аналитика, автоматическое обновление остатков и интеграции оплаты. Блоки расположены компактно, чтобы быстрее выбрать нужное.</p>
         </div>
         <div class="tg-feature-grid">
@@ -648,7 +606,6 @@
     <section class="tg-section" aria-labelledby="tg-bots-title">
       <div class="container tg-section__grid">
         <div class="tg-section__text">
-          <span class="tg-hero__eyebrow">Примеры наших работ</span>
           <h2 id="tg-bots-title">Телеграм-боты, которые уже продают</h2>
           <p>Посмотрите, как оформлены проекты в Telegram. Каждый бот отражает бренд клиента и решает конкретную задачу.</p>
         </div>
@@ -667,9 +624,8 @@
     <section class="tg-cta" aria-labelledby="cta-launch">
       <div class="container tg-cta__wrap">
         <div class="tg-cta__copy">
-          <span class="tg-hero__eyebrow">Бесплатная регистрация</span>
           <h2 id="cta-launch">Вы в шаге от запуска магазина</h2>
-          <p>Создайте витрину, подключите оплату и начните продавать уже сегодня — TGShop берёт на себя сложное.</p>
+          <p>Создайте витрину, подключите оплату и начните продавать уже сегодня — мы берём на себя сложное.</p>
           <div class="tg-hero__actions" style="margin-bottom: 12px;">
             <a class="btn primary" href="#start">Создать магазин</a>
           </div>
