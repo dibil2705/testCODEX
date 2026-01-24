@@ -206,7 +206,7 @@
 
     .tg-feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
@@ -419,6 +419,18 @@
       .tg-section { padding: 56px 0; }
       .tg-visual-card { padding: 24px; }
     }
+
+    @media (max-width: 980px) {
+      .tg-feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .tg-feature-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
   </style>
 </head>
 <body class="product-page tg-shop-page">
@@ -452,7 +464,7 @@
           <h1 class="tg-hero__title">Создайте магазин в&nbsp;Телеграме и&nbsp;начните продавать</h1>
           <p class="tg-hero__lead">Соберите каталог за 15 минут, подключите оплату и доставку, принимайте заказы прямо в чате без лишней бюрократии.</p>
           <div class="tg-hero__actions">
-            <a class="btn primary" href="#start">Попробовать бесплатно</a>
+            <a class="btn primary" href="#start">Создать магазин</a>
             <a class="btn ghost" href="#showcase">Примеры магазинов</a>
           </div>
         </div>
@@ -646,6 +658,7 @@
     </section>
   </main>
 
+  <script src="animations.js"></script>
   <script>
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.site-nav');
