@@ -331,31 +331,17 @@
       width: min(320px, 100%);
       aspect-ratio: 1 / 1;
       border-radius: 32px;
-      background: radial-gradient(120% 120% at 50% 30%, rgba(179, 140, 255, 0.12), transparent 60%),
-                  linear-gradient(165deg, #64b5ff, #4a8bff);
+      background: transparent;
       position: relative;
       box-shadow: 0 18px 48px rgba(0,0,0,0.45);
+      overflow: hidden;
     }
 
-    .tg-cta__bag::before,
-    .tg-cta__bag::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      border: 10px solid #e6f0ff;
-      width: 60%;
-      height: 60%;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      box-sizing: border-box;
-    }
-
-    .tg-cta__bag::after {
-      width: 40%;
-      height: 40%;
-      top: 16%;
-      border-width: 8px;
+    .tg-cta__bag img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .tg-bot-list {
@@ -472,7 +458,7 @@
         <div class="tg-hero__visual" aria-hidden="true">
           <div class="tg-hero__phones">
             <div class="tg-hero__phone">
-              <img src="assets/tg_shop/2.webp" alt="Витрина Telegram-магазина">
+              <img src="assets/tg_shop/1.webp" alt="Витрина Telegram-магазина">
             </div>
           </div>
         </div>
@@ -491,7 +477,7 @@
           </ul>
         </div>
         <div class="tg-visual-card" aria-hidden="true">
-          <img src="assets/tg_shop/3.webp" alt="Витрина магазина в Telegram">
+          <img src="assets/tg_shop/2.webp" alt="Витрина магазина в Telegram">
         </div>
       </div>
     </section>
@@ -499,7 +485,7 @@
     <section class="tg-section">
       <div class="container tg-section__grid">
         <div class="tg-visual-card" aria-hidden="true">
-          <img src="assets/tg_shop/4.webp" alt="График роста продаж">
+          <img src="assets/tg_shop/3.webp" alt="График роста продаж">
         </div>
         <div class="tg-section__text">
           <h2>Увеличьте продажи</h2>
@@ -526,7 +512,7 @@
           </ul>
         </div>
         <div class="tg-visual-card small" aria-hidden="true">
-          <img src="assets/tg_shop/5.webp" alt="Создание товаров в магазине">
+          <img src="assets/tg_shop/4.webp" alt="Создание товаров в магазине">
         </div>
       </div>
     </section>
@@ -651,6 +637,7 @@
         </div>
         <div class="tg-cta__visual" aria-hidden="true">
           <div class="tg-cta__bag">
+            <img src="assets/tg_shop/5.webp" alt="Создание магазина в Telegram">
             <div class="tg-cta__badge">Создать<br>магазин</div>
           </div>
         </div>
