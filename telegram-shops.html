@@ -143,16 +143,17 @@
     }
 
     .tg-bullet {
-      width: 28px;
-      height: 28px;
+      width: 18px;
+      height: 18px;
       display: grid;
       place-items: center;
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(179, 140, 255, 0.45), rgba(144, 255, 128, 0.6));
-      color: #0f0b1f;
-      font-weight: 800;
-      font-size: 14px;
-      margin-top: 3px;
+      border-radius: 0;
+      background: none;
+      color: var(--color-text);
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1;
+      margin-top: 4px;
       flex-shrink: 0;
     }
 
@@ -189,9 +190,30 @@
       max-width: none;
     }
 
+    .tg-scale-3x {
+      width: 300%;
+      max-width: none;
+    }
+
+    .tg-scale-4x {
+      width: 400%;
+      max-width: none;
+    }
+
     .tg-scale-150 {
       width: 150%;
       max-width: none;
+    }
+
+    .tg-shift-left {
+      transform: translateX(-25%);
+    }
+
+    .tg-cta__bag img.tg-scale-150 {
+      width: 100%;
+      height: 100%;
+      transform: scale(1.5);
+      transform-origin: center;
     }
 
     .tg-highlight-card {
@@ -476,7 +498,7 @@
         <div class="tg-hero__visual" aria-hidden="true" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="240">
           <div class="tg-hero__phones">
             <div class="tg-hero__phone">
-              <img class="tg-scale-2x" src="assets/tg_shop/1.webp" alt="Витрина Telegram-магазина">
+              <img class="tg-scale-2x tg-shift-left" src="assets/tg_shop/1.webp" alt="Витрина Telegram-магазина">
             </div>
           </div>
         </div>
@@ -489,9 +511,9 @@
           <h2 data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="0">Продавайте в 2 клика</h2>
           <p data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="80">Каталог открывается прямо в канале или чате — без лишних шагов. Покупатели видят товары, закрепляют ссылку и возвращаются за повторными покупками.</p>
           <ul class="tg-list" role="list">
-            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="160"><span class="tg-bullet">1</span><div><strong>Встраивается в ваш канал</strong><span>Показывайте витрину под постами и сторис.</span></div></li>
-            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="240"><span class="tg-bullet">2</span><div><strong>Без переходов в бот</strong><span>Пользователь сразу просматривает каталог.</span></div></li>
-            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="320"><span class="tg-bullet">3</span><div><strong>Закрепляется навсегда</strong><span>Быстрый доступ к товарам для постоянных клиентов.</span></div></li>
+            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="160"><span class="tg-bullet">•</span><div><strong>Встраивается в ваш канал</strong><span>Показывайте витрину под постами и сторис.</span></div></li>
+            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="240"><span class="tg-bullet">•</span><div><strong>Без переходов в бот</strong><span>Пользователь сразу просматривает каталог.</span></div></li>
+            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="320"><span class="tg-bullet">•</span><div><strong>Закрепляется навсегда</strong><span>Быстрый доступ к товарам для постоянных клиентов.</span></div></li>
           </ul>
         </div>
         <div class="tg-visual-card" aria-hidden="true" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="200">
@@ -503,7 +525,7 @@
     <section class="tg-section" data-reveal-x="0px" data-reveal-y="32px">
       <div class="container tg-section__grid">
         <div class="tg-visual-card tg-visual-card--scale" aria-hidden="true" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="0">
-          <img class="tg-scale-150" src="assets/tg_shop/3.webp" alt="График роста продаж">
+          <img class="tg-scale-3x" src="assets/tg_shop/3.webp" alt="График роста продаж">
         </div>
         <div class="tg-section__text">
           <h2 data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="80">Увеличьте продажи</h2>
@@ -523,14 +545,14 @@
           <h2 data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="0">Запускайтесь уже сегодня</h2>
           <p data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="80">Мы делаем магазин прозрачным: добавляйте товары, подключайте оплату и доставку, принимайте заказы моментально.</p>
           <ul class="tg-list" role="list">
-            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="160"><span class="tg-bullet">✓</span><div><strong>Простой интерфейс</strong><span>Без кода, всё на русском.</span></div></li>
-            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="240"><span class="tg-bullet">✓</span><div><strong>Каталог за 15 минут</strong><span>Импортируйте прайс или добавляйте карточки вручную.</span></div></li>
-            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="320"><span class="tg-bullet">✓</span><div><strong>Приём заказов сразу</strong><span>Чеки, уведомления и CRM-интеграции — из коробки.</span></div></li>
-            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="400"><span class="tg-bullet">✓</span><div><strong>Минимум бюрократии</strong><span>Без сложных договоров и долгих внедрений.</span></div></li>
+            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="160"><span class="tg-bullet">•</span><div><strong>Простой интерфейс</strong><span>Без кода, всё на русском.</span></div></li>
+            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="240"><span class="tg-bullet">•</span><div><strong>Каталог за 15 минут</strong><span>Импортируйте прайс или добавляйте карточки вручную.</span></div></li>
+            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="320"><span class="tg-bullet">•</span><div><strong>Приём заказов сразу</strong><span>Чеки, уведомления и CRM-интеграции — из коробки.</span></div></li>
+            <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="400"><span class="tg-bullet">•</span><div><strong>Минимум бюрократии</strong><span>Без сложных договоров и долгих внедрений.</span></div></li>
           </ul>
         </div>
         <div class="tg-visual-card tg-visual-card--scale small" aria-hidden="true" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="200">
-          <img class="tg-scale-2x" src="assets/tg_shop/4.webp" alt="Создание товаров в магазине">
+          <img class="tg-scale-4x" src="assets/tg_shop/4.webp" alt="Создание товаров в магазине">
         </div>
       </div>
     </section>
@@ -655,7 +677,7 @@
         </div>
         <div class="tg-cta__visual" aria-hidden="true" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-delay="160">
           <div class="tg-cta__bag tg-cta__bag--clean">
-            <img src="assets/tg_shop/5.webp" alt="Создание магазина в Telegram">
+            <img class="tg-scale-150" src="assets/tg_shop/5.webp" alt="Создание магазина в Telegram">
           </div>
         </div>
       </div>
