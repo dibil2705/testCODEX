@@ -502,6 +502,53 @@ body.nav-open .nav-overlay {
   font-size: 1.05rem;
 }
 
+.hospitality .section-head {
+  text-align: center;
+  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hospitality-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: rgba(12, 6, 26, 0.7);
+  box-shadow:
+    0 24px 60px rgba(9, 6, 24, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.hospitality-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(8, 3, 18, 0.55), transparent 55%);
+  pointer-events: none;
+}
+
+.hospitality-banner img {
+  width: 100%;
+  display: block;
+  min-height: clamp(240px, 40vw, 420px);
+  object-fit: cover;
+}
+
+.hospitality-banner__cta {
+  position: absolute;
+  right: clamp(20px, 5vw, 48px);
+  bottom: clamp(20px, 5vw, 48px);
+  z-index: 1;
+}
+
+@media (max-width: 640px) {
+  .hospitality-banner__cta {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+
 .industries {
   background: transparent;
 }
