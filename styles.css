@@ -538,24 +538,39 @@ body.nav-open .nav-overlay {
 
 .hospitality-banner__cta {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  right: auto;
-  bottom: auto;
-  transform: translate(-50%, -50%) translateY(-20px);
+  right: clamp(16px, 4vw, 32px);
+  bottom: clamp(16px, 4vw, 32px);
+  left: auto;
+  top: auto;
+  transform: translateY(0);
   z-index: 1;
 }
 
 .hospitality-banner__cta:hover {
-  transform: translate(-50%, -50%) translateY(-21px);
+  transform: translateY(-2px);
 }
 
 .hospitality-banner__cta:active {
-  transform: translate(-50%, -50%) translateY(-20px) scale(0.95);
+  transform: translateY(0) scale(0.95);
 }
 
 .industries {
   background: transparent;
+}
+
+.reception-gallery {
+  margin: 0;
+  background: #000;
+}
+
+.reception-gallery__list {
+  margin: 0;
+}
+
+.reception-gallery__list img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .industries-layout {
