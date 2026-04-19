@@ -14,7 +14,8 @@
     email: 'Email',
     project: 'Задача',
     phone: 'Телефон',
-    telegram: 'Telegram',
+    telegram: 'Telegram/Max',
+    consent: 'Согласие ПДн',
   };
 
   const buildMessage = (form, formData) => {
@@ -23,7 +24,8 @@
 
     formData.forEach((value, key) => {
       const label = fieldLabels[key] || key;
-      rows.push(`${label}: ${value}`);
+      const formattedValue = key === 'consent' ? 'Да' : value;
+      rows.push(`${label}: ${formattedValue}`);
     });
 
     rows.push(`Отправлено со страницы: ${window.location.href}`);
@@ -57,7 +59,7 @@
       const telegramValue = telegramField?.value.trim();
 
       if (phoneField && telegramField && !phoneValue && !telegramValue) {
-        statusNode.textContent = 'Укажите номер телефона или Telegram — на ваш выбор.';
+        statusNode.textContent = 'Укажите номер телефона или Telegram/Max — на ваш выбор.';
         statusNode.classList.add('is-error');
         return;
       }
@@ -86,7 +88,7 @@
         });
 
         if (!response.ok) {
-          throw new Error('Telegram API error');
+          throw new Error('Messaging API error');
         }
 
         statusNode.textContent = 'Заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.';
