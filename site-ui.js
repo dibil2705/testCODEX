@@ -1,6 +1,6 @@
 (function () {
   const THEME_KEY = 'nf-theme';
-  const DEFAULT_THEME = 'light';
+  const DEFAULT_THEME = 'dark';
 
   const getStoredTheme = () => {
     try {
@@ -28,10 +28,7 @@
       button.setAttribute('aria-pressed', String(isDark));
       button.setAttribute('aria-label', isDark ? 'Переключить на светлую тему' : 'Переключить на тёмную тему');
 
-      const label = button.querySelector('.theme-toggle__label');
-      if (label) {
-        label.textContent = isDark ? 'Тёмная' : 'Светлая';
-      }
+      button.classList.toggle('is-dark', isDark);
     });
   };
 
