@@ -1,9 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Разработка Mini Apps в Telegram/Max — Neuro Fusion</title>
+  <meta name="description" content="Разработка Web Mini Apps в Telegram и Max: UX/UI, бот, каталог, платежи, CRM, аналитика и запуск под ключ.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neuro-fusion.tech/telegram-store.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Neuro Fusion">
+  <meta property="og:title" content="Разработка Mini Apps в Telegram/Max — Neuro Fusion">
+  <meta property="og:description" content="Проектируем и запускаем Mini Apps для продаж, бронирований, e-commerce и сервисов в Telegram и Max.">
+  <meta property="og:url" content="https://neuro-fusion.tech/telegram-store.html">
+  <meta property="og:image" content="https://neuro-fusion.tech/assets/seo/logo_NF_social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Neuro Fusion — разработка Telegram/Max Mini Apps">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Разработка Mini Apps в Telegram/Max — Neuro Fusion">
+  <meta name="twitter:description" content="UX/UI, бот, платежи, CRM и аналитика для Mini Apps в Telegram и Max.">
+  <meta name="twitter:image" content="https://neuro-fusion.tech/assets/seo/logo_NF_social.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Разработка Mini Apps в Telegram/Max — Neuro Fusion",
+      "url": "https://neuro-fusion.tech/telegram-store.html",
+      "description": "Разработка Web Mini Apps в Telegram и Max: UX/UI, бот, каталог, платежи, CRM, аналитика и запуск под ключ.",
+      "inLanguage": "ru-RU",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Neuro Fusion",
+        "url": "https://neuro-fusion.tech/"
+      }
+    }
+  </script>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -328,9 +365,18 @@
       color: #EDEBFF;
       font-weight: 700;
     }
+    .case-heading {
+      margin: 0 0 12px;
+      color: #EDEBFF;
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      line-height: 1.08;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
     .case-lead {
       color: #B5AFD6;
       margin: 6px 0 14px;
+      line-height: 1.7;
     }
     .case-list {
       list-style: none;
@@ -374,7 +420,7 @@
     .case-right { justify-self: center; }
     .phone-mock {
       width: min(430px, 90vw);
-      aspect-ratio: 9/19;
+      aspect-ratio: 1290/2593;
       border-radius: 36px;
       border: 10px solid rgba(179,140,255,.15);
       background: linear-gradient(180deg, #141026 0%, #0a0718 100%);
@@ -392,7 +438,7 @@
     .phone-mock img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
 
@@ -445,15 +491,40 @@
     }
 
     @media (max-width: 700px) {
+      .cases {
+        padding: 48px 0;
+      }
+
+      .cases .section-title {
+        text-align: left;
+      }
+
       .cases-slider {
-        padding-bottom: 64px;
+        margin-top: 22px;
+        padding-bottom: 70px;
+      }
+
+      .cases-track {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .cases-track::-webkit-scrollbar {
+        display: none;
       }
 
       .case-slide {
-        padding: clamp(24px, 8vw, 36px);
-        gap: 28px;
+        min-width: 0;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 24px 18px;
+        border-radius: 18px;
         justify-items: center;
-        text-align: center;
+        text-align: left;
+        scroll-snap-align: start;
       }
 
       .case-left {
@@ -461,12 +532,28 @@
       }
 
       .case-brand {
-        justify-content: center;
-        text-align: center;
+        justify-content: flex-start;
+        text-align: left;
+        margin-bottom: 10px;
+      }
+
+      .case-heading {
+        font-size: 1.45rem;
+        line-height: 1.12;
+      }
+
+      .case-lead {
+        line-height: 1.55;
       }
 
       .case-list {
+        gap: 12px;
         text-align: left;
+      }
+
+      .case-list li {
+        padding-left: 32px;
+        line-height: 1.45;
       }
 
       .case-right {
@@ -474,7 +561,7 @@
       }
 
       .case-right .phone-mock {
-        width: min(320px, 82vw);
+        width: min(300px, 76vw);
         margin-inline: auto;
       }
 
@@ -490,6 +577,35 @@
 
       .cases-arrow.next {
         right: calc(50% - 96px);
+      }
+    }
+
+    @media (max-width: 430px) {
+      .case-slide {
+        padding: 20px 14px;
+        border-radius: 16px;
+      }
+
+      .case-heading {
+        font-size: 1.25rem;
+      }
+
+      .case-lead,
+      .case-list li {
+        font-size: 0.94rem;
+      }
+
+      .case-list li::before {
+        width: 22px;
+        height: 22px;
+        border-radius: 7px;
+        font-size: 13px;
+      }
+
+      .case-right .phone-mock {
+        width: min(260px, 72vw);
+        border-width: 8px;
+        border-radius: 30px;
       }
     }
 
@@ -941,27 +1057,25 @@
         <article class="case-slide">
           <div class="case-left">
             <div class="case-brand" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="0">
-              <img src="./assets/cases/rt-global-logo.png" alt="RT Global" />
-              <span>Mini App</span>
+              <span>Telegram Mini App</span>
             </div>
+            <h3 class="case-heading" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="40">ОДЕЖДА</h3>
 
             <p class="case-lead" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="80">
-              Mini App для публикации объявлений автомобильной тематики.
-              Разработали интуитивно понятное приложение в Telegram/Max.
+              Mini App для магазина одежды. Разработан интуитивно понятный дизайн в Telegram.
             </p>
 
             <ul class="case-list">
-              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="140"><b>Платформа:</b> Telegram/Max</li>
-              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="200">Удобная админ-панель: модерация профилей, объявлений, жалобы, рассылки</li>
-              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="260">Интеграция с сервисом отправки СМС от Telegram/Max Gateway</li>
+              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="140"><b>Платформа:</b> Telegram</li>
+              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="200">Удобный выбор товара по категориям</li>
+              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="260">Полное описание товара с выбором размера</li>
+              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="320">Корзина и онлайн оплата</li>
             </ul>
-
-            <a class="btn primary" href="#" target="_blank" rel="noopener" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="320">Читать кейс целиком</a>
           </div>
 
           <figure class="case-right" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="160">
             <div class="phone-mock">
-              <img src="./assets/cases/rt-global-screen.jpg" alt="">
+              <img src="./assets/Examples_of_our_TelegramMax_MiniApps/1.webp" alt="Mini App для магазина одежды в Telegram" loading="lazy">
             </div>
           </figure>
         </article>
@@ -970,32 +1084,54 @@
         <article class="case-slide">
           <div class="case-left">
             <div class="case-brand" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="0">
-              <img src="./assets/cases/gdevsepro-logo.png" alt="GDEVSEPRO" />
-              <span>Mini App</span>
+              <span>Telegram Mini App</span>
             </div>
+            <h3 class="case-heading" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="40">ЮВЕЛИРКА</h3>
 
             <p class="case-lead" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="80">
-              Mini App — для P2P-взаимодействия в области детейлинга.
+              Mini App для ювелирного дома.
             </p>
 
             <ul class="case-list">
-              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="140"><b>Платформа:</b> Telegram/Max</li>
-              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="200">Интеграция кассы Т-банка</li>
-              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="260">Веб-приложение для заказчиков</li>
-              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="320">Удобный <a href="#" class="link">чат-бот</a> для исполнителей</li>
+              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="140"><b>Платформа:</b> Telegram</li>
+              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="200">Описание бренда, производства и основателя бренда</li>
+              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="260">Видео-презентации изделий</li>
             </ul>
-
-            <a class="btn primary" href="#" target="_blank" rel="noopener" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="380">Читать кейс целиком</a>
           </div>
 
           <figure class="case-right" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="160">
             <div class="phone-mock">
-              <img src="./assets/cases/gdevsepro-screen.jpg" alt="">
+              <img src="./assets/Examples_of_our_TelegramMax_MiniApps/2.webp" alt="Mini App для ювелирного дома в Telegram" loading="lazy">
             </div>
           </figure>
         </article>
+        
+        <!-- СЛАЙД 3 -->
+        <article class="case-slide">
+          <div class="case-left">
+            <div class="case-brand" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="0">
+              <span>Telegram Mini App</span>
+            </div>
+            <h3 class="case-heading" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="40">ОТЕЛЬ</h3>
 
-        <!-- добавляй ещё <article class="case-slide">...</article> по аналогии -->
+            <p class="case-lead" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="80">
+              Mini App для отеля. Цифровой ресепшен.
+            </p>
+
+            <ul class="case-list">
+              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="140"><b>Платформа:</b> Telegram</li>
+              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="200">Бронирование и оплата из приложения</li>
+              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="260">Продажа дополнительных услуг</li>
+              <li data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="320">AI голосовая и текстовая поддержка гостей 24/7</li>
+            </ul>
+          </div>
+
+          <figure class="case-right" data-reveal data-reveal-x="0px" data-reveal-y="32px" data-reveal-blur="6px" data-reveal-delay="160">
+            <div class="phone-mock">
+              <img src="./assets/Examples_of_our_TelegramMax_MiniApps/3.webp" alt="Mini App для отеля в Telegram" loading="lazy">
+            </div>
+          </figure>
+        </article>
       </div>
 
       <!-- точки -->
@@ -1173,7 +1309,7 @@
         <a href="index.html#about">О компании</a>
         <a href="index.html">Главная</a>
       </div>
-      <p>© 2025 Neuro Fusion. Все права защищены.</p>
+      <p>© 2026 Neuro Fusion. Все права защищены.</p>
     </div>
   </footer>
 
@@ -1325,6 +1461,18 @@
       // ресайз — держим слайд в фокусе
       window.addEventListener('resize', () => go(index));
 
+      let scrollTimer;
+      track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          const nextIndex = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
+          if (nextIndex !== index) {
+            index = Math.min(Math.max(nextIndex, 0), slides.length - 1);
+            updateDots();
+          }
+        }, 80);
+      }, { passive: true });
+
       // старт
       updateDots();
     })();
@@ -1332,3 +1480,5 @@
   </script>
 </body>
 </html>
+
+

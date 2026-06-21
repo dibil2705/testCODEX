@@ -1,0 +1,19 @@
+{
+  "name": "Neuro Fusion",
+  "short_name": "Neuro Fusion",
+  "icons": [
+    {
+      "src": "assets/icons/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#05030c",
+  "background_color": "#05030c",
+  "display": "standalone"
+}

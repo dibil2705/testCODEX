@@ -1,10 +1,47 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Голосовые нейро-продавцы — Neuro Fusion Voice AI</title>
+  <meta name="description" content="Голосовые AI-продавцы Neuro Fusion звонят клиентам, ведут диалог по скриптам, фиксируют результат в CRM и помогают увеличивать продажи.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neuro-fusion.tech/voice-agents.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Neuro Fusion">
+  <meta property="og:title" content="Голосовые AI-продавцы — Neuro Fusion">
+  <meta property="og:description" content="Автоматические звонки, квалификация лидов, сценарии продаж и фиксация результатов в CRM.">
+  <meta property="og:url" content="https://neuro-fusion.tech/voice-agents.html">
+  <meta property="og:image" content="https://neuro-fusion.tech/assets/seo/logo_NF_social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Neuro Fusion — голосовые AI-продавцы">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Голосовые AI-продавцы — Neuro Fusion">
+  <meta name="twitter:description" content="Голосовые роботы для звонков, продаж и CRM-интеграций.">
+  <meta name="twitter:image" content="https://neuro-fusion.tech/assets/seo/logo_NF_social.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Голосовые AI-продавцы — Neuro Fusion",
+      "url": "https://neuro-fusion.tech/voice-agents.html",
+      "description": "Голосовые AI-продавцы Neuro Fusion звонят клиентам, ведут диалог по скриптам, фиксируют результат в CRM и помогают увеличивать продажи.",
+      "inLanguage": "ru-RU",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Neuro Fusion",
+        "url": "https://neuro-fusion.tech/"
+      }
+    }
+  </script>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -294,19 +331,33 @@
             </div>
           </article>
 
-          <article class="usecard">
-            <div class="usecard-body">
-              <h3>Колл-центры</h3>
+          <article class="usecard audio-card">
+            <div class="audio-visual" aria-hidden="true"></div>
+            <div class="audio-body">
+              <div class="audio-meta">
+                <span class="audio-label">Колл-центры</span>
+                <span class="audio-time">1:40</span>
+              </div>
               <p>Уменьшайте время ожидания и держите уровень сервиса в пиковые часы без расширения штата.</p>
-              <a class="use-link" href="#demo">Слушать диалог о заказе</a>
+              <div class="audio-player">
+                <button class="audio-btn" type="button">Слушать диалог о заказе</button>
+                <audio controls src="assets/practicum_sale.mp3" type="audio/mpeg"></audio>
+              </div>
             </div>
           </article>
 
-          <article class="usecard">
-            <div class="usecard-body">
-              <h3>Запись на приём</h3>
+          <article class="usecard audio-card">
+            <div class="audio-visual" aria-hidden="true"></div>
+            <div class="audio-body">
+              <div class="audio-meta">
+                <span class="audio-label">Запись на приём</span>
+                <span class="audio-time">2:57</span>
+              </div>
               <p>Автоматически подтверждаем, переносим и напоминаем — меньше no-show, больше довольных клиентов.</p>
-              <a class="use-link" href="#demo">Как работает в клиниках</a>
+              <div class="audio-player">
+                <button class="audio-btn" type="button">Как работает в клиниках</button>
+                <audio controls src="assets/electronic_components.mp3" type="audio/mpeg"></audio>
+              </div>
             </div>
           </article>
         </div>
@@ -723,7 +774,7 @@
         <a href="index.html#about">О компании</a>
         <a href="index.html">Главная</a>
       </div>
-      <p>© 2025 Neuro Fusion. Все права защищены.</p>
+      <p>© 2026 Neuro Fusion. Все права защищены.</p>
     </div>
   </footer>
 
@@ -771,6 +822,40 @@
         if (event.key === 'Escape' && document.body.classList.contains('nav-open')) {
           closeMenu();
         }
+      });
+    })();
+
+    // Аудио-карточки: кнопка запускает свой плеер и ставит остальные на паузу
+    (function () {
+      const players = document.querySelectorAll('.audio-player');
+      players.forEach((player) => {
+        const button = player.querySelector('.audio-btn');
+        const audio = player.querySelector('audio');
+        if (!button || !audio) return;
+
+        button.addEventListener('click', () => {
+          const shouldPlay = audio.paused;
+
+          players.forEach((otherPlayer) => {
+            const otherAudio = otherPlayer.querySelector('audio');
+            const otherButton = otherPlayer.querySelector('.audio-btn');
+            if (!otherAudio || otherAudio === audio) return;
+            otherAudio.pause();
+            if (otherButton) otherButton.classList.remove('is-playing');
+          });
+
+          if (shouldPlay) {
+            audio.play();
+            button.classList.add('is-playing');
+          } else {
+            audio.pause();
+            button.classList.remove('is-playing');
+          }
+        });
+
+        audio.addEventListener('play', () => button.classList.add('is-playing'));
+        audio.addEventListener('pause', () => button.classList.remove('is-playing'));
+        audio.addEventListener('ended', () => button.classList.remove('is-playing'));
       });
     })();
 
@@ -916,3 +1001,5 @@
 </body>
 
 </html>
+
+

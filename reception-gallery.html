@@ -1,26 +1,1265 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Галерея ресепшн</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#f6c533">
+    <title>Цифровой ресепшен для отелей</title>
+    <meta name="description" content="Цифровой ресепшен для отелей в Telegram и Max: AI-консьерж, сервис, оплата, upsell, поддержка гостей и интеграции с PMS/CRM.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://neuro-fusion.tech/reception-gallery.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Neuro Fusion">
+    <meta property="og:title" content="Цифровой ресепшен для отелей — Neuro Fusion">
+    <meta property="og:description" content="AI-консьерж и сервисный канал для гостей отеля в Telegram и Max: заявки, услуги, оплаты и допродажи.">
+    <meta property="og:url" content="https://neuro-fusion.tech/reception-gallery.html">
+    <meta property="og:image" content="https://neuro-fusion.tech/assets/seo/logo_NF_social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Neuro Fusion — цифровой ресепшен для отелей">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Цифровой ресепшен для отелей — Neuro Fusion">
+    <meta name="twitter:description" content="AI-консьерж, сервис, оплата и upsell в Telegram и Max для отелей.">
+    <meta name="twitter:image" content="https://neuro-fusion.tech/assets/seo/logo_NF_social.png">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Цифровой ресепшен для отелей — Neuro Fusion",
+        "url": "https://neuro-fusion.tech/reception-gallery.html",
+        "description": "Цифровой ресепшен для отелей в Telegram и Max: AI-консьерж, сервис, оплата, upsell, поддержка гостей и интеграции с PMS/CRM.",
+        "inLanguage": "ru-RU",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Neuro Fusion",
+          "url": "https://neuro-fusion.tech/"
+        }
+      }
+    </script>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+      :root {
+        --rg-bg: #fffcf4;
+        --rg-bg-soft: #fff6da;
+        --rg-surface: rgba(255, 255, 255, 0.88);
+        --rg-surface-strong: #ffffff;
+        --rg-ink: #101010;
+        --rg-muted: #5f5b51;
+        --rg-line: rgba(16, 16, 16, 0.09);
+        --rg-accent: #f6c533;
+        --rg-accent-soft: rgba(246, 197, 51, 0.18);
+        --rg-dark: #111111;
+        --rg-dark-soft: #1a1a1a;
+        --rg-shadow: 0 20px 42px rgba(44, 33, 6, 0.08);
+        --rg-radius: 28px;
+      }
+
+      body.reception-gallery {
+        margin: 0;
+        font-family: "Manrope", "Segoe UI", sans-serif;
+        color: var(--rg-ink);
+        background:
+          radial-gradient(80% 60% at 0% 0%, rgba(246, 197, 51, 0.22) 0%, rgba(246, 197, 51, 0) 62%),
+          linear-gradient(180deg, #fffdf7 0%, #fff9ec 55%, #fffdf8 100%);
+      }
+
+      .rg-page {
+        position: relative;
+        overflow-x: hidden;
+        padding: 0 16px calc(112px + env(safe-area-inset-bottom));
+      }
+
+      .rg-shell {
+        width: min(100%, 520px);
+        margin: 0 auto;
+      }
+
+      .rg-topbar {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: calc(14px + env(safe-area-inset-top)) 0 14px;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        background: linear-gradient(180deg, rgba(255, 252, 243, 0.94), rgba(255, 252, 243, 0.62));
+      }
+
+      .rg-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .rg-brand__mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(180deg, var(--rg-accent), #ffdd78);
+        color: #111;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .rg-brand__text {
+        display: grid;
+        gap: 2px;
+      }
+
+      .rg-brand__name {
+        font-size: 0.97rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+
+      .rg-brand__meta {
+        color: var(--rg-muted);
+        font-size: 0.76rem;
+      }
+
+      .rg-toplink,
+      .rg-btn,
+      .rg-sticky-cta {
+        text-decoration: none;
+      }
+
+      .rg-toplink {
+        flex-shrink: 0;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid var(--rg-line);
+        color: var(--rg-ink);
+        font-size: 0.84rem;
+        font-weight: 700;
+      }
+
+      .rg-section {
+        padding: 22px 0;
+      }
+
+      .rg-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid var(--rg-line);
+        color: #444039;
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+
+      .rg-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--rg-accent);
+        box-shadow: 0 0 0 5px var(--rg-accent-soft);
+      }
+
+      .rg-hero {
+        position: relative;
+        padding-top: 10px;
+      }
+
+      .rg-hero::before {
+        content: "";
+        position: absolute;
+        top: 110px;
+        left: -12px;
+        width: 88%;
+        height: 84px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, rgba(246, 197, 51, 0.95), rgba(255, 215, 101, 0.5));
+      }
+
+      .rg-hero__content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .rg-title-xl,
+      .rg-title {
+        margin: 18px 0 12px;
+        color: var(--rg-ink);
+        font-weight: 800;
+        letter-spacing: -0.08em;
+      }
+
+      .rg-title-xl {
+        font-size: clamp(2.6rem, 10.5vw, 4.2rem);
+        line-height: 0.92;
+      }
+
+      .rg-title {
+        font-size: clamp(1.75rem, 7vw, 2.35rem);
+        line-height: 0.98;
+        margin-bottom: 10px;
+      }
+
+      .rg-lead,
+      .rg-copy,
+      .rg-note,
+      .rg-mini-card p,
+      .rg-stat span,
+      .rg-step p,
+      .rg-form-intro p,
+      .form-status {
+        color: var(--rg-muted);
+      }
+
+      .rg-lead,
+      .rg-copy {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .rg-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .rg-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 18px;
+        border-radius: 18px;
+        border: 1px solid transparent;
+        font-size: 0.95rem;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .rg-btn:active {
+        transform: scale(0.98);
+      }
+
+      .rg-btn--primary {
+        background: var(--rg-dark);
+        color: #fff;
+        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.15);
+      }
+
+      .rg-btn--secondary {
+        background: rgba(255, 255, 255, 0.86);
+        color: var(--rg-ink);
+        border-color: var(--rg-line);
+      }
+
+      .rg-hero-grid,
+      .rg-grid,
+      .rg-stat-grid,
+      .rg-pillars,
+      .rg-step-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .rg-hero-grid {
+        margin-top: 24px;
+      }
+
+      .rg-card,
+      .rg-mini-card,
+      .rg-stat,
+      .rg-step,
+      .rg-visual,
+      .rg-form-shell {
+        border-radius: var(--rg-radius);
+        background: var(--rg-surface);
+        border: 1px solid var(--rg-line);
+        box-shadow: var(--rg-shadow);
+      }
+
+      .rg-card {
+        padding: 22px;
+      }
+
+      .rg-card--dark {
+        background: linear-gradient(180deg, rgba(17, 17, 17, 0.98), rgba(26, 26, 26, 0.98));
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 24px 40px rgba(10, 10, 10, 0.22);
+      }
+
+      .rg-card--dark .rg-title,
+      .rg-card--dark .rg-pillar strong,
+      .rg-card--dark .rg-copy,
+      .rg-card--dark .rg-mini-card strong,
+      .rg-card--dark .rg-mini-card p,
+      .rg-card--dark .rg-bullets li,
+      .rg-card--dark .rg-visual__title,
+      .rg-card--dark .rg-visual__caption {
+        color: #fff !important;
+      }
+
+      .rg-card--dark .rg-copy,
+      .rg-card--dark .rg-mini-card p,
+      .rg-card--dark .rg-bullets li,
+      .rg-card--dark .rg-visual__caption {
+        color: rgba(255, 255, 255, 0.72) !important;
+      }
+
+      .rg-mini-card {
+        padding: 18px;
+      }
+
+      .rg-mini-card strong,
+      .rg-stat strong,
+      .rg-step strong,
+      .rg-form-intro strong {
+        display: block;
+        color: var(--rg-ink);
+        font-size: 1rem;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+      }
+
+      .rg-mini-card p {
+        margin: 8px 0 0;
+        font-size: 0.92rem;
+        line-height: 1.52;
+      }
+
+      .rg-mini-card__head,
+      .rg-visual__head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .rg-icon-wrap {
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: linear-gradient(180deg, rgba(246, 197, 51, 0.22), rgba(246, 197, 51, 0.08));
+        color: var(--rg-ink);
+      }
+
+      .rg-card--dark .rg-icon-wrap {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+
+      .rg-icon {
+        width: 22px;
+        height: 22px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.85;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .rg-chip-row,
+      .rg-bullets {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .rg-chip {
+        padding: 10px 13px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--rg-line);
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #36332d;
+      }
+
+      .rg-bullets {
+        display: grid;
+        gap: 12px;
+      }
+
+      .rg-bullets li {
+        position: relative;
+        padding-left: 18px;
+        font-size: 0.98rem;
+        line-height: 1.52;
+        color: var(--rg-muted);
+      }
+
+      .rg-bullets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.72em;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--rg-accent);
+        box-shadow: 0 0 0 5px var(--rg-accent-soft);
+      }
+
+      .rg-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 18px;
+      }
+
+      .rg-stat {
+        padding: 18px;
+      }
+
+      .rg-stat strong {
+        font-size: 1.34rem;
+        line-height: 1;
+        letter-spacing: -0.06em;
+      }
+
+      .rg-stat span {
+        display: block;
+        margin-top: 9px;
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+
+      .rg-visual {
+        padding: 20px;
+      }
+
+      .rg-visual__head {
+        margin-bottom: 16px;
+      }
+
+      .rg-visual__title {
+        margin: 0;
+        color: var(--rg-ink);
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      .rg-visual__caption {
+        margin: 6px 0 0;
+        color: var(--rg-muted);
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .rg-flow {
+        display: grid;
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .rg-flow__node {
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 12px;
+        align-items: start;
+        padding: 14px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(16, 16, 16, 0.08);
+      }
+
+      .rg-card--dark .rg-flow__node {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .rg-flow__num {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: var(--rg-accent);
+        color: var(--rg-ink);
+        font-weight: 800;
+      }
+
+      .rg-flow__node strong {
+        font-size: 0.98rem;
+      }
+
+      .rg-flow__node span {
+        display: block;
+        margin-top: 5px;
+        color: var(--rg-muted);
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .rg-card--dark .rg-flow__node span {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      body.reception-gallery .rg-card.rg-card--dark .rg-title,
+      body.reception-gallery .rg-card.rg-card--dark .rg-pillars .rg-pillar strong {
+        color: #fff !important;
+      }
+
+      .rg-pillars {
+        margin-top: 18px;
+      }
+
+      .rg-pillar {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: 12px;
+        align-items: start;
+      }
+
+      .rg-pillar strong {
+        font-size: 0.98rem;
+      }
+
+      .rg-pillar p {
+        margin: 6px 0 0;
+        color: var(--rg-muted);
+        font-size: 0.91rem;
+        line-height: 1.48;
+      }
+
+      .rg-matrix {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .rg-matrix__cell {
+        min-height: 108px;
+        padding: 16px;
+        border-radius: 22px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 247, 220, 0.92));
+        border: 1px solid rgba(16, 16, 16, 0.08);
+      }
+
+      .rg-matrix__cell strong {
+        font-size: 0.96rem;
+      }
+
+      .rg-matrix__cell span {
+        display: block;
+        margin-top: 7px;
+        color: var(--rg-muted);
+        font-size: 0.86rem;
+        line-height: 1.45;
+      }
+
+      .rg-step-grid {
+        margin-top: 18px;
+      }
+
+      .rg-step {
+        position: relative;
+        padding: 18px 18px 18px 60px;
+      }
+
+      .rg-step::before {
+        content: attr(data-step);
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        width: 32px;
+        height: 32px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--rg-accent);
+        color: var(--rg-ink);
+        font-weight: 800;
+        font-size: 0.92rem;
+      }
+
+      .rg-step p {
+        margin: 8px 0 0;
+        font-size: 0.9rem;
+        line-height: 1.48;
+      }
+
+      .rg-form-shell {
+        padding: 24px;
+        background:
+          radial-gradient(80% 90% at 100% 0%, rgba(246, 197, 51, 0.22) 0%, rgba(246, 197, 51, 0) 70%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 236, 0.96));
+      }
+
+      .rg-form-intro {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .rg-form-intro p {
+        margin: 0;
+        font-size: 0.96rem;
+        line-height: 1.55;
+      }
+
+      .rg-form-shell .contact-form {
+        gap: 16px;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .rg-form-shell .contact-form label {
+        gap: 7px;
+        color: #2b2924;
+        font-size: 0.93rem;
+      }
+
+      .rg-form-shell .contact-form input,
+      .rg-form-shell .contact-form textarea {
+        padding: 14px 16px;
+        border-radius: 16px;
+        border: 1px solid rgba(16, 16, 16, 0.1);
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--rg-ink);
+        font-size: 0.98rem;
+      }
+
+      .rg-form-shell .contact-form input:focus,
+      .rg-form-shell .contact-form textarea:focus {
+        outline: 2px solid rgba(246, 197, 51, 0.42);
+        outline-offset: 1px;
+      }
+
+      .rg-form-shell .contact-options {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .rg-form-shell .contact-separator {
+        display: none;
+      }
+
+      .rg-form-shell .contact-hint {
+        font-size: 0.84rem;
+      }
+
+      .rg-form-shell .consent-check {
+        font-size: 0.84rem;
+      }
+
+      .rg-form-shell .form-status.is-success {
+        color: #147e55;
+      }
+
+      .rg-form-shell .form-status.is-error {
+        color: #bf314f;
+      }
+
+      .rg-contact-links {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .rg-contact-link {
+        display: block;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(16, 16, 16, 0.08);
+        color: #292721;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .rg-sticky-cta {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        bottom: calc(14px + env(safe-area-inset-bottom));
+        z-index: 35;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 58px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: rgba(17, 17, 17, 0.96);
+        color: #fff;
+        font-size: 0.96rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        box-shadow: 0 18px 34px rgba(10, 10, 10, 0.22);
+      }
+
+      .rg-footer-space {
+        height: 18px;
+      }
+
+      .rg-desktop-deck {
+        display: none;
+      }
+
+      .rg-deck-shell {
+        width: min(100%, 1180px);
+        margin: 0 auto;
+      }
+
+      .rg-deck-header {
+        display: grid;
+        gap: 14px;
+        max-width: 780px;
+        padding: 46px 0 30px;
+      }
+
+      .rg-deck-title {
+        margin: 0;
+        font-size: clamp(2.4rem, 5vw, 5.8rem);
+        line-height: 0.94;
+        letter-spacing: 0;
+      }
+
+      .rg-deck-copy {
+        margin: 0;
+        color: var(--rg-muted);
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      .rg-deck-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 6px;
+      }
+
+      .rg-deck-pages {
+        display: grid;
+        gap: 28px;
+        padding-bottom: 42px;
+      }
+
+      .rg-deck-page {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 22px;
+        box-shadow: 0 22px 64px rgba(44, 33, 6, 0.15);
+        background: #fff;
+      }
+
+      @media (min-width: 900px) {
+        body.reception-gallery {
+          background: #000;
+        }
+
+        .rg-page {
+          padding-top: 34px;
+          padding-bottom: 64px;
+        }
+
+        .rg-mobile-content {
+          display: none;
+        }
+
+        .rg-desktop-deck {
+          display: block;
+        }
+
+        .rg-deck-header {
+          display: none;
+        }
+
+        .rg-deck-pages {
+          gap: 30px;
+        }
+
+        .rg-deck-page {
+          border-radius: 22px;
+          box-shadow: none;
+        }
+
+        .rg-sticky-cta {
+          display: none;
+        }
+      }
+
+      @media (max-width: 899px) {
+        .rg-desktop-deck {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body class="reception-gallery">
-    <main class="reception-gallery__list">
-      <img src="assets/Reception/1.webp" alt="Фото 1">
-      <img src="assets/Reception/2.webp" alt="Фото 2">
-      <img src="assets/Reception/3.webp" alt="Фото 3">
-      <img src="assets/Reception/4.webp" alt="Фото 4">
-      <img src="assets/Reception/5.webp" alt="Фото 5">
-      <img src="assets/Reception/6.webp" alt="Фото 6">
-      <img src="assets/Reception/7.webp" alt="Фото 7">
-      <img src="assets/Reception/8.webp" alt="Фото 8">
-      <img src="assets/Reception/9.webp" alt="Фото 9">
-      <img src="assets/Reception/10.webp" alt="Фото 10">
-      <img src="assets/Reception/11.webp" alt="Фото 11">
-      <img src="assets/Reception/12.webp" alt="Фото 12">
-      <img src="assets/Reception/13.webp" alt="Фото 13">
+    <svg width="0" height="0" style="position:absolute">
+      <symbol id="rg-chat" viewBox="0 0 24 24">
+        <path d="M5 18l-2 3v-4.5A8 8 0 0 1 11 4h2a8 8 0 0 1 0 16H9"></path>
+        <path d="M8 10h8"></path>
+        <path d="M8 14h5"></path>
+      </symbol>
+      <symbol id="rg-phone" viewBox="0 0 24 24">
+        <rect x="7" y="2.5" width="10" height="19" rx="2.5"></rect>
+        <path d="M10 5.5h4"></path>
+        <path d="M11.5 18.5h1"></path>
+      </symbol>
+      <symbol id="rg-chart" viewBox="0 0 24 24">
+        <path d="M4 19.5h16"></path>
+        <path d="M7 16V10"></path>
+        <path d="M12 16V6"></path>
+        <path d="M17 16v-4"></path>
+      </symbol>
+      <symbol id="rg-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8.5"></circle>
+        <path d="M12 7.5v5l3 2"></path>
+      </symbol>
+      <symbol id="rg-stack" viewBox="0 0 24 24">
+        <path d="M12 4l8 4-8 4-8-4 8-4z"></path>
+        <path d="M4 12l8 4 8-4"></path>
+        <path d="M4 16l8 4 8-4"></path>
+      </symbol>
+      <symbol id="rg-bolt" viewBox="0 0 24 24">
+        <path d="M13 2L6 13h5l-1 9 8-12h-5l0-8z"></path>
+      </symbol>
+      <symbol id="rg-users" viewBox="0 0 24 24">
+        <path d="M7.5 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+        <path d="M16.5 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"></path>
+        <path d="M3.5 18.5a4.5 4.5 0 0 1 8 0"></path>
+        <path d="M13.5 18.5a4 4 0 0 1 7 0"></path>
+      </symbol>
+      <symbol id="rg-link" viewBox="0 0 24 24">
+        <path d="M10 14l4-4"></path>
+        <path d="M7.5 16.5l-1 1a3.5 3.5 0 1 1-5-5l3-3a3.5 3.5 0 0 1 5 0"></path>
+        <path d="M16.5 7.5l1-1a3.5 3.5 0 0 1 5 5l-3 3a3.5 3.5 0 0 1-5 0"></path>
+      </symbol>
+      <symbol id="rg-shop" viewBox="0 0 24 24">
+        <path d="M4 9l1.5-4h13L20 9"></path>
+        <path d="M5 9h14v10H5z"></path>
+        <path d="M9 19v-4h6v4"></path>
+      </symbol>
+      <symbol id="rg-shield" viewBox="0 0 24 24">
+        <path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"></path>
+        <path d="M9.5 12l1.7 1.7L15 10"></path>
+      </symbol>
+      <symbol id="rg-rocket" viewBox="0 0 24 24">
+        <path d="M5 19l4-1 7-7c1.5-1.5 2.5-4.5 2.5-6.5-2 0-5 1-6.5 2.5l-7 7-1 4z"></path>
+        <path d="M13 6l5 5"></path>
+        <path d="M8 16l-2 2"></path>
+      </symbol>
+    </svg>
+
+    <main class="rg-page">
+        <section class="rg-desktop-deck" aria-label="Презентация цифрового ресепшена">
+          <div class="rg-deck-shell">
+            <header class="rg-deck-header">
+              <span class="rg-label"><span class="rg-dot"></span> PDF-презентация</span>
+              <h1 class="rg-deck-title">Цифровой ресепшен для отелей</h1>
+              <p class="rg-deck-copy">Листайте презентацию прямо на странице: ключевые сценарии, экономика и запуск решения для отеля.</p>
+              <div class="rg-deck-actions">
+                <a class="rg-btn rg-btn--primary" href="index.html#contact">Получить демо</a>
+                <a class="rg-btn rg-btn--secondary" href="index.html#hospitality">На главную</a>
+              </div>
+            </header>
+            <div class="rg-deck-pages">
+              <img class="rg-deck-page" src="assets/pdf/Reception/1.webp" alt="Цифровой ресепшен, страница 1" loading="eager">
+              <img class="rg-deck-page" src="assets/pdf/Reception/2.webp" alt="Цифровой ресепшен, страница 2" loading="lazy">
+              <img class="rg-deck-page" src="assets/pdf/Reception/3.webp" alt="Цифровой ресепшен, страница 3" loading="lazy">
+              <img class="rg-deck-page" src="assets/pdf/Reception/4.webp" alt="Цифровой ресепшен, страница 4" loading="lazy">
+              <img class="rg-deck-page" src="assets/pdf/Reception/5.webp" alt="Цифровой ресепшен, страница 5" loading="lazy">
+              <img class="rg-deck-page" src="assets/pdf/Reception/6.webp" alt="Цифровой ресепшен, страница 6" loading="lazy">
+              <img class="rg-deck-page" src="assets/pdf/Reception/7.webp" alt="Цифровой ресепшен, страница 7" loading="lazy">
+              <img class="rg-deck-page" src="assets/pdf/Reception/8.webp" alt="Цифровой ресепшен, страница 8" loading="lazy">
+              <img class="rg-deck-page" src="assets/pdf/Reception/9.webp" alt="Цифровой ресепшен, страница 9" loading="lazy">
+              <img class="rg-deck-page" src="assets/pdf/Reception/10.webp" alt="Цифровой ресепшен, страница 10" loading="lazy">
+              <img class="rg-deck-page" src="assets/pdf/Reception/11.webp" alt="Цифровой ресепшен, страница 11" loading="lazy">
+              <img class="rg-deck-page" src="assets/pdf/Reception/12.webp" alt="Цифровой ресепшен, страница 12" loading="lazy">
+              <img class="rg-deck-page" src="assets/pdf/Reception/13.webp" alt="Цифровой ресепшен, страница 13" loading="lazy">
+            </div>
+          </div>
+        </section>
+
+        <div class="rg-shell rg-mobile-content">
+        <header class="rg-topbar">
+          <a class="rg-brand" href="index.html#hospitality" aria-label="Вернуться на сайт Neuro Fusion">
+            <span class="rg-brand__mark" aria-hidden="true">NF</span>
+            <span class="rg-brand__text">
+              <span class="rg-brand__name">Neuro Fusion</span>
+              <span class="rg-brand__meta">Digital reception for hotels</span>
+            </span>
+          </a>
+          <a class="rg-toplink" href="#contact-form">Форма</a>
+        </header>
+
+        <section class="rg-section rg-hero">
+          <div class="rg-hero__content">
+            <span class="rg-label"><span class="rg-dot"></span> Telegram + MAX</span>
+            <h1 class="rg-title-xl">Цифровой ресепшен для отелей</h1>
+            <p class="rg-lead">
+              Единый канал общения с гостем до заезда, во время проживания и после выезда.
+              Меньше ручной нагрузки, больше сервиса и допвыручки.
+            </p>
+            <div class="rg-actions">
+              <a class="rg-btn rg-btn--primary" href="#contact-form">Получить демо</a>
+              <a class="rg-btn rg-btn--secondary" href="#contact-form">Обсудить запуск</a>
+            </div>
+          </div>
+
+          <div class="rg-hero-grid">
+            <div class="rg-stat">
+              <strong>24/7</strong>
+              <span>AI-консьерж и ночной контур ответов</span>
+            </div>
+            <div class="rg-stat">
+              <strong>2-3 недели</strong>
+              <span>до запуска сценариев, оплаты и интеграций</span>
+            </div>
+            <div class="rg-stat">
+              <strong>+150 000 ₽</strong>
+              <span>консервативная допвыручка для 15-30 номеров</span>
+            </div>
+            <div class="rg-stat">
+              <strong>1 окно</strong>
+              <span>услуги, чат, оплата, рассылки и аналитика</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="rg-section">
+          <div class="rg-card">
+            <h2 class="rg-title">Ключевая идея</h2>
+            <p class="rg-copy">
+              Цифровой ресепшен в Telegram и MAX собирает сервис, продажи и коммуникацию в одном окне.
+              Гостю не нужно искать стойку, звонить или переходить в отдельные приложения.
+            </p>
+            <div class="rg-chip-row" aria-label="Функции цифрового ресепшена">
+              <li class="rg-chip">Чат с гостем</li>
+              <li class="rg-chip">Оплата с телефона</li>
+              <li class="rg-chip">Услуги и upsell</li>
+              <li class="rg-chip">PMS/CRM</li>
+              <li class="rg-chip">Push-уведомления</li>
+              <li class="rg-chip">Повторные брони</li>
+            </div>
+            <div class="rg-flow" aria-label="Схема работы">
+              <div class="rg-flow__node">
+                <div class="rg-flow__num">1</div>
+                <div>
+                  <strong>Гость пишет в привычный мессенджер</strong>
+                  <span>До заезда, во время проживания и после выезда.</span>
+                </div>
+              </div>
+              <div class="rg-flow__node">
+                <div class="rg-flow__num">2</div>
+                <div>
+                  <strong>Система отвечает и предлагает действия</strong>
+                  <span>Чат, услуги, оплата, партнёры, персональные сценарии.</span>
+                </div>
+              </div>
+              <div class="rg-flow__node">
+                <div class="rg-flow__num">3</div>
+                <div>
+                  <strong>Отель получает цифры и продажи</strong>
+                  <span>Обращения, заявки, выручка и возврат гостей в прямой канал.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="rg-section">
+          <div class="rg-card">
+            <h2 class="rg-title">Какие проблемы закрываем</h2>
+            <div class="rg-grid">
+              <article class="rg-mini-card">
+                <div class="rg-mini-card__head">
+                  <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-clock"></use></svg></div>
+                  <strong>Ночные обращения не теряются</strong>
+                </div>
+                <p>Гость получает ответ в тот момент, когда он реально нужен.</p>
+              </article>
+              <article class="rg-mini-card">
+                <div class="rg-mini-card__head">
+                  <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-chat"></use></svg></div>
+                  <strong>Команда не тонет в однотипных вопросах</strong>
+                </div>
+                <p>Повторяющиеся сценарии уходят из ручной работы в автоматизацию.</p>
+              </article>
+              <article class="rg-mini-card">
+                <div class="rg-mini-card__head">
+                  <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-chart"></use></svg></div>
+                  <strong>Допуслуги начинают продаваться системно</strong>
+                </div>
+                <p>Не случайно и не «по вдохновению», а по воронке и в нужный момент.</p>
+              </article>
+              <article class="rg-mini-card">
+                <div class="rg-mini-card__head">
+                  <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-link"></use></svg></div>
+                  <strong>Повторные брони возвращаются к отелю</strong>
+                </div>
+                <p>Без потери гостя агрегаторам и внешним каналам.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="rg-section">
+          <div class="rg-card rg-card--dark">
+            <h2 class="rg-title">Что входит в решение</h2>
+            <p class="rg-copy">
+              Это не один чат-бот, а сервисная система для гостевого пути, продаж и поддержки.
+            </p>
+            <div class="rg-pillars">
+              <div class="rg-pillar">
+                <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-phone"></use></svg></div>
+                <div>
+                  <strong>Mini App отеля</strong>
+                  <p>Услуги, оплата, информация о проживании, правила и быстрые действия.</p>
+                </div>
+              </div>
+              <div class="rg-pillar">
+                <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-bolt"></use></svg></div>
+                <div>
+                  <strong>AI-консьерж 24/7</strong>
+                  <p>Отвечает быстро, ведёт диалог и не перегружает стойку ресепшена.</p>
+                </div>
+              </div>
+              <div class="rg-pillar">
+                <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-stack"></use></svg></div>
+                <div>
+                  <strong>Интеграции и рассылки</strong>
+                  <p>PMS/CRM, push-уведомления, сегменты, сценарии возврата гостей.</p>
+                </div>
+              </div>
+              <div class="rg-pillar">
+                <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-users"></use></svg></div>
+                <div>
+                  <strong>Ночной голосовой контур</strong>
+                  <p>Подстраховывает в часы, когда обращения нельзя упускать.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="rg-section">
+          <div class="rg-card">
+            <h2 class="rg-title">Что получает гость</h2>
+            <ul class="rg-bullets">
+              <li>Быстрые ответы и заказ услуг прямо в Telegram или MAX.</li>
+              <li>Персональные предложения и сервис на понятном языке.</li>
+              <li>Бронирование и оплата с телефона без лишних переходов.</li>
+              <li>Меньше ожидания на ресепшене и поддержка 24/7.</li>
+            </ul>
+            <div class="rg-matrix" aria-label="Пользовательские преимущества">
+              <div class="rg-matrix__cell">
+                <strong>До заезда</strong>
+                <span>Навигация, инструкции, upsell и подготовка к приезду.</span>
+              </div>
+              <div class="rg-matrix__cell">
+                <strong>Во время проживания</strong>
+                <span>Услуги, чат, оплата и быстрые сценарии обслуживания.</span>
+              </div>
+              <div class="rg-matrix__cell">
+                <strong>После выезда</strong>
+                <span>Повторные предложения, возврат гостя и прямой контакт.</span>
+              </div>
+              <div class="rg-matrix__cell">
+                <strong>Единый опыт</strong>
+                <span>Один цифровой канал вместо разрозненных точек коммуникации.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="rg-section">
+          <div class="rg-card">
+            <h2 class="rg-title">Что получает отель</h2>
+            <div class="rg-stat-grid">
+              <div class="rg-stat">
+                <strong>+150 000 ₽/мес</strong>
+                <span>допвыручки для 15-30 номеров в консервативной модели</span>
+              </div>
+              <div class="rg-stat">
+                <strong>Меньше нагрузки</strong>
+                <span>на ресепшен и колл-центр за счёт цифрового контура</span>
+              </div>
+              <div class="rg-stat">
+                <strong>Прямые повторные брони</strong>
+                <span>без ухода гостя в агрегаторы</span>
+              </div>
+              <div class="rg-stat">
+                <strong>Ежемесячный отчёт</strong>
+                <span>обращения, продажи, конверсия и рекомендации</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="rg-section">
+          <div class="rg-card">
+            <h2 class="rg-title">Партнёрская экосистема и маркетплейс</h2>
+            <div class="rg-grid">
+              <article class="rg-mini-card">
+                <div class="rg-mini-card__head">
+                  <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-shop"></use></svg></div>
+                  <strong>Рестораны, экскурсии, трансферы</strong>
+                </div>
+                <p>Партнёрские сервисы встраиваются в путь гостя и начинают работать на выручку отеля.</p>
+              </article>
+              <article class="rg-mini-card">
+                <div class="rg-mini-card__head">
+                  <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-phone"></use></svg></div>
+                  <strong>Продажи внутри Telegram</strong>
+                </div>
+                <p>Каталог, корзина, оформление и оплата происходят в одном окне без приложений.</p>
+              </article>
+              <article class="rg-mini-card">
+                <div class="rg-mini-card__head">
+                  <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-chart"></use></svg></div>
+                  <strong>Комиссия фиксируется автоматически</strong>
+                </div>
+                <p>Каждая бронь и покупка становится видимой и измеримой в отчёте.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="rg-section">
+          <div class="rg-card">
+            <h2 class="rg-title">Как запускаем</h2>
+            <div class="rg-step-grid">
+              <div class="rg-step" data-step="1">
+                <strong>Аналитика и сценарии — 2-3 дня</strong>
+                <p>Карта услуг, логика воронок, guest journey и структура Telegram + MAX.</p>
+              </div>
+              <div class="rg-step" data-step="2">
+                <strong>Разработка и интеграции — 7-10 дней</strong>
+                <p>Mini App, оплата, PMS/CRM, уведомления и базовые сценарии сервиса.</p>
+              </div>
+              <div class="rg-step" data-step="3">
+                <strong>Обучение и запуск — 2 дня</strong>
+                <p>Тестируем процессы, включаем команду и выводим проект в рабочий контур.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="rg-section">
+          <div class="rg-card">
+            <h2 class="rg-title">Почему формат сервиса сильнее</h2>
+            <div class="rg-grid">
+              <article class="rg-mini-card">
+                <div class="rg-mini-card__head">
+                  <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-shield"></use></svg></div>
+                  <strong>Поддержка 24/7 включена</strong>
+                </div>
+                <p>Обновление контента, контроль качества и сопровождение после запуска.</p>
+              </article>
+              <article class="rg-mini-card">
+                <div class="rg-mini-card__head">
+                  <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-rocket"></use></svg></div>
+                  <strong>Адаптация под любой тип отеля</strong>
+                </div>
+                <p>От бутика до сети: сценарии, структура и сервисная модель подстраиваются под операционку.</p>
+              </article>
+              <article class="rg-mini-card">
+                <div class="rg-mini-card__head">
+                  <div class="rg-icon-wrap"><svg class="rg-icon"><use href="#rg-chart"></use></svg></div>
+                  <strong>Ответственность за цифры</strong>
+                </div>
+                <p>Если нет роста выручки, возвращаем оплату. Смотрим на результат, а не только на релиз.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="rg-section" id="contact-form">
+          <div class="rg-form-shell">
+            <div class="rg-form-intro">
+              <span class="rg-label"><span class="rg-dot"></span> Запуск</span>
+              <h2 class="rg-title">Обсудим цифровой ресепшен для вашего отеля</h2>
+              <p>
+                Оставьте заявку на бесплатную консультацию. Поможем оценить потенциал допвыручки,
+                сроки запуска и подходящую структуру для вашего объекта.
+              </p>
+            </div>
+
+            <form class="contact-form" data-form-name="Цифровой ресепшен">
+              <label>
+                Имя
+                <input type="text" name="name" placeholder="Ваше имя" required>
+              </label>
+
+              <label>
+                Компания
+                <input type="text" name="company" placeholder="Название отеля или компании" required>
+              </label>
+
+              <label>
+                Электронная почта
+                <input type="email" name="email" placeholder="Ваш e-mail" required>
+              </label>
+
+              <label class="contact-duo">
+                Как с вами связаться
+                <div class="contact-options">
+                  <input type="tel" name="phone" placeholder="Номер телефона">
+                  <span class="contact-separator">или</span>
+                  <input type="text" name="telegram" placeholder="@ник в Telegram/Max">
+                </div>
+                <small class="contact-hint">Укажите телефон или Telegram/Max — как вам удобнее.</small>
+              </label>
+
+              <label>
+                Задача
+                <textarea name="project" rows="4" placeholder="Опишите текущую ситуацию и цель запуска" required></textarea>
+              </label>
+
+              <label class="consent-check">
+                <input type="checkbox" name="consent" required>
+                <span>Я даю согласие на обработку персональных данных и принимаю условия политики конфиденциальности.</span>
+              </label>
+
+              <button type="submit" class="rg-btn rg-btn--primary">Отправить заявку</button>
+            </form>
+
+            <div class="rg-contact-links">
+              <a class="rg-contact-link" href="tel:+79160285511">Позвонить: +7 916 028-55-11</a>
+              <a class="rg-contact-link" href="mailto:ceo@neuro-fusion.tech">Email: ceo@neuro-fusion.tech</a>
+              <a class="rg-contact-link" href="index.html#contact">Открыть основной сайт</a>
+            </div>
+          </div>
+        </section>
+
+        <div class="rg-footer-space" aria-hidden="true"></div>
+      </div>
+
+      <a class="rg-sticky-cta" href="#contact-form">Оставить заявку</a>
     </main>
+
+    <script src="form-handler.js"></script>
   </body>
 </html>
+
+
