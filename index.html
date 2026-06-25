@@ -102,7 +102,7 @@
     }
   </script>
 </head>
-<body class="home animation-loading">
+<body class="home">
   <header class="site-header">
     <div class="container nav-container" data-reveal data-reveal-y="-18px" data-reveal-delay="420">
       <a class="brand" href="#hero" aria-label="Neuro Fusion">
@@ -676,20 +676,6 @@
 
     const heroTag = document.querySelector('.hero-tag');
 
-    const safeFrame = window.requestAnimationFrame || ((callback) => setTimeout(callback, 16));
-
-    const showPage = () => {
-      document.body.classList.remove('animation-loading');
-    };
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => safeFrame(showPage), { once: true });
-    } else {
-      safeFrame(showPage);
-    }
-
-    setTimeout(showPage, 900);
-
     const splineHost = document.querySelector('[data-spline-src]');
 
     if (splineHost) {
@@ -818,10 +804,21 @@
     const teamNext = document.querySelector('.team-scroll-next');
 
     if (teamGallery && teamNext) {
+      const isTeamArrowSuppressed = () =>
+        typeof window.matchMedia === 'function'
+          ? window.matchMedia('(max-width: 899px), (pointer: coarse)').matches
+          : window.innerWidth <= 899;
+
       const updateTeamArrow = () => {
+        if (isTeamArrowSuppressed()) {
+          teamNext.classList.add('is-hidden');
+          teamNext.disabled = true;
+          return;
+        }
+
         const maxScroll = Math.max(0, teamGallery.scrollWidth - teamGallery.clientWidth);
-        const atEnd = teamGallery.scrollLeft >= maxScroll - 10;
-        const shouldHide = maxScroll <= 10 || atEnd;
+        const atEnd = Math.ceil(teamGallery.scrollLeft) >= maxScroll - 2;
+        const shouldHide = maxScroll <= 2 || atEnd;
 
         teamNext.classList.toggle('is-hidden', shouldHide);
         teamNext.disabled = shouldHide;
@@ -840,7 +837,9 @@
       teamNext.addEventListener('click', () => {
         const firstCard = teamGallery.querySelector('.team-card');
         const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 0;
-        const step = Math.max(220, cardWidth ? cardWidth + 24 : teamGallery.clientWidth * 0.85);
+        const gridStyles = window.getComputedStyle(teamGallery);
+        const gap = parseFloat(gridStyles.columnGap || gridStyles.gap || '24') || 24;
+        const step = Math.max(220, cardWidth ? cardWidth + gap : teamGallery.clientWidth * 0.85);
         const maxScroll = Math.max(0, teamGallery.scrollWidth - teamGallery.clientWidth);
 
         teamGallery.scrollLeft = Math.min(maxScroll, teamGallery.scrollLeft + step);
@@ -851,6 +850,13 @@
       teamGallery.addEventListener('scroll', updateTeamArrow, { passive: true });
       window.addEventListener('resize', () => scheduleTeamArrowUpdate());
       window.addEventListener('load', () => scheduleTeamArrowUpdate(), { once: true });
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => scheduleTeamArrowUpdate()).catch(() => {});
+      }
+      if ('ResizeObserver' in window) {
+        const teamResizeObserver = new ResizeObserver(() => scheduleTeamArrowUpdate());
+        teamResizeObserver.observe(teamGallery);
+      }
       teamGallery.querySelectorAll('img').forEach((img) => {
         if (!img.complete) {
           img.addEventListener('load', () => scheduleTeamArrowUpdate(), { once: true });
@@ -860,28 +866,35 @@
       scheduleTeamArrowUpdate();
       scheduleTeamArrowUpdate(300);
       scheduleTeamArrowUpdate(900);
+      scheduleTeamArrowUpdate(1800);
     }
 
     const responsiveLinks = document.querySelectorAll('[data-mobile-href]');
 
     if (responsiveLinks.length) {
-      const mobileQuery = window.matchMedia('(max-width: 899px)');
+      const mobileQuery = typeof window.matchMedia === 'function'
+        ? window.matchMedia('(max-width: 899px)')
+        : null;
       const updateResponsiveLinks = () => {
+        const isMobile = mobileQuery ? mobileQuery.matches : window.innerWidth <= 899;
+
         responsiveLinks.forEach((link) => {
           if (!link.dataset.desktopHref) {
             link.dataset.desktopHref = link.getAttribute('href');
           }
 
-          link.setAttribute('href', mobileQuery.matches ? link.dataset.mobileHref : link.dataset.desktopHref);
+          link.setAttribute('href', isMobile ? link.dataset.mobileHref : link.dataset.desktopHref);
         });
       };
 
       updateResponsiveLinks();
 
-      if (typeof mobileQuery.addEventListener === 'function') {
+      if (mobileQuery && typeof mobileQuery.addEventListener === 'function') {
         mobileQuery.addEventListener('change', updateResponsiveLinks);
-      } else {
+      } else if (mobileQuery && typeof mobileQuery.addListener === 'function') {
         mobileQuery.addListener(updateResponsiveLinks);
+      } else {
+        window.addEventListener('resize', updateResponsiveLinks);
       }
     }
 

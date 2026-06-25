@@ -1,5 +1,7 @@
 (function () {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReduced =
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const pageName = (window.location.pathname.split('/').pop() || '').toLowerCase();
   const structuredPages = new Set([
     'text-agents.html',
